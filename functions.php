@@ -39,7 +39,6 @@ function convergence_theme_setup_theme() {
 	add_action( 'init', 'convergence_register_cpt_people');
 
 	/* Header actions. */
-	add_action( "{$prefix}_header", 'convergence_site_logo');
 	add_action( "{$prefix}_header", 'convergence_site_title' );
 	add_action( "{$prefix}_header", 'convergence_site_description' );
 
@@ -420,17 +419,6 @@ function convergence_site_title() {
  */
 function convergence_site_description() {
 	return hybrid_site_description();	
-}
-
-/**
- * Template. Outputs the site logo into the site header.
- * @return type
- */
-function convergence_site_logo() {
-	$html = '<div id="site-logo">
-		<img class="logo" src="'.get_bloginfo('template_url').'/images/nx-logo.png" />
-	</div>';
-	echo apply_atomic('site-logo', $html);
 }
 
 /**
