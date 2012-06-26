@@ -1,11 +1,11 @@
 /**
- * Theme Name: Convergence
- * Theme URI: http://the-nexus.tv/theme
- * Author: Ryan Rampersad
- * Author URI: http://ryanrampersad.com/
- * Description: The 2012 theme for The Nexus TV.
- * Version 0.2
- */
+* Theme Name: Convergence
+* Theme URI: http://the-nexus.tv/theme
+* Author: Ryan Rampersad
+* Author URI: http://ryanrampersad.com/
+* Description: The 2012 theme for The Nexus TV.
+* Version 0.2
+*/
 /* normalize.css 2011-11-04T15:38 UTC - http://github.com/necolas/normalize.css */
 /* =============================================================================
    HTML5 display definitions
@@ -608,7 +608,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* === Hero === */
-/* hero feature */
 #hero-container {
   background: white url("resources/textures/little_pluses.png");
   border-bottom: 1px solid #999;
@@ -788,7 +787,7 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 #content-container .show-date, #content-container .show-episode {
-  text-shadow: 1px 2px 2px white;
+  text-shadow: 1px 2px 2px #fff;
 }
 #content-container a {
   color: #222;
@@ -991,7 +990,6 @@ h1, h2, h3, h4, h5, h6 {
   border: 6px solid #ccc;
 }
 
-/* === latest template === */
 /* === navigation links === */
 .navigation-links {
   margin-bottom: 21px;
@@ -1017,7 +1015,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* === global form === */
-/* Form */
 .text-input {
   display: block;
   padding: 3px 6px;
