@@ -496,7 +496,7 @@ body.home .episode-block,
 
 body {
   color: #000;
-  background: #222222 url("textures/darkdenim3.png");
+  background: #222222 url("resources/textures/darkdenim3.png");
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -602,7 +602,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #container {
-  background: #eeeeee url(textures/body-texture.png);
+  background: #eeeeee url("resources/textures/body-texture.png");
   padding-bottom: 10px;
   border-bottom: 1px solid #fff;
 }
@@ -610,7 +610,7 @@ h1, h2, h3, h4, h5, h6 {
 /* === Hero === */
 /* hero feature */
 #hero-container {
-  background: white url(textures/little_pluses.png);
+  background: white url("resources/textures/little_pluses.png");
   border-bottom: 1px solid #999;
   padding: 20px 0 20px 0;
 }

@@ -13,7 +13,7 @@
  
 body {
   color: #000;
-  background: #222 url("textures/darkdenim3.png");
+  background: #222 url("resources/textures/darkdenim3.png");
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -131,7 +131,7 @@ h1, h2, h3, h4, h5, h6 {
   padding-top: 10px;
 }
 #container {
-  background: #eee url(textures/body-texture.png);
+  background: #eee url("resources/textures/body-texture.png");
   padding-bottom: 10px;
   border-bottom: 1px solid #fff;
 }
@@ -141,7 +141,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* hero feature */
 #hero-container {
-  background: #fff url(textures/little_pluses.png);
+  background: #fff url("resources/textures/little_pluses.png");
   border-bottom: 1px solid #999;
   padding: 20px 0 20px 0;
 }
