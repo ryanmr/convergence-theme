@@ -22,7 +22,7 @@ get_header(); // Loads the header.php template. ?>
 								</div>
 								
 								<div class="hero-image">
-										<?php get_the_image( array('size'=>'medium') ); ?>
+										<?php get_the_image( array('size' => 'medium') ); ?>
 								</div>
 								
 						</div>
@@ -33,30 +33,31 @@ get_header(); // Loads the header.php template. ?>
 				<div id="content-wrapper">
 						<div id="content" class="hfeed content episode">
 		
-								<h1 class="show-title"><a href="<?php echo get_permalink() ?>"><?php the_title(); ?></a></h1>
-								<?php convergence_episode(); ?>
-								<?php convergence_posted(); ?>
-						
-								<div id="post-<?php the_ID(); ?>" class="<?php hybrid_entry_class(); ?>">
+							<h1 class="show-title"><a href="<?php echo get_permalink() ?>"><?php the_title(); ?></a></h1>
+							<?php convergence_episode(); ?>
+							<?php convergence_posted(); ?>
 
-				<div class="entry-content">
-					
-					<?php if (get_the_excerpt() != ''): ?>
-						<div class="entry-meta">
-							<?php echo get_the_excerpt(); ?>
-						</div>
-					<?php endif; ?>
-				
-					<?php the_content(); ?>
-					
-					<div class="edit"><?php edit_post_link( 'Edit' ); ?></div>
-				</div><!-- .entry-content -->
+							<div id="post-<?php the_ID(); ?>" class="<?php hybrid_entry_class(); ?>">
 
-				<?php do_atomic( 'after_entry' ); // hybrid_after_entry ?>
+								<div class="entry-content">
 
-			</div><!-- .hentry -->
+									<?php if (get_the_excerpt() != ''): ?>
+										<div class="entry-meta">
+											<?php echo get_the_excerpt(); ?>
+										</div>
+									<?php endif; ?>
 
-			<?php do_atomic( 'after_singular' ); // hybrid_after_singular ?>
+									<?php the_content(); ?>
+
+									<div class="edit"><?php edit_post_link( 'Edit' ); ?></div>
+
+								</div><!-- .entry-content -->
+
+								<?php do_atomic( 'after_entry' ); // hybrid_after_entry ?>
+
+							</div><!-- .hentry -->
+
+							<?php do_atomic( 'after_singular' ); // hybrid_after_singular ?>
 
 
 						</div><!-- .content .hfeed -->
@@ -68,7 +69,7 @@ get_header(); // Loads the header.php template. ?>
 								
 							<?php get_template_part('episode-share'); ?>
 							
-							<?php get_template_part('episode-archive'); ?>
+							<?php get_template_part('episode-navigation'); ?>
 						
 						</div><!-- #content-sidebar -->
 						
@@ -77,7 +78,5 @@ get_header(); // Loads the header.php template. ?>
 		
 		<?php endwhile; ?>
 		<?php endif; ?>
-
-		<?php //do_atomic( 'after_content' ); // hybrid_after_content ?>
 
 <?php get_footer(); // Loads the footer.php template. ?>
