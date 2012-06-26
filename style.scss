@@ -421,11 +421,11 @@ h1, h2, h3, h4, h5, h6 {
     
 }
 
-  .files {
-    font-size: 13px;
-    a:visited {color: #333;}
-    a:hover {color: #000; text-decoration: underline;}
-  }
+.files {
+  font-size: 13px;
+  a:visited {color: #333;}
+  a:hover {color: #000; text-decoration: underline;}
+}
 
 .subscribe-feed {
   margin-top: 10px;
@@ -445,6 +445,14 @@ h1, h2, h3, h4, h5, h6 {
     color: #333;  
     text-decoration: underline;
   }
+}
+
+.edit a {
+  display: block;
+  padding: 10px;
+  margin: 10px;
+  background-color: #ccc;
+  border: 1px solid #999;
 }
 
 /* === people === */

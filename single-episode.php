@@ -49,7 +49,7 @@ get_header(); // Loads the header.php template. ?>
 
 									<?php the_content(); ?>
 
-									<div class="edit"><?php edit_post_link( 'Edit' ); ?></div>
+									<div class="edit"><?php edit_post_link( 'Edit Episode' ); ?></div>
 
 								</div><!-- .entry-content -->
 

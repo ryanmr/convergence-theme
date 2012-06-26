@@ -17,25 +17,25 @@ get_header(); // Loads the header.php template. ?>
 							</div>
 
 							<h1 class="person-name"><a href="<?php echo get_permalink() ?>"><?php the_title(); ?></a></h1>
-					
+
 							<div id="post-<?php the_ID(); ?>" class="<?php hybrid_entry_class(); ?>">
 
 								<div class="entry-content">
-								
+
 									<?php the_content(); ?>
-									
-									<div class="edit"><?php edit_post_link( 'Edit' ); ?></div>
+
+									<div class="edit"><?php edit_post_link( 'Edit Person' ); ?></div>
+
 								</div><!-- .entry-content -->
 
-							<?php do_atomic( 'after_entry' ); // hybrid_after_entry ?>
+								<?php do_atomic( 'after_entry' ); // hybrid_after_entry ?>
 
 							</div><!-- .hentry -->
 
-			<?php do_atomic( 'after_singular' ); // hybrid_after_singular ?>
+							<?php do_atomic( 'after_singular' ); // hybrid_after_singular ?>
 
 
 						</div><!-- .content .hfeed -->
-						
 				</div><!-- #content-wrapper -->
 		</div><!-- #content-container -->
 		
