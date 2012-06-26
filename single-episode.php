@@ -1,7 +1,6 @@
 <?php
 /**
- * Singular Template
- * 
+ * Single Episode Template
  */
 
 get_header(); // Loads the header.php template. ?>
@@ -53,11 +52,11 @@ get_header(); // Loads the header.php template. ?>
 
 								</div><!-- .entry-content -->
 
-								<?php do_atomic( 'after_entry' ); // hybrid_after_entry ?>
+								<?php do_atomic( 'after_entry' ); ?>
 
 							</div><!-- .hentry -->
 
-							<?php do_atomic( 'after_singular' ); // hybrid_after_singular ?>
+							<?php do_atomic( 'after_singular' ); ?>
 
 
 						</div><!-- .content .hfeed -->

@@ -1,7 +1,6 @@
 <?php
 /**
- * Singular Template
- * 
+ * Single People Template
  */
 
 get_header(); // Loads the header.php template. ?>
@@ -28,11 +27,11 @@ get_header(); // Loads the header.php template. ?>
 
 								</div><!-- .entry-content -->
 
-								<?php do_atomic( 'after_entry' ); // hybrid_after_entry ?>
+								<?php do_atomic( 'after_entry' ); ?>
 
 							</div><!-- .hentry -->
 
-							<?php do_atomic( 'after_singular' ); // hybrid_after_singular ?>
+							<?php do_atomic( 'after_singular' ); ?>
 
 
 						</div><!-- .content .hfeed -->
@@ -41,7 +40,5 @@ get_header(); // Loads the header.php template. ?>
 		
 		<?php endwhile; ?>
 		<?php endif; ?>
-
-		<?php //do_atomic( 'after_content' ); // hybrid_after_content ?>
 
 <?php get_footer(); // Loads the footer.php template. ?>
