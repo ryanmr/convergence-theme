@@ -1,0 +1,84 @@
+
+body {min-width: 960px;}
+
+/* containers */
+#header-wrapper,
+#hero-wrapper,
+#content-wrapper,
+#showboard-wrapper,
+#footer-wrapper
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 960px;
+}
+
+/* floats */
+#header,
+#primary-menu,
+#hero .hero-meta,
+#hero .hero-image,
+body.home .episode-block,
+#content.episode, #content-sidebar
+{
+    display: inline;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* clearfix */
+
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+/* http://www.yuiblog.com/blog/2010/09/27/clearfix-reloaded-overflowhidden-demystified */
+
+.clearfix:before,
+.clearfix:after,
+#header-wrapper:before,
+#header-wrapper:after,
+#hero-wrapper:before,
+#hero-wrapper:after,
+#content-wrapper:before,
+#content-wrapper:after,
+#showboard-wrapper:before,
+#showboard-wrapper:after{
+  content: '.';
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  font-size: 0;
+  line-height: 0;
+  width: 0;
+  height: 0;
+}
+
+.clearfix:after,
+#header-wrapper:after,
+#hero-wrapper:after,
+#content-wrapper:after,
+#showboard-wrapper:after
+{
+  clear: both;
+}
+
+/*
+  The following zoom:1 rule is specifically for IE6 + IE7.
+  Move to separate stylesheet if invalid CSS is a problem.
+*/
+
+.clearfix,
+#header-wrapper,
+#hero-wrapper,
+#content-wrapper,
+#showboard-wrapper
+{
+  zoom: 1;
+}

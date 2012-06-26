@@ -1,0 +1,666 @@
+/**
+ * Theme Name: Convergence
+ * Theme URI: http://the-nexus.tv/theme
+ * Author: Ryan Rampersad
+ * Author URI: http://ryanrampersad.com/
+ * Description: The 2012 theme for The Nexus TV.
+ * Version 0.2
+ */
+
+@font-face {
+    font-family: 'LeagueGothicRegular';
+    src: url('resources/league-gothic/League_Gothic-webfont.eot');
+    src: url('resources/league-gothic/League_Gothic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('resources/league-gothic/League_Gothic-webfont.woff') format('woff'),
+         url('resources/league-gothic/League_Gothic-webfont.ttf') format('truetype'),
+         url('resources/league-gothic/League_Gothic-webfont.svg#LeagueGothicRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+ 
+body {
+  color: #000;
+  background: #222 url("textures/darkdenim3.png");
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Exo', Helvetica, Arial, sans-serif;
+  // /* This is the new font family for all headers. */
+  margin: 0;
+  padding: 0;
+}
+
+.clearfix {
+  clear: both;
+}
+
+/*  === header === */
+
+#header-container {
+  
+  //border-top: 2px solid #f96006;
+  border-bottom: 1px solid #999;
+  padding-bottom: 10px;
+}
+
+#header {
+  padding-top: 20px;
+  width: 450px;
+}
+
+/* === site title === */
+
+#site-title, #site-description {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 36px;
+    line-height: 22px;
+    //font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.4);
+    margin: 0;
+    padding: 0;
+}
+#site-title {
+
+  font-size: 62px;
+  line-height: 40px;
+  //font-family: 'Exo', Helvetica, Arial, san-serif;
+  font-family: 'LeagueGothicRegular', Helvetica, Arial, san-serif;
+  font-weight: normal;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+  &:after {
+    content: ".tv";
+    font-size: 16px;
+    top: -2.1em;
+    position: relative;
+    line-height: 0px;
+    font-weight: normal;
+    text-transform: lowercase;
+  }
+}
+#site-description {
+  margin-top: 2px;
+  font-size: 16px;
+  letter-spacing: normal;
+  line-height: normal;
+  font-family: 'Exo', Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+#site-logo {
+  float: left;
+  position: relative;
+  top: -5px;
+  padding-right: 10px;
+  .logo {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+/* === primary navigation (header) === */
+
+#primary-menu ul {
+  list-style: none;
+  margin-left: 100px;
+  padding-top: 25px;
+
+  li {
+    display: inline;
+    font-size: 16px;
+    margin-left: 15px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.4);
+    color: #eee;
+  }
+
+  a, a:link {
+    color: #eee;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #fff;
+    text-decoration: underline;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.5);
+  }
+
+}
+
+
+/* === container === */
+
+
+#content-container {
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+#container {
+  background: #eee url(textures/body-texture.png);
+  padding-bottom: 10px;
+  border-bottom: 1px solid #fff;
+}
+
+
+/* === Hero === */
+
+/* hero feature */
+#hero-container {
+  background: #fff url(textures/little_pluses.png);
+  border-bottom: 1px solid #999;
+  padding: 20px 0 20px 0;
+}
+
+#hero {
+  
+  font-family: 'Montserrat', Arial, sans-serif;
+  
+  .hero-meta {
+    width: 560px;
+    position: relative;
+    //left: 20px;
+  }
+  .hero-image {margin-top: 10px; width: 360px;}
+  
+  .show-title,
+  .show-name,
+  .archive-title {
+    font-size: 32px;
+    margin-bottom: 3px;
+    line-height: 34px;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,.5);
+    
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #222;
+      text-shadow: 1px 1px 4px rgba(0,0,0,.4);
+    }
+    
+  }  
+  
+  .show-title + .show-name {
+    font-size: 16px;
+    line-height: 16px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-size: 16px;
+    color: #333;    
+    
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #444;
+      text-decoration: none;
+    }
+      
+  }
+  
+  .show-date {
+      margin: 0;
+      font-size: 14px;
+      color: #444;
+      text-shadow: 1px 2px 2px white;
+      
+      a {color: inherit; text-decoration: none;}
+      a:hover {color: #666; text-decoration: none;}
+  }
+  
+  .episode-description {
+    line-height: 22px;
+    font-size: 15px;
+    color: #000;
+    text-shadow: 1px 2px 2px white;
+  }
+  
+  .show-description,
+  .archive-description {
+    margin-top: 20px;
+    font-size: 18px;
+    line-height: 30px;
+    color: #333;
+    text-shadow: 0 1px 1px white;
+  }
+  
+  .hero-image {
+    text-align: center;
+  }
+  
+  .hero-image img {
+    display: block;
+    margin: auto;
+    
+    -webkit-box-shadow: 1px 2px 30px rgba(0,0,0,.85);
+    -moz-box-shadow: 1px 2px 30px rgba(0,0,0,.85);
+    box-shadow: 1px 2px 30px rgba(0,0,0,.85);
+  }
+  
+  .hero-image a {
+      img {border: 6px solid #fff;}
+      &:hover img {border: 6px solid #C9662B;}
+  }
+  
+}
+/* === Home Template === */
+
+#showboard {
+  .episode-block {
+    width: 300px;
+    height: 225px;
+    margin-top: 10px;
+    padding-bottom: 20px;
+  }
+  .episode-block img {
+    border: 6px solid #fff;
+    display: block;
+    margin-bottom: 5px;
+    
+    box-shadow: 0 3px 5px #999;
+    -moz-box-shadow: 0 3px 5px #999;
+    -webkit-box-shadow: 0 3px 5px #999;
+  }
+  .episode-block a:hover img {
+    box-shadow: 0 3px 5px #666;
+    -moz-box-shadow: 0 3px 5px #666;
+    -webkit-box-shadow: 0 3px 5px #666;
+  }
+  
+  .show-title {
+    font-size: 16px;
+  }
+  .show-name {
+    font-size: 14px;
+    color: #444;
+    text-transform: uppercase;
+  }
+ .show-date {
+    font-size: 14px;
+    color: #666;
+    font-weight: normal;
+ }
+ 
+ .show-title, .show-name, .show-date {
+  text-decoration: none;
+  margin: 0;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+ }
+  
+}
+
+#bottom-shelf {
+  clear: both;
+  border-top: 1px solid #ccc;
+
+  .overflow {
+    padding-top: 48px;
+    padding-left: 20px;
+    font-size: 24px;
+    width: 150px;
+  }
+
+}
+
+/* === singular view === */
+
+#content-container {
+  
+  font-size: 14px;
+
+ .show-title,
+ .entry-title,
+ h1,
+ h2,
+ h3 {
+    text-decoration: none;
+    color: #000;
+    margin: 0;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.4);
+    a {
+      text-decoration: none;
+      color: #000;
+    }
+ } 
+ 
+  .show-episode {
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+  
+  .show-date, .show-episode {
+    text-shadow: 1px 2px 2px white;
+  }
+  
+  a {
+    color: #222;
+    text-decoration: none;
+  }
+  a:visited {
+    color: #111;
+  }
+  a:hover {
+    color: #333;
+    text-decoration: underline;
+  }
+ 
+}
+
+
+/* === singular layout === */
+#content.episode {
+  width: 540px;
+}
+
+#content-sidebar {
+  font-size: 14px;
+  width: 380px;
+}
+
+#content {
+  font-size: 14px;
+  color: #333;
+  
+  p {
+    line-height: 20px;
+    margin-bottom: 14px;
+  }
+  
+  ul {
+    list-style-type: square;
+    padding-left: 20px;
+    line-height: 18px;
+  }
+
+  hr {
+    height: 1px;
+    border-top: 1px solid #ccc;
+    width: 98%;
+    margin: auto;
+  }
+
+  blockquote {
+    border-left: 1px dotted #999;
+    padding-left: 10px;
+    margin-left: 15px;
+  }
+  
+  .entry-meta {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: #ededed;
+    padding: 10px;
+    line-height: 22px;
+    color: #000;
+    border: {
+      top: 1px solid #999;
+      left: 1px solid #999;
+      right: 1px solid #fff;
+      bottom: 1px solid #ccc;
+    }
+  }
+
+  .notice {
+    padding: 10px;
+    background-color: #ddd;
+    border: 1px solid #ccc;
+  }
+  
+}
+
+#content-sidebar {
+  font-size: 14px;
+  
+  .files,
+  .subscribe,
+  .share {
+    padding-top: 5px;
+    margin-bottom: 10px;
+  }
+    
+}
+
+  .files {
+    font-size: 13px;
+    a:visited {color: #333;}
+    a:hover {color: #000; text-decoration: underline;}
+  }
+
+.subscribe-feed {
+  margin-top: 10px;
+  font-size: 13px;
+  clear: both;
+
+  a.feed-link {
+    display:inline-block;
+    padding-left:36px;
+    line-height:28px;
+    background:transparent url(icons/feed.png) center left no-repeat; 
+
+    color: #444;
+    text-decoration: none;
+  }
+  a.feed-link:hover {
+    color: #333;  
+    text-decoration: underline;
+  }
+}
+
+/* === people === */
+#content.people {
+  width: 880px;
+  margin: auto;
+}
+
+#content.people .person-avatar,
+.archive-people .person-avatar {
+  float: left;
+  padding: 0 20px 0 20px;
+}
+
+.people-box {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background-color: #ededed;
+  padding: 10px;
+  line-height: 22px;
+  color: #000;
+  clear: both;
+  overflow: hidden;
+  border: {
+    top: 1px solid #999;
+    left: 1px solid #999;
+    right: 1px solid #fff;
+    bottom: 1px solid #ccc;
+  }
+
+}
+
+.person-box {
+  float: left;
+    img {
+      border: 3px solid white;
+      width: 90px;
+      heigh: 90px;
+      box-shadow: 0 3px 5px #999;
+      -moz-box-shadow: 0 3px 5px #999;
+      -webkit-box-shadow: 0 3px 5px #999;
+    }
+    .person-name {
+      font-size: 12px;
+      color: #666;
+      a:hover {color: inherit;}
+    }
+}
+
+
+/* === archives === */
+
+#content.archive,
+#content.latest {
+  div.post, div.episode {
+    font-size: 14px;
+    margin-bottom: 25px;
+    clear: both;
+  }
+  img {
+    float: left;
+    margin: 0 10px 10px 10px;
+    border: 6px solid #fff;
+    
+    box-shadow: 0 3px 5px #999;
+    -moz-box-shadow: 0 3px 5px #999;
+    -webkit-box-shadow: 0 3px 5px #999;
+  }
+}
+
+/* === pages === */
+.page-template-default,
+.error-404,
+.search {
+  #container {
+    padding-bottom: 0px;
+  }
+  #content-container {
+    padding-top: 0px;
+  }
+  #content {
+    padding: 10px 60px;
+    background: #fff;
+  }
+}
+
+#kawaii-error {
+  text-align: center;
+  margin: 20px 0 20px 0;
+  img {
+    border: 6px solid #ccc;
+  }
+}
+
+/* === latest template === */
+
+/* === navigation links === */
+.navigation-links {
+  margin-bottom: 21px;
+  font-style: normal;
+  
+  .previous {
+    float: left;
+    max-width: 50%;
+  }
+  .next {
+    float: right;
+    max-width: 50%;
+    text-align: right;
+  }
+  
+}
+
+.pagination {
+  border-top: 1px solid #ddd;
+  padding-top: 5px;
+  font-size: 14px;
+  text-align: center;
+  text-shadow: 1px 1px #fff;
+  color: #333;
+}
+
+/* === global form === */
+/* Form */
+.text-input {
+  display: block;
+  padding: 3px 6px;
+  width: 97%;
+}
+#comments-template label {
+  font-size: .9em;
+}
+
+/* Respond textarea */
+textarea {
+  width: 98%;
+}
+
+/* Submit and rest buttons */
+#submit {
+  display: inline-block;
+  margin-right: 15px;
+  padding: 7px 15px 8px 15px;
+  background: #fff;
+  border: 1px solid #ccc;
+}
+#submit:hover {
+  cursor: pointer;
+  background: #f9f9f9;
+}
+
+/* === footer === */
+#footer-container {
+  padding: 2% 0 2% 0;
+  border-top: 1px solid #333;
+  color: #ccc;
+  font-size: 14px;
+  
+  a {color: #ccc; text-decoration: none;}
+  a:hover {color: #fff; text-decoration: underline;}
+ 
+  h1, h2, h3, h4, h5, h6 {
+    text-shadow: 1px 2px 2px #333;
+  }
+  
+}
+
+#footer {
+  padding-top: 20px;
+  font-size: 12px;
+  clear: both;
+  
+  .copyright, .credit {
+    margin: 0;
+    font-size: 11px;
+  }
+  
+}
+
+/* === subsidiary widgets === */
+
+#subsidiary {
+  font-size: 14px;
+
+  ul {
+    list-style: square;
+    //padding-left: 15px;
+    margin: 0 0 10px 0;
+  }
+
+  div.widget {
+    float: left;
+    width: 300px;
+    overflow: hidden;
+    margin-left: 15px;
+  }
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,289 @@
+/**
+ * Theme Name: Convergence
+ * Theme URI: http://the-nexus.tv/theme
+ * Author: Ryan Rampersad
+ * Author URI: http://ryanrampersad.com/
+ * Description: The 2012 theme for The Nexus TV.
+ * Version 0.2
+ */
+ 
+body {
+  color: #000;
+  background: #222 url("textures/darkdenim3.png");
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+/*  === header === */
+
+#header-container {
+  background: #b64503 url("textures/header-texture.png");
+  border-top: 4px solid #f96006;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 10px;
+}
+
+#header {
+  padding-top: 20px;
+  width: 300px;
+}
+
+/* === site title === */
+
+#site-title, #site-description {
+    margin: 0; padding: 0;
+}
+#site-title, #site-description {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 36px;
+    line-height: 22px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.4);
+}
+#site-title a {
+    color: #fff;
+    text-decoration: none;
+}
+#site-title:after {
+    content: ".tv";
+    font-size: 12px;
+    top: -1.5em;
+    position: relative;
+    line-height: 0px;
+    font-weight: bold;
+}
+#site-description {
+    margin-top: 1px;
+    font-size: 16px;
+    letter-spacing: normal;
+    line-height: normal;
+}
+
+/* === primary navigation (header) === */
+
+#primary-menu {
+    width: 620px;
+}
+#menu-primary-menu {
+    list-style: none;
+    margin-left: 200px;
+    padding-top: 25px;
+}
+#menu-primary-menu li {
+    display: inline;
+    font-size: 16px;
+    margin-left: 15px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.4);
+    color: #eee;
+}
+#menu-primary-menu a, #menu-primary-menu a:link {
+    color: #eee;
+    text-decoration: none;
+}
+#menu-primary-menu a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+
+/* === container === */
+
+
+#content-container {
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+#container {
+  background: #eee url(textures/body-texture.png);
+  padding-bottom: 10px;
+}
+
+
+/* === Hero === */
+
+/* hero feature */
+#hero-container {
+    background: #fff url(textures/hero-texture.png);
+    border-bottom: 1px solid #999;
+    padding-bottom: 15px;
+    padding-top: 20px;
+}
+
+#hero .hero-meta {
+    width: 540px;
+
+}
+#hero .hero-image {
+    margin-top: 0px;
+    width: 380px;
+}
+
+#hero .show-title, #hero .show-name {
+    font-size: 32px;
+    margin-bottom: 3px;
+    line-height: 34px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,.5);
+}
+#hero .show-title + .show-name {
+    font-size: 16px;
+    line-height: 16px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-size: 16px;
+    color: #333;
+}
+#hero .show-title a, #hero .show-name a {color: #000; text-decoration: none;}
+#hero .show-title + .show-name a {color: inherit; text-decoration: none;}
+#hero .show-title + .show-name a:hover {color: #444; text-decoration: none;}
+
+#hero .show-date {
+    margin: 0;
+    font-size: 14px;
+    color: #444;
+    text-shadow: 1px 2px 2px white;
+}
+#hero .show-date a {color: inherit; text-decoration: none;}
+#hero .show-date a:hover {color: #666; text-decoration: none;}
+
+#hero .episode-description {
+    line-height: 22px;
+    font-size: 15px;
+    color: #000;
+    text-shadow: 1px 2px 2px white;
+}
+#hero .show-description {
+    margin-top: 20px;
+    font-size: 18px;
+    line-height: 30px;
+    color: #333;
+    text-shadow: 0 1px 1px white;
+}
+#hero .hero-image img {
+  width: 276px;
+  height: 183px;
+  display: block;
+
+  -webkit-box-shadow: 1px 2px 30px rgba(0,0,0,.85);
+  -moz-box-shadow: 1px 2px 30px rgba(0,0,0,.85);
+  box-shadow: 1px 2px 30px rgba(0,0,0,.85);
+}
+#hero .hero-image a img {border: 6px solid #fff; /*C9662B*/}
+#hero .hero-image a:hover img {border: 6px solid #fff; /*C9662B*/}
+
+/* === Home Template === */
+
+#recent .episode {
+  width: 300px;
+  height: 225px;
+  margin-top: 10px;
+  padding-bottom: 30px;
+}
+
+#recent .episode img {
+  border: 6px solid #fff;
+  display: block;
+  margin-bottom: 5px;
+  
+  box-shadow: 0 3px 5px #999;
+  -moz-box-shadow: 0 3px 5px #999;
+  -webkit-box-shadow: 0 3px 5px #999;
+}
+#recent .episode a:hover img {
+  box-shadow: 0 3px 5px #666;
+  -moz-box-shadow: 0 3px 5px #666;
+  -webkit-box-shadow: 0 3px 5px #666;
+}
+
+#recent .show-title {
+  font-size: 16px;
+}
+
+#recent .show-name {
+  font-size: 14px;
+  color: #444;
+  text-transform: uppercase;
+}
+
+#recent .show-date {
+  font-size: 14px;
+  color: #666;
+  font-weight: normal;
+}
+
+#recent .show-title,
+#recent .show-name,
+#recent .show-date {
+  text-decoration: none;
+  color: #000;
+  margin: 0;
+}
+#recent .show-title a,
+#recent .show-name a,
+#recent .show-date a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* === singular view === */
+
+#content .show-title,
+#content .show-title a,
+#content h1, #content h1 a,
+#content h2, #content h2 a,
+#content h3, #content h3 a {
+  text-decoration: none;
+  color: #000;
+  margin: 0;
+  text-shadow: 1px 1px 1px rgba(0,0,0,.4);
+}
+
+#content .show-episode {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+#content .show-date,
+#content .show-episode {
+  text-shadow: 1px 2px 2px white;
+}
+
+/* === singular layout === */
+#content.episode {
+  width: 540px;
+}
+.content-sidebar {
+  font-size: 14px;
+  width: 380px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
