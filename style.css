@@ -579,20 +579,20 @@ h1, h2, h3, h4, h5, h6 {
   padding-top: 25px;
 }
 #primary-menu ul li {
+  font-size: 14px;
+  text-transform: uppercase;
   display: inline;
-  font-size: 16px;
   margin-left: 15px;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
-  color: #eee;
+  color: #ccc;
 }
 #primary-menu ul a, #primary-menu ul a:link {
-  color: #eee;
+  color: #ccc;
   text-decoration: none;
 }
 #primary-menu ul a:hover {
   color: #fff;
-  text-decoration: underline;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
 }
 
 /* === container === */
