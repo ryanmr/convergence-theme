@@ -19,8 +19,6 @@
 
 <link href='http://fonts.googleapis.com/css?family=Exo:400,700|Montserrat' rel='stylesheet' type='text/css' />
 
-<link rel="stylesheet" href="<?php bloginfo( 'template_url' );?>/normalize.css" type="text/css" media="all" />
-<link rel="stylesheet" href="<?php bloginfo( 'template_url' );?>/layout.css" type="text/css" media="all" />
 <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" type="text/css" media="all" />
 
 <link rel="profile" href="http://gmpg.org/xfn/11" />
