@@ -107,16 +107,17 @@ h1, h2, h3, h4, h5, h6 {
   padding-top: 25px;
 
   li {
-    font-size: 14px;
+    font-size: 13px;
     text-transform: uppercase;
     display: inline;
     margin-left: 15px;
     text-shadow: 1px 1px 1px rgba(0,0,0,.4);
-    color: #ccc;
+    color: #bbb;
+    letter-spacing: 1px;
   }
 
   a, a:link {
-    color: #ccc;
+    color: inherit;
     text-decoration: none;
   }
   a:hover {
@@ -463,7 +464,7 @@ h1, h2, h3, h4, h5, h6 {
     display:inline-block;
     padding-left:36px;
     line-height:28px;
-    background:transparent url(icons/feed.png) center left no-repeat; 
+    background:transparent url("resources/icons/feed.png") center left no-repeat; 
     color: #444;
     text-decoration: none;
   }

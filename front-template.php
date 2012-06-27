@@ -19,6 +19,9 @@ get_header(); // Loads the header.php template. ?>
                         "posts_per_page" => 1,
                     );
                     $hero_arguments = convergence_exclude_category('tf', $hero_arguments);
+
+                    $hero_arguments['tax_query'] = array(convergence_exclude_episode_attributes('hidden'));
+
                     $hero_loop = new WP_Query($hero_arguments);
                     $hero_id = 0;
                     
@@ -72,6 +75,7 @@ get_header(); // Loads the header.php template. ?>
                         'post__not_in' => array($hero_id)
                     );
                     $showboard_top_arguments = convergence_exclude_category('tf', $showboard_top_arguments);
+                    $showboard_top_arguments['tax_query'] = array(convergence_exclude_episode_attributes('hidden'));
                     $loop_top = new WP_Query($showboard_top_arguments);
                 ?>
 
@@ -87,6 +91,7 @@ get_header(); // Loads the header.php template. ?>
                         "posts_per_page" => 3,
                         'category_name' => 'tf'
                     );
+                    $showboard_bottom_arguments['tax_query'] = array(convergence_exclude_episode_attributes('hidden'));
                     $loop_bottom = new WP_Query($showboard_bottom_arguments);
                 ?>
 

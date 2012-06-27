@@ -37,6 +37,7 @@ function convergence_theme_setup_theme() {
 	/* Register the custom post type 'episode' and related taxonomies */
 	add_action( 'init', 'convergence_register_cpt_episode');
 	add_action( 'init', 'convergence_register_cpt_people');
+  add_action( 'init', 'convergence_register_taxonomy_episode_attributes');
 
 	/* Header actions. */
 	add_action( "{$prefix}_header", 'convergence_site_title' );
@@ -80,6 +81,7 @@ function convergence_theme_setup_theme() {
   
   /* Add the custom post type 'episode' back into category pages. */
 	add_action('pre_get_posts', 'convergence_category_post_types');
+  add_action('pre_get_posts', 'convergence_exclude_episode_attribute_hidden');
 
 	/* Add meta tags into the head. */
 	add_action('wp_head', 'convergence_facebook_admin_meta_tag');
@@ -127,7 +129,7 @@ function convergence_register_cpt_episode() {
         'hierarchical' => false,
         
         'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions' ),
-        'taxonomies' => array( 'category' ),
+        'taxonomies' => array( 'category', 'episode_attributes' ),
         'public' => true,
         'show_ui' => true,
         'show_in_menu' => true,
@@ -191,6 +193,41 @@ function convergence_register_cpt_people() {
     register_post_type( 'people', $args );
 }
 
+function convergence_register_taxonomy_episode_attributes() {
+
+    $labels = array( 
+        'name' => _x( 'Episode Attributes', 'episode_attributes' ),
+        'singular_name' => _x( 'Episode Attribute', 'episode_attributes' ),
+        'search_items' => _x( 'Search Episode Attributes', 'episode_attributes' ),
+        'popular_items' => _x( 'Popular Episode Attributes', 'episode_attributes' ),
+        'all_items' => _x( 'All Episode Attributes', 'episode_attributes' ),
+        'parent_item' => _x( 'Parent Episode Attribute', 'episode_attributes' ),
+        'parent_item_colon' => _x( 'Parent Episode Attribute:', 'episode_attributes' ),
+        'edit_item' => _x( 'Edit Episode Attribute', 'episode_attributes' ),
+        'update_item' => _x( 'Update Episode Attribute', 'episode_attributes' ),
+        'add_new_item' => _x( 'Add New Episode Attribute', 'episode_attributes' ),
+        'new_item_name' => _x( 'New Episode Attribute', 'episode_attributes' ),
+        'separate_items_with_commas' => _x( 'Separate episode attributes with commas', 'episode_attributes' ),
+        'add_or_remove_items' => _x( 'Add or remove Episode Attributes', 'episode_attributes' ),
+        'choose_from_most_used' => _x( 'Choose from most used Episode Attributes', 'episode_attributes' ),
+        'menu_name' => _x( 'Episode Attributes', 'episode_attributes' ),
+    );
+
+    $args = array( 
+        'labels' => $labels,
+        'public' => true,
+        'show_in_nav_menus' => true,
+        'show_ui' => true,
+        'show_tagcloud' => false,
+        'hierarchical' => false,
+
+        'rewrite' => true,
+        'query_var' => true
+    );
+
+    register_taxonomy( 'episode_attributes', array('episode'), $args );
+}
+
 /**
  * Outputs a facebook adminstrator meta tag into the header.
  * @return void
@@ -228,6 +265,18 @@ function convergence_shortcode_setup() {
 
 	add_shortcode('people-box', 'convergence_people_box_shortcode');
 
+  add_shortcode('direct-doc', 'convergence_shownotes_doc_shortcode');
+
+}
+
+function convergence_shownotes_doc_shortcode($atts, $content = null) {
+  if ( $content == null ) {
+    return '';
+  }
+
+  $html = '<div class="shownotes-doc">View the original <a href="'.$content.'">show notes</a></div>';
+
+  return do_shortcode($html);
 }
 
 function convergence_person_shortcode($atts) {
@@ -278,6 +327,19 @@ function convergence_people_box($id, $name) {
 	return $html;
 }
 
+function convergence_exclude_episode_attributes($terms) {
+  if (!is_array($terms)) {
+    $terms = array($terms);
+  }
+  return array(
+      'taxonomy' => 'episode_attributes',
+      'terms' => $terms,
+      'field' => 'slug',
+      'operator' => 'NOT IN'
+    );
+}
+
+
 /**
  * Allows custom post type 'episode' to be seen in category page listings.
  * @param query $query 
@@ -288,6 +350,22 @@ function convergence_category_post_types($query) {
 		$query->set('post_type', array('post', 'episode'));
 	}
 	return $query;
+}
+
+/**
+ * Adds the paramters to the WP_Tax query to exclude the 'hidden' episode attribute taxonomy.
+ * @param type $query 
+ * @return type
+ */
+function convergence_exclude_episode_attribute_hidden($query) {
+
+  if ( !is_user_logged_in() ) {
+    $tax_query = $query->tax_query->queries;
+    $tax_query['hidden'] = convergence_exclude_episode_attributes('hidden');
+    $query->set('tax_query', $tax_query);
+  }
+
+  return $query;
 }
 
 /**
@@ -474,7 +552,6 @@ function convergence_show_description() {
 function convergence_category_feed() {
   $categories = get_the_category();
   $category = $categories[0];
-  //$link = '<div class="subscribe-feed"><span class="icon">&nbsp;</span><a href="' . get_category_feed_link($category->term_id) . '" class="feed-link"><span class="name">'.$category->name.'</span></a></div>';
   $link = '<div class="subscribe-feed"><a href="' . get_category_feed_link($category->term_id) . '" class="feed-link">Subscribe to '.$category->name.'</a></div>';
   echo apply_atomic_shortcode('category_feed', $link);
 }
