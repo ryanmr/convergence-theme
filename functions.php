@@ -90,9 +90,6 @@ function convergence_theme_setup_theme() {
 	/* Update the sizes for images, thumbnails specifically. */
 	convergence_add_image_size();
 
-	/* Shortcode functionality. */
-	convergence_shortcode_setup();
-
 	/* Alter the Feeds. */
 	add_filter('wp_title', 'convergence_post_title_filter');
 	add_filter('the_title_rss', 'convergence_feed_title_filter');
@@ -211,10 +208,6 @@ function convergence_add_image_size() {
 	update_option('thumbnail_crop', false);
 }
 
-function convergence_shortcode_setup() {
-  add_shortcode('direct-doc', 'convergence_shownotes_doc_shortcode');
-}
-
 function convergence_exclude_episode_attributes($terms) {
   if (!is_array($terms)) {
     $terms = array($terms);
@@ -226,7 +219,6 @@ function convergence_exclude_episode_attributes($terms) {
       'operator' => 'NOT IN'
     );
 }
-
 
 /**
  * Allows custom post type 'episode' to be seen in category page listings.
