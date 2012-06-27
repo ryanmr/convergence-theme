@@ -36,7 +36,6 @@ function convergence_theme_setup_theme() {
 
 	/* Register the custom post type 'episode' and related taxonomies */
 	add_action( 'init', 'convergence_register_cpt_episode');
-	add_action( 'init', 'convergence_register_cpt_people');
   add_action( 'init', 'convergence_register_taxonomy_episode_attributes');
 
 	/* Header actions. */
@@ -149,51 +148,6 @@ function convergence_register_cpt_episode() {
     register_post_type( 'episode', $args );
 }
 
-/**
- * Registers custom post type, 'episode' with all labels and proper
- * taxonomy bindings.
- * @return void
- */
-function convergence_register_cpt_people() {
-
-    $labels = array( 
-        'name' => _x( 'People', 'person' ),
-        'singular_name' => _x( 'Person', 'person' ),
-        'add_new' => _x( 'Add New', 'person' ),
-        'add_new_item' => _x( 'Add New Person', 'person' ),
-        'edit_item' => _x( 'Edit Person', 'person' ),
-        'new_item' => _x( 'New Person', 'person' ),
-        'view_item' => _x( 'View Person', 'person' ),
-        'search_items' => _x( 'Search People', 'person' ),
-        'not_found' => _x( 'No people found', 'person' ),
-        'not_found_in_trash' => _x( 'No people found in Trash', 'person' ),
-        'parent_item_colon' => _x( 'Parent Person:', 'person' ),
-        'menu_name' => _x( 'People', 'person' ),
-    );
-
-    $args = array( 
-        'labels' => $labels,
-        'hierarchical' => false,
-        
-        'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail' ),
-        'public' => true,
-        'show_ui' => true,
-        'show_in_menu' => true,
-        'menu_position' => 5,
-        
-        'show_in_nav_menus' => true,
-        'publicly_queryable' => true,
-        'exclude_from_search' => false,
-        'has_archive' => true,
-        'query_var' => true,
-        'can_export' => true,
-        'rewrite' => true,
-        'capability_type' => 'post'
-    );
-
-    register_post_type( 'people', $args );
-}
-
 function convergence_register_taxonomy_episode_attributes() {
 
     $labels = array( 
@@ -254,78 +208,11 @@ function convergence_add_image_size() {
 
 	update_option('thumbnail_size_w', 270);
 	update_option('thumbnail_size_h', 150);
-	update_option('thumbnail_crop', false);	
-
-  add_image_size('person-medium', 200, 200, false);
-  add_image_size('person-large', 400, 400, false);
-
+	update_option('thumbnail_crop', false);
 }
 
 function convergence_shortcode_setup() {
-	add_shortcode('person', 'convergence_person_shortcode');
-
-	add_shortcode('people-box', 'convergence_people_box_shortcode');
-
   add_shortcode('direct-doc', 'convergence_shownotes_doc_shortcode');
-
-}
-
-function convergence_shownotes_doc_shortcode($atts, $content = null) {
-  if ( $content == null ) {
-    return '';
-  }
-
-  $html = '<div class="shownotes-doc">View the original <a href="'.$content.'">show notes</a></div>';
-
-  return do_shortcode($html);
-}
-
-function convergence_person_shortcode($atts) {
-
-	extract(shortcode_atts(array(
-		'name' => ''
-		), $atts));
-
-	if ($name == '') return '<!-- no name? -->';
-
-	$slug = $name;
-
-	$args = array('name' => $slug, 'post_type' => 'people', 'numberposts' => 1);
-	$people = get_posts($args);
-	if ( $people ) {
-		//echo('<pre>'); print_r($people); echo('</pre>');
-		return convergence_people_box($people[0]->ID, $people[0]->post_title);
-	}
-
-	return '<!-- no match? -->';
-
-}
-
-function convergence_people_box_shortcode($atts, $content = null) {
-	if ($content == null) {
-		$content = '<!-- no people? -->';
-	}
-
-	$html = '<div class="people-box">'. do_shortcode($content) . '</div>';
-
-	$html = str_replace(array("<br>", "<br />", '<p></p>'), '', $html);
-
-	return $html;
-
-}
-
-function convergence_people_box($id, $name) {
-
-  $image_args = array('default_image' => get_template_directory_uri()."/images/unknown-avatar.png",
-              'size'=>'post-thumbnail',
-              'echo' => false,
-              'post_id' => $id);
-
-	$html = '<div class="person-box"><div class="person-avatar">
-	'.get_the_image( $image_args ).
-	'</div><div class="person-name"><a href="'.get_permalink($id).'">'.$name.'</a></div></div>';
-
-	return $html;
 }
 
 function convergence_exclude_episode_attributes($terms) {
