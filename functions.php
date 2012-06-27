@@ -60,6 +60,7 @@ function convergence_theme_setup_theme() {
 	add_action( "{$prefix}_before_entry", 'hybrid_entry_title' ); // Why isn't this changed?
 	add_action( "{$prefix}_before_entry", 'convergence_episode' );
 	add_action( "{$prefix}_before_entry", 'convergence_posted' );
+  add_action("{prefix}_before_entry", 'convergence_episode_attribute');
 
 	/* Add the after singular sidebar and custom field series extension after singular views. */
 	add_action( "{$prefix}_after_singular", 'convergence_get_utility_after_singular' );
@@ -498,6 +499,7 @@ function convergence_site_title() {
 function convergence_site_description() {
 	return hybrid_site_description();	
 }
+
 
 /**
  * Outputs, with formatting, when the 'episode' was posted and how long ago if applicable.
