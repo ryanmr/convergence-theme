@@ -220,7 +220,7 @@ function convergence_register_taxonomy_episode_attributes() {
         'show_in_nav_menus' => true,
         'show_ui' => true,
         'show_tagcloud' => false,
-        'hierarchical' => false,
+        'hierarchical' => true,
 
         'rewrite' => true,
         'query_var' => true
@@ -509,12 +509,16 @@ function convergence_posted() {
   $posted = "";
   $type = get_post_type();
 
-	if ( in_array($type, array('post', 'episode')) ) {
+	if ( in_array($type, array('episode')) ) {
     $ago = human_time_difference( get_the_date('U'), current_time('timestamp') ) . ' ago';
     if ( is_front_page() ) {
       $ago = '';
     }
-    $posted = '<h4 class="show-date">' . get_the_date("F j Y") . ': ' . $ago . '</h4>';
+
+    $modified_date = get_the_modified_date("F jS Y");
+    $modified_ago = human_time_difference(get_the_modified_date('U'), current_time('timestamp'));
+
+    $posted = '<h4 class="show-date" title="Modified '.$modified_date.' ('.$modified_ago.' ago)">' . get_the_date("F jS Y") . ': ' . $ago . '</h4>';
   }
   
   echo apply_atomic_shortcode('posted', $posted);
@@ -534,7 +538,7 @@ function convergence_episode() {
   }
   
   echo apply_atomic_shortcode('episode', $episode);
-} 
+}
 
 /**
  * Outputs the category description the episode is in
