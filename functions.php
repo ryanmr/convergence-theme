@@ -88,7 +88,7 @@ function convergence_theme_setup_theme() {
 	add_action('wp_head', 'convergence_google_webmaster_meta_tag');
 
 	/* Update the sizes for images, thumbnails specifically. */
-	convergence_add_image_size();
+	add_action('init', 'convergence_add_image_size');
 
 	/* Alter the Feeds. */
 	add_filter('wp_title', 'convergence_post_title_filter');
@@ -206,6 +206,8 @@ function convergence_add_image_size() {
 	update_option('thumbnail_size_w', 270);
 	update_option('thumbnail_size_h', 150);
 	update_option('thumbnail_crop', false);
+
+
 }
 
 function convergence_exclude_episode_attributes($terms) {

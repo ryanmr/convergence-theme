@@ -15,8 +15,9 @@ get_header(); // Loads the header.php template. ?>
 		<?php do_atomic( 'before_content' ); // hybrid_before_content ?>
 
 		<?php
-			$wp_query = new WP_Query();
-			$wp_query->query( array( 'post_type' => 'episode', 'posts_per_page' => get_option( 'posts_per_page' ), 'paged' => $paged ) );
+			$latest_arguments = array( 'post_type' => 'episode', 'posts_per_page' => get_option( 'posts_per_page' ), 'paged' => $paged );
+			$lastest_arguments['tax_query'] = array(convergence_exclude_episode_attributes('hidden'));
+			$wp_query = new WP_Query($latest_arguments);
 			$more = 0;
 		?>
 
