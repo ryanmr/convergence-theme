@@ -88,7 +88,7 @@ get_header(); // Loads the header.php template. ?>
                 <?php
                     $showboard_bottom_arguments = array(
                         "post_type" => "episode",
-                        "posts_per_page" => 3,
+                        "posts_per_page" => 2,
                         'category_name' => 'tf'
                     );
                     $showboard_bottom_arguments['tax_query'] = array(convergence_exclude_episode_attributes('hidden'));
