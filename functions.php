@@ -145,6 +145,10 @@ function convergence_register_cpt_episode() {
     register_post_type( 'episode', $args );
 }
 
+/**
+ * Registeres the custom taxanomy, 'episode attributes' for extra data.
+ * @return void
+ */
 function convergence_register_taxonomy_episode_attributes() {
 
     $labels = array( 
@@ -210,6 +214,11 @@ function convergence_add_image_size() {
 
 }
 
+/**
+ * Returns a partial array so that WP_Query attributes can exclude certain taxonmy terms.
+ * @param type $terms 
+ * @return type
+ */
 function convergence_exclude_episode_attributes($terms) {
   if (!is_array($terms)) {
     $terms = array($terms);
