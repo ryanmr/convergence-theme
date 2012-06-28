@@ -43,7 +43,7 @@ get_header(); // Loads the header.php template. ?>
 					<?php get_search_form(); // Loads the searchform.php template. ?>
 
 					<div id="kawaii-error">
-					  <img src="<?php bloginfo('template_directory') ?>/images/kawaii-error.png" />
+					  <img src="<?php bloginfo('template_directory') ?>/resources/images/kawaii-error.png" />
 					</div>
 
 				</div><!-- .entry-content -->
