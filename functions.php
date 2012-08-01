@@ -39,6 +39,7 @@ function convergence_theme_setup_theme() {
   add_action( 'init', 'convergence_register_taxonomy_episode_attributes');
 
 	/* Header actions. */
+  add_action( "{$prefix}_header", 'convergence_site_logo' );
 	add_action( "{$prefix}_header", 'convergence_site_title' );
 	add_action( "{$prefix}_header", 'convergence_site_description' );
 
@@ -372,6 +373,15 @@ function convergence_exclude_category($slug, $arguments) {
 		$arguments['category__not_in'] = array($exclude_id);
 	}
 	return $arguments;
+}
+
+/**
+ * Returns site logo markup.
+ * @return string
+ */ 
+function convergence_site_logo() {
+  $html = '<div id="site-logo"><span class="logo"></span></div>';
+  echo $html;
 }
 
 /**

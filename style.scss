@@ -91,11 +91,21 @@ h1, h2, h3, h4, h5, h6 {
   top: -5px;
   padding-right: 10px;
   
+
   .logo {
     width: 64px;
     height: 64px;
+    background-size: 64px 64px;
+    background-image: url('resources/images/nx-logo-grayscale.png');
+    display: block;
   }
 
+}
+
+#header-container:hover {
+  #site-logo .logo {
+    background-image: url('resources/images/nx-logo-color.png');
+  }
 }
 
 /* === primary navigation (header) === */
