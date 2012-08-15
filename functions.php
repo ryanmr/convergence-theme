@@ -24,6 +24,7 @@ function convergence_theme_setup_theme() {
 	add_theme_support( 'hybrid-core-seo' );
 	add_theme_support( 'hybrid-core-template-hierarchy' );
 	add_theme_support( 'loop-pagination' );
+  add_theme_support( 'automatic-feed-links' );
 
 	/* Enable post thumbnail. */
 	add_theme_support('post-thumbnails');
