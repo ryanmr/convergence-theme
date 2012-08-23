@@ -4,12 +4,19 @@
 * Author: Ryan Rampersad
 * Author URI: http://ryanrampersad.com/
 * Description: The 2012 theme for The Nexus TV.
-* Version: 0.21
+* Version: 0.221
 */
 
+/* normalize.css */
 @import "resources/css/normalize.scss";
+/* layout.css */
 @import "resources/css/layout.scss";
+/* fonts.css */
 @import "resources/css/fonts.scss";
+/*
+  I just want you to know I hate what I did here.
+  I think we should go back to the old version of loading multiple CSS files with WP_enque
+*/
 
 body {
   color: #000;
@@ -107,6 +114,25 @@ h1, h2, h3, h4, h5, h6 {
     background-image: url('resources/images/nx-logo-color.png');
   }
 }
+
+@-webkit-keyframes logo-rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to { 
+    -webkit-transform: rotate(360deg);
+  }
+}
+#site-logo.idle {
+  .logo {
+    -webkit-transform: scale(.9);
+  }
+  -webkit-animation-name:             logo-rotate; 
+  -webkit-animation-duration:         30s; 
+  -webkit-animation-iteration-count:  infinite;
+  -webkit-animation-timing-function:  linear;
+}
+
 
 /* === primary navigation (header) === */
 
