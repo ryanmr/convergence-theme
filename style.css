@@ -1,11 +1,12 @@
 /**
 * Theme Name: Convergence
-* Theme URI: http://the-nexus.tv/theme
+* Theme URI: http://the-nexus.tv/
 * Author: Ryan Rampersad
 * Author URI: http://ryanrampersad.com/
 * Description: The 2012 theme for The Nexus TV.
-* Version 0.2
+* Version: 0.221
 */
+/* normalize.css */
 /* normalize.css 2011-11-04T15:38 UTC - http://github.com/necolas/normalize.css */
 /* =============================================================================
    HTML5 display definitions
@@ -366,6 +367,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+/* layout.css */
 body {
   min-width: 960px; }
 
@@ -438,6 +440,7 @@ body.home .episode-block,
 #showboard-wrapper {
   zoom: 1; }
 
+/* fonts.css */
 @font-face {
   font-family: 'LeagueGothicRegular';
   src: url("resources/fonts/league-gothic/League_Gothic-webfont.eot");
@@ -445,6 +448,10 @@ body.home .episode-block,
   font-weight: normal;
   font-style: normal; }
 
+/*
+  I just want you to know I hate what I did here.
+  I think we should go back to the old version of loading multiple CSS files with WP_enque
+*/
 body {
   color: #000;
   background: #222222 url("resources/textures/darkdenim3.png"); }
@@ -516,6 +523,21 @@ h1, h2, h3, h4, h5, h6 {
 
 #header-container:hover #site-logo .logo {
   background-image: url("resources/images/nx-logo-color.png"); }
+
+@-webkit-keyframes logo-rotate {
+  from {
+    -webkit-transform: rotate(0deg); }
+
+  to {
+    -webkit-transform: rotate(360deg); } }
+
+#site-logo.idle {
+  -webkit-animation-name: logo-rotate;
+  -webkit-animation-duration: 30s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear; }
+  #site-logo.idle .logo {
+    -webkit-transform: scale(0.9); }
 
 /* === primary navigation (header) === */
 #primary-menu ul {

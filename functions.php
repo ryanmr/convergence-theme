@@ -99,6 +99,8 @@ function convergence_theme_setup_theme() {
 
 	/* Delay Feed publishing. */
 	add_filter('posts_where', 'convergence_feed_delay');
+
+  add_action('wp_footer', 'convergence_site_logo_idle');
 }
 
 /**
@@ -383,6 +385,25 @@ function convergence_exclude_category($slug, $arguments) {
 function convergence_site_logo() {
   $html = '<div id="site-logo"><span class="logo"></span></div>';
   echo $html;
+}
+
+
+/**
+ * Adds javascript into the footer to handle the rotating logo idle class.
+ * 
+ */
+function convergence_site_logo_idle() {
+?>
+<script type="text/javascript">
+  jQuery(document).ready(function($){
+    var fn = function() {
+      $('#site-logo').addClass('idle');
+      console.log('big week');
+    };
+    setTimeout(fn, 1000 * 60 * 5);
+  });
+</script>
+<?php 
 }
 
 /**
