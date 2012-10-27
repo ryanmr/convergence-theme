@@ -101,6 +101,47 @@ function convergence_theme_setup_theme() {
 	add_filter('posts_where', 'convergence_feed_delay');
 
   add_action('wp_footer', 'convergence_site_logo_idle');
+
+  add_action('wp_before_admin_bar_render', 'convergence_admin_bar');
+  add_action('init', 'convergence_remove_header_meta');
+  convergence_remove_header_meta();
+  if ( is_admin() ) {
+    add_action('admin_menu', 'convergence_admin_menu');
+  }
+
+}
+
+/**
+ * Removes meta information from the header.
+ */
+function convergence_remove_header_meta() {
+  remove_action('wp_head', 'wlwmanifest_link');
+  remove_action('wp_head', 'rsd_link');
+  remove_action('wp_head', 'wp_generator', 1);
+  remove_action('wp_head', 'hybrid_meta_template', 1);
+  // note: the 1 priority allows these to be removed
+  // since hybrid sets them with 1 priority (early);
+  // removing the others does not require this.
+}
+
+/**
+ * Removes unneeded link button in Admin panel.
+ */
+function convergence_admin_menu() {
+  remove_menu_page('edit.php');
+  remove_menu_page('link-manager.php');
+}
+
+/**
+ * Removes unneeded items from Admin bar.
+ */
+function convergence_admin_bar() {
+  global $wp_admin_bar;
+  $wp_admin_bar->remove_menu('new-post', 'new-content');
+  $wp_admin_bar->remove_menu('new-link', 'new-content');
+  $wp_admin_bar->remove_menu('new-media', 'new-content');
+  $wp_admin_bar->remove_menu('new-page', 'new-content');
+  $wp_admin_bar->remove_menu('new-user', 'new-content');
 }
 
 /**
@@ -292,7 +333,7 @@ function convergence_feed_description_filter($content) {
   $excerpt = get_the_excerpt($post_id);
   
   $content = strip_tags($excerpt) . "<br /><br />" . $content;
-  $extra = '<br /><br />\n\nListen to more at <a href='.get_bloginfo('siteurl').'>The-Nexus.tv</a> and follow us on <a href="http://twitter.com/thenexustv">Twitter</a>.';
+  $extra = '<br /><br />Listen to more at <a href='.get_bloginfo('siteurl').'>The-Nexus.tv</a> and follow us on <a href="http://twitter.com/thenexustv">Twitter</a>.';
   
   $content = $content . $extra;
   
@@ -395,6 +436,7 @@ function convergence_site_logo() {
 function convergence_site_logo_idle() {
 ?>
 <script type="text/javascript">
+/* idle easter egg */
   jQuery(document).ready(function($){
     var fn = function() {
       $('#site-logo').addClass('idle');
@@ -664,36 +706,6 @@ function convergence_get_primary_menu() {
 
 function convergence_get_secondary_menu() {
 	get_template_part( 'menu', 'secondary' );
-}
-
-function hybrid_disable_styles() {
-	_deprecated_function( __FUNCTION__, '0.9.0' );
-}
-
-/**
- * @since 0.4.0
- * @deprecated 0.9.0
- */
-function hybrid_favicon() {
-	_deprecated_function( __FUNCTION__, '0.9.0' );
-}
-
-/**
- * @since 0.4.0
- * @deprecated 0.9.0
- */
-function hybrid_feed_link( $output, $feed ) {
-	_deprecated_function( __FUNCTION__, '0.9.0' );
-	return $output;
-}
-
-/**
- * @since 0.4.0
- * @deprecated 0.9.0
- */
-function hybrid_other_feed_link( $link ) {
-	_deprecated_function( __FUNCTION__, '0.9.0' );
-	return $link;
 }
 
 ?>
