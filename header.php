@@ -17,11 +17,7 @@
 <meta http-equiv="Content-Type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php bloginfo( 'charset' ); ?>" />
 <title><?php hybrid_document_title(); ?></title>
 
-<link href='http://fonts.googleapis.com/css?family=Exo:400,700|Montserrat' rel='stylesheet' type='text/css' />
-
-<link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" type="text/css" media="all" />
-
-<?php wp_head(); // wp_head ?>
+<?php wp_head(); ?>
 
 </head>
 

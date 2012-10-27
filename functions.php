@@ -109,6 +109,13 @@ function convergence_theme_setup_theme() {
     add_action('admin_menu', 'convergence_admin_menu');
   }
 
+add_action('wp_print_styles', 'convergence_enqueue_styles');
+
+}
+
+function convergence_enqueue_styles() {
+  wp_enqueue_style('google-typography', 'http://fonts.googleapis.com/css?family=Exo:400,700|Montserrat');
+  wp_enqueue_style('main', get_stylesheet_directory_uri() . '/style.css');
 }
 
 /**
