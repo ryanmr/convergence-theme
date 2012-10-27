@@ -8,57 +8,61 @@
 
 get_header(); // Loads the header.php template. ?>
 
-    <div id="hero-container">
-        <div id="hero-wrapper">
-        
-            <?php do_atomic('before_hero'); ?>
-        
-            <?php
-                    $hero_arguments = array(
-                        "post_type" => "episode",
-                        "posts_per_page" => 1,
-                    );
-                    $hero_arguments = convergence_exclude_category('tf', $hero_arguments);
+    <div id="villain">
+        <!-- intentionally no wrapping -->
 
-                    $hero_arguments['tax_query'] = array(convergence_exclude_episode_attributes('hidden'));
+<?php
+   $v_args = array(
+        "post_type" => "episode",
+        "posts_per_page" => 3,
+    );
+    $v_args = convergence_exclude_category('tf', $v_args);
+    $v_args['tax_query'] = array(convergence_exclude_episode_attributes('hidden'));
+    $v_loop = new WP_Query($v_args);
+    $villain_episodes = array();
+    while ($v_loop->have_posts()): $v_loop->the_post();
+    $villain_episodes[] = get_the_ID();
+?>
+        <?php
+            $f_img = get_the_image(array('size'=>'large', 'link_to_post'=>false, 'format'=>'array' ));
+        ?>
+        <div class="feature" style="background-image: url('<?php echo $f_img['url']; ?>');">
+            <a class="cover" href="<?php echo get_permalink() ?>">
+                <div class="mask">
+                    <?php
+                        $show_title = get_the_title();
+                        $show_title_length = strlen($show_title);
+                        $show_title_class = "";
+                        if ($show_title_length > 24) {
+                            $show_title_class = 'long-title ';
+                        }
+                    ?>
+                    <h2 class="show-title <?php echo $show_title_class; ?>"><?php echo $show_title; ?></h2>
 
-                    $hero_loop = new WP_Query($hero_arguments);
-                    $hero_id = 0;
-                    
-            if ($hero_loop->have_posts()):
-                while ($hero_loop->have_posts()):
-                    $hero_loop->the_post();
-                    $hero_id = get_the_ID();
-            ?>
-        
-            <div id="hero">
-                        
-                <div class="hero-meta">
-                
-                  <h2 class="show-title"><a href="<?php echo get_permalink() ?>"><?php the_title(); ?></a></h2>
-                  
-                  <h3 class="show-name">
-                  <span class="name"><?php the_category(' '); ?></span> <span class="number">#<?php echo( get_episode_number( get_permalink() ) ); ?></span>
-                  </h3>
-                  
-                  <h4 class="show-date"><a href="<?php echo get_permalink() ?>"> <?php echo get_the_date("F j"); ?></a></h4>
-                  
-                  <div class="episode-description">
-                    <?php the_excerpt(); ?>
-                  </div>
-                  
+                      <h3 class="show-name">
+                        <span class="name">
+                        <?php $category = get_the_category(); echo($category[0]->name); ?></span>
+                        <span class="sep">#</span><span class="number"><?php echo( get_episode_number( get_permalink() ) ); ?></span>
+                      </h4>
+
+                    <h4 class="show-date">
+                    <?php echo get_the_date("F j") ?>
+                    <?php
+                        $date = get_the_date();
+                        if ( strtotime($date) > strtotime("-7 days") ) {
+                            echo('<span class="new">New</span>');
+                        }
+                    ?>
+                    </h5>
+
                 </div>
-                
-                <div class="hero-image">
-                    <?php get_the_image( array('size'=>'medium') ); ?>
-                </div>
-            
-            </div>
-            <?php endwhile; endif; ?>
-            
-            <?php do_atomic('after_hero'); ?>
-            
+            </a>
         </div>
+
+    <?php endwhile; ?>
+
+
+        <!-- end #villain -->
     </div>
 
     <div id="content-container">
@@ -71,8 +75,8 @@ get_header(); // Loads the header.php template. ?>
                 <?php
                     $showboard_top_arguments = array(
                         "post_type" => "episode",
-                        "posts_per_page" => 6,
-                        'post__not_in' => array($hero_id)
+                        "posts_per_page" => 9,
+                        'post__not_in' => $villain_episodes
                     );
                     $showboard_top_arguments = convergence_exclude_category('tf', $showboard_top_arguments);
                     $showboard_top_arguments['tax_query'] = array(convergence_exclude_episode_attributes('hidden'));
@@ -83,7 +87,10 @@ get_header(); // Loads the header.php template. ?>
                         <?php while ($loop_top->have_posts()): $loop_top->the_post(); ?>
                         <?php get_template_part('showboard-loop'); ?>
                         <?php endwhile; ?>
-                    </div><!-- #top-shelf -->
+                    </div>
+
+                    <?php /* ============================================================= */ ?>
+                    <!-- #top-shelf -->
 
                 <?php
                     $showboard_bottom_arguments = array(
