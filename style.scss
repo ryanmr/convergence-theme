@@ -32,8 +32,10 @@ h1, h2, h3, h4, h5, h6 {
 /*  === header === */
 
 #header-container {
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid #222;
   padding-bottom: 10px;
+  box-shadow: inset 0 -5px 10px 1px rgba(0,0,0,.2);
+  overflow: hidden;
 }
 
 #header {
@@ -168,8 +170,8 @@ a[href^="http://bit.ly/tntv-survey"] {
 
 
 #content-container {
-  border-top: 1px solid #eee;
-  padding-top: 10px;
+  /*border-top: 1px solid #eee;*/
+  padding-top: 20px;
 }
 
 #container {
@@ -185,6 +187,8 @@ a[href^="http://bit.ly/tntv-survey"] {
   background: #fff url("resources/textures/little_pluses.png");
   border-bottom: 1px solid #999;
   padding: 20px 0 20px 0;
+    box-shadow: 0px 1px 10px rgba(50, 50, 50, 0.75);
+  overflow: hidden;
 }
 
 #hero {
@@ -296,6 +300,85 @@ a[href^="http://bit.ly/tntv-survey"] {
   }
 
 }
+
+
+#villain {
+
+  box-shadow: 0px 10px 20px rgba(50, 50, 50, 0.75);
+  overflow: hidden;
+  z-index: 100;
+  background: #000;
+
+  .feature {
+    width: 33.3%;
+    min-height: 300px;
+    width-width: 600px;
+    margin-left: 0px;
+    margin-right: 0px;
+    float: left;
+    position: relative;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    overflow: hidden;
+  }
+
+  .feature a.cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    
+    background: -webkit-linear-gradient(top,rgba(0, 0, 0, 0.10) 0,rgba(0, 0, 0, .35) 100%);
+
+
+  }
+  .feature a.cover:hover {
+    background-image: none;
+  }
+
+  .feature a.cover .mask {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.35);
+    padding: 10px 25px 25px;
+  }
+  .feature a.cover:hover .mask {
+    background-color: rgba(0, 0, 0, 0.65);
+  }
+
+  .mask {
+    height: 108px;
+    color: #fff;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+
+  .long-title {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 36px;
+    word-wrap: break-word;
+
+  }
+  h2, h3, h4, h5 {
+    text-shadow: 1px 1px 15px #000;
+  }
+
+}
+
+
+
+
 /* === Home Template === */
 
 #showboard {
