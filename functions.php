@@ -109,7 +109,11 @@ function convergence_theme_setup_theme() {
     add_action('admin_menu', 'convergence_admin_menu');
   }
 
-add_action('wp_print_styles', 'convergence_enqueue_styles');
+  add_action('wp_print_styles', 'convergence_enqueue_styles');
+
+  if ( is_front_page() ) {
+    remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
+  }
 
 }
 
