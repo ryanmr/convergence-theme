@@ -13,10 +13,6 @@
 @import "resources/css/layout.scss";
 /* fonts.css */
 @import "resources/css/fonts.scss";
-/*
-  I just want you to know I hate what I did here.
-  I think we should go back to the old version of loading multiple CSS files with WP_enque
-*/
 
 body {
   color: #000;
@@ -42,7 +38,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #header {
   padding-top: 20px;
-  width: 450px;
+  width: 365px;
 }
 
 /* === site title === */
@@ -161,6 +157,10 @@ h1, h2, h3, h4, h5, h6 {
     text-shadow: 1px 1px 1px rgba(255,255,255,.5);
   }
 
+}
+
+a[href^="http://bit.ly/tntv-survey"] {
+  text-shadow: 1px 1px 20px red, -2px -2px 2px blue;
 }
 
 

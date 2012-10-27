@@ -448,10 +448,6 @@ body.home .episode-block,
   font-weight: normal;
   font-style: normal; }
 
-/*
-  I just want you to know I hate what I did here.
-  I think we should go back to the old version of loading multiple CSS files with WP_enque
-*/
 body {
   color: #000;
   background: #222222 url("resources/textures/darkdenim3.png"); }
@@ -471,7 +467,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #header {
   padding-top: 20px;
-  width: 450px; }
+  width: 365px; }
 
 /* === site title === */
 #site-title, #site-description {
@@ -558,6 +554,9 @@ h1, h2, h3, h4, h5, h6 {
   #primary-menu ul a:hover {
     color: #fff;
     text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5); }
+
+a[href^="http://bit.ly/tntv-survey"] {
+  text-shadow: 1px 1px 20px red, -2px -2px 2px blue; }
 
 /* === container === */
 #content-container {
