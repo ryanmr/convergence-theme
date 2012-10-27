@@ -49,7 +49,7 @@ get_header(); // Loads the header.php template. ?>
                     <?php echo get_the_date("F j") ?>
                     <?php
                         $date = get_the_date();
-                        if ( strtotime($date) > strtotime("-7 days") ) {
+                        if ( strtotime($date) > strtotime("-5 days") ) {
                             echo('<span class="new">New</span>');
                         }
                     ?>
