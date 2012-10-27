@@ -291,7 +291,7 @@ function convergence_feed_description_filter($content) {
   $post_id = $wp_query->post->ID;
   $excerpt = get_the_excerpt($post_id);
   
-  $content = strip_tags($excerpt) . "<br /><br />\n\n" . $content;
+  $content = strip_tags($excerpt) . "<br /><br />" . $content;
   $extra = '<br /><br />\n\nListen to more at <a href='.get_bloginfo('siteurl').'>The-Nexus.tv</a> and follow us on <a href="http://twitter.com/thenexustv">Twitter</a>.';
   
   $content = $content . $extra;
