@@ -32,9 +32,6 @@ function convergence_theme_setup_theme() {
 	/* Enable get-the-image plugin for easy images. */
 	add_theme_support( 'get-the-image' );
 
-	/* Register theme sidebars. */
-	add_action( 'init', 'convergence_theme_register_sidebars', 11 );
-
 	/* Register the custom post type 'episode' and related taxonomies */
 	add_action( 'init', 'convergence_register_cpt_episode');
   add_action( 'init', 'convergence_register_taxonomy_episode_attributes');
@@ -77,9 +74,6 @@ function convergence_theme_setup_theme() {
 	/* Add the comment avatar and comment meta before individual comments. */
 	add_action( "{$prefix}_before_comment", 'hybrid_avatar' );
 	add_action( "{$prefix}_before_comment", 'hybrid_comment_meta' );
-
-	/* Add theme-specific body classes. */
-	add_filter( 'body_class', 'convergence_hybrid_theme_body_class' );
   
   /* Add the custom post type 'episode' back into category pages. */
 	add_action('pre_get_posts', 'convergence_category_post_types');
@@ -540,6 +534,25 @@ function convergence_category_feed() {
   echo apply_atomic_shortcode('category_feed', $link);
 }
 
+function hybrid_entry_title() {
+  echo apply_atomic_shortcode( 'entry_title', '[entry-title]' );
+}
+
+function hybrid_comment_meta() {
+  echo apply_atomic_shortcode( 'comment_meta', '<div class="comment-meta comment-meta-data">[comment-author] [comment-published] [comment-permalink before="| "] [comment-edit-link before="| "] [comment-reply-link before="| "]</div>' );
+}
+
+function convergence_navigation_links() {
+  locate_template( array( 'navigation-links.php', 'loop-nav.php' ), true );
+}
+
+function convergence_footer_insert() {
+  $footer_insert = hybrid_get_setting( 'footer_insert' );
+
+  if ( !empty( $footer_insert ) )
+    echo '<div class="footer-insert">' . do_shortcode( $footer_insert ) . '</div>';
+}
+
 /**
  * Creates a human readable time, relative to supplied data
  * @param type $from 
@@ -592,103 +605,9 @@ function human_time_difference( $from, $to = '' ) {
 }
 
 
-/* ========================== Non-Covergence Code. Inherited from Hybrid. ================================== */
+/* ========================== Converge this junk. Inherited from Hybrid. ================================== */
 
-function convergence_hybrid_theme_body_class( $classes ) {
-	global $wp_query, $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome;
 
-	/* Singular post classes (deprecated). */
-	if ( is_singular() ) {
-
-		if ( is_page() )
-			$classes[] = "page-{$wp_query->post->ID}"; // Use singular-page-ID
-
-		elseif ( is_singular( 'post' ) )
-			$classes[] = "single-{$wp_query->post->ID}"; // Use singular-post-ID
-	}
-
-	/* Browser detection. */
-	$browsers = array( 'gecko' => $is_gecko, 'opera' => $is_opera, 'lynx' => $is_lynx, 'ns4' => $is_NS4, 'safari' => $is_safari, 'chrome' => $is_chrome, 'msie' => $is_IE );
-	foreach ( $browsers as $key => $value ) {
-		if ( $value ) {
-			$classes[] = $key;
-			break;
-		}
-	}
-
-	/* Hybrid theme widgets detection. */
-	foreach ( array( 'primary', 'secondary', 'subsidiary' ) as $sidebar )
-		$classes[] = ( is_active_sidebar( $sidebar ) ) ? "{$sidebar}-active" : "{$sidebar}-inactive";
-
-	if ( in_array( 'primary-inactive', $classes ) && in_array( 'secondary-inactive', $classes ) && in_array( 'subsidiary-inactive', $classes ) )
-		$classes[] = 'no-widgets';
-
-	/* Return the array of classes. */
-	return $classes;
-}
-
-function hybrid_entry_title() {
-	echo apply_atomic_shortcode( 'entry_title', '[entry-title]' );
-}
-
-function hybrid_comment_meta() {
-	echo apply_atomic_shortcode( 'comment_meta', '<div class="comment-meta comment-meta-data">[comment-author] [comment-published] [comment-permalink before="| "] [comment-edit-link before="| "] [comment-reply-link before="| "]</div>' );
-}
-
-function convergence_navigation_links() {
-	locate_template( array( 'navigation-links.php', 'loop-nav.php' ), true );
-}
-
-function convergence_footer_insert() {
-	$footer_insert = hybrid_get_setting( 'footer_insert' );
-
-	if ( !empty( $footer_insert ) )
-		echo '<div class="footer-insert">' . do_shortcode( $footer_insert ) . '</div>';
-}
-
-function convergence_theme_register_sidebars() {
-
-	/* Register the widgets template sidebar. */
-	register_sidebar(
-		array(
-			'id' => 'widgets-template',
-			'name' => __( 'Widgets Template', hybrid_get_textdomain() ),
-			'description' => __( 'Used as the content of the Widgets page template.', hybrid_get_textdomain() ),
-			'before_widget' => '<div id="%1$s" class="widget %2$s widget-%2$s"><div class="widget-inside">',
-			'after_widget' => '</div></div>',
-			'before_title' => '<h3 class="widget-title">',
-			'after_title' => '</h3>'
-		)
-	);
-
-	/* Register the 404 template sidebar. */
-	register_sidebar(
-		array(
-			'id' => 'error-404-template',
-			'name' => __( '404 Template', hybrid_get_textdomain() ),
-			'description' => __( 'Replaces the default 404 error page content.', hybrid_get_textdomain() ),
-			'before_widget' => '<div id="%1$s" class="widget %2$s widget-%2$s"><div class="widget-inside">',
-			'after_widget' => '</div></div>',
-			'before_title' => '<h3 class="widget-title">',
-			'after_title' => '</h3>'
-		)
-	);
-}
-
-function hybrid_theme_remove_sidebars( $sidebars_widgets ) {
-	global $wp_query;
-
-	$original = $sidebars_widgets;
-
-	if ( is_singular() ) {
-		$template = get_post_meta( $wp_query->post->ID, "_wp_{$wp_query->post->post_type}_template", true );
-		$no_show = array('no-widgets.php', "{$wp_query->post->post_type}-no-widgets.php");
-		if ( in_array($template, $no_show) )
-			$sidebars_widgets = array( false );
-	}
-	
-	return $sidebars_widgets;
-}
 
 function convergence_get_primary() {
 	get_sidebar( 'primary' );
