@@ -660,8 +660,6 @@ a[href^="http://bit.ly/tntv-survey"] {
   background: #000; }
   #villain .feature {
     width: 33.3%;
-    min-height: 300px;
-    width-width: 600px;
     margin-left: 0px;
     margin-right: 0px;
     float: left;
@@ -697,14 +695,25 @@ a[href^="http://bit.ly/tntv-survey"] {
     height: 108px;
     color: #fff;
     font-family: Helvetica, Arial, sans-serif; }
-  #villain .long-title {
-    font-size: 30px; }
-  #villain h2 {
+  #villain .show-title {
     font-size: 36px;
     word-wrap: break-word; }
+  #villain .long-title {
+    font-size: 30px; }
+  #villain .show-name {
+    text-transform: uppercase;
+    font-size: 16px; }
+  #villain .show-date {
+    font-size: 15px; }
   #villain h2, #villain h3, #villain h4, #villain h5 {
     text-shadow: 1px 1px 15px #000; }
 
+.show-date .new {
+  text-transform: uppercase;
+  color: #f00;
+  text-align: right; }
+
+/* put some media query magic here, for #villian, eventually */
 /* === Home Template === */
 #showboard .episode-block {
   width: 300px;
@@ -788,6 +797,8 @@ a[href^="http://bit.ly/tntv-survey"] {
 #content-sidebar {
   font-size: 14px;
   width: 380px; }
+  #content-sidebar > div {
+    margin-bottom: 20px; }
 
 #content {
   font-size: 14px;

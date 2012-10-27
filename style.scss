@@ -311,8 +311,6 @@ a[href^="http://bit.ly/tntv-survey"] {
 
   .feature {
     width: 33.3%;
-    min-height: 300px;
-    width-width: 600px;
     margin-left: 0px;
     margin-right: 0px;
     float: left;
@@ -361,21 +359,32 @@ a[href^="http://bit.ly/tntv-survey"] {
     font-family: Helvetica, Arial, sans-serif;
   }
 
+  .show-title {
+    font-size: 36px;
+    word-wrap: break-word;
+  }
   .long-title {
     font-size: 30px;
   }
-
-  h2 {
-    font-size: 36px;
-    word-wrap: break-word;
-
+  .show-name {
+    text-transform: uppercase;
+    font-size: 16px;
+  }
+  .show-date {
+    font-size: 15px;
   }
   h2, h3, h4, h5 {
     text-shadow: 1px 1px 15px #000;
   }
 
 }
+.show-date .new {
+  text-transform: uppercase;
+  color: #f00;
+  text-align: right;
+}
 
+/* put some media query magic here, for #villian, eventually */
 
 
 
@@ -498,6 +507,9 @@ a[href^="http://bit.ly/tntv-survey"] {
 #content-sidebar {
   font-size: 14px;
   width: 380px;
+  > div {
+    margin-bottom: 20px;
+  }
 }
 
 #content {

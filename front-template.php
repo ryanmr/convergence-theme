@@ -24,11 +24,11 @@ get_header(); // Loads the header.php template. ?>
     $villain_episodes[] = get_the_ID();
 ?>
         <?php
-            $f_img = get_the_image(array('size'=>'full', 'link_to_post'=>false, 'format'=>'array' ));
+            $f_img = get_the_image(array('size'=>'large', 'link_to_post'=>false, 'format'=>'array' ));
         ?>
         <div class="feature" style="background-image: url('<?php echo $f_img['url']; ?>');">
             <a class="cover" href="<?php echo get_permalink() ?>">
-                <div class="mask meet">
+                <div class="mask">
                     <?php
                         $show_title = get_the_title();
                         $show_title_length = strlen($show_title);
@@ -39,14 +39,20 @@ get_header(); // Loads the header.php template. ?>
                     ?>
                     <h2 class="show-title <?php echo $show_title_class; ?>"><?php echo $show_title; ?></h2>
 
-                      <h4 class="show-name">
+                      <h3 class="show-name">
                         <span class="name">
                         <?php $category = get_the_category(); echo($category[0]->name); ?></span>
                         <span class="sep">#</span><span class="number"><?php echo( get_episode_number( get_permalink() ) ); ?></span>
                       </h4>
 
-                    <h5 class="show-date">
+                    <h4 class="show-date">
                     <?php echo get_the_date("F j") ?>
+                    <?php
+                        $date = get_the_date();
+                        if ( strtotime($date) > strtotime("-7 days") ) {
+                            echo('<span class="new">New</span>');
+                        }
+                    ?>
                     </h5>
 
                 </div>

@@ -17,6 +17,11 @@
   
   <h5 class="show-date"><a href="<?php echo get_permalink() ?>">
       <?php echo get_the_date("F j") ?>
+      <?php
+        if ( strtotime($date) > strtotime("-7 days") ) {
+            echo('<span class="new">New</span>');
+        }
+      ?>
   </a></h5>
   
   
