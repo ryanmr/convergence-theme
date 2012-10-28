@@ -16,7 +16,7 @@ function convergence_theme_setup_theme() {
 
 	/* Add support for framework features. */
 	add_theme_support( 'hybrid-core-menus', array( 'primary') );
-	add_theme_support( 'hybrid-core-sidebars', array( 'subsidiary', 'before-content', 'after-content', 'after-singular' ) );
+	add_theme_support( 'hybrid-core-sidebars', array( 'subsidiary' ) );
 	add_theme_support( 'hybrid-core-widgets' );
 	add_theme_support( 'hybrid-core-shortcodes' );
 	add_theme_support( 'hybrid-core-theme-settings', array( 'about', 'footer' ) );
@@ -112,8 +112,9 @@ function convergence_theme_setup_theme() {
 }
 
 /**
-* Adds the CSS into the system via WordPress instead of hard links.
-*/
+ * Enqueues global styles.
+ * @return void
+ */
 function convergence_enqueue_styles() {
   wp_enqueue_style('google-typography', 'http://fonts.googleapis.com/css?family=Exo:400,700|Montserrat');
   wp_enqueue_style('main', get_stylesheet_directory_uri() . '/style.css');
