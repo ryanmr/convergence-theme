@@ -3,7 +3,10 @@
  * Template Name: Front
  *
  * This a custom template for the front page.
- * This setups the Hero with the banner for the newest show and then 3by3 grid of recent shows.
+ * This is the new (late 2012) front page. This front page will display the Villain block,
+ * a large 1-by-3 row of block images promoting three recent episodes.
+ * Below that, there is a 3-by-3 grid of episodes in posting order,
+ * and below that, the fridge or auxillary episodes are listed with the show more link.
  */
 
 get_header(); // Loads the header.php template. ?>
@@ -35,6 +38,8 @@ get_header(); // Loads the header.php template. ?>
                         $show_title_class = "";
                         if ($show_title_length > 24) {
                             $show_title_class = 'long-title ';
+                        } else if ( $show_title_length > 35 ) {
+                            $show_title_class = 'epic-title';
                         }
                     ?>
                     <h2 class="show-title <?php echo $show_title_class; ?>"><?php echo $show_title; ?></h2>
@@ -49,7 +54,7 @@ get_header(); // Loads the header.php template. ?>
                     <?php echo get_the_date("F j") ?>
                     <?php
                         $date = get_the_date();
-                        if ( strtotime($date) > strtotime("-7 days") ) {
+                        if ( strtotime($date) > strtotime("-5 days") ) {
                             echo('<span class="new">New</span>');
                         }
                     ?>
@@ -62,7 +67,7 @@ get_header(); // Loads the header.php template. ?>
     <?php endwhile; ?>
 
 
-        <!-- end #villain -->
+        <!-- celebrate #villain -->
     </div>
 
     <div id="content-container">
@@ -108,7 +113,7 @@ get_header(); // Loads the header.php template. ?>
                         <?php endwhile; ?>
 
                         <div class="episode-block overflow">
-                            <h3><a href="<?php echo get_bloginfo('site_url'); ?>/latest">More New Episodes &raquo;</a></h3>
+                            <h3><a href="<?php echo get_bloginfo('site_url'); ?>/latest">More Episodes &raquo;</a></h3>
                         </div>
 
                     </div><!-- #bottom-shelf -->
