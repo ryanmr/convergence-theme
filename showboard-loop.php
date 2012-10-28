@@ -15,14 +15,14 @@
   </h4>
   
   
-  <h5 class="show-date"><a href="<?php echo get_permalink() ?>">
+  <h5 class="show-date">
       <?php echo get_the_date("F j") ?>
       <?php
         if ( strtotime($date) > strtotime("-5 days") ) {
             echo('<span class="new">New</span>');
         }
       ?>
-  </a></h5>
+  </h5>
   
   
 </div><!-- .episode -->
