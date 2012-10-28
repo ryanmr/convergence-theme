@@ -98,16 +98,18 @@ function convergence_theme_setup_theme() {
 
   add_action('wp_before_admin_bar_render', 'convergence_admin_bar');
   add_action('init', 'convergence_remove_header_meta');
-  convergence_remove_header_meta();
-  if ( is_admin() ) {
-    add_action('admin_menu', 'convergence_admin_menu');
-  }
 
   add_action('wp_print_styles', 'convergence_enqueue_styles');
 
   if ( is_front_page() ) {
     remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
   }
+
+  if ( is_admin() ) {
+    add_action('admin_menu', 'convergence_admin_menu');
+  }
+
+  convergence_remove_header_meta();
 
 }
 
@@ -449,7 +451,6 @@ function convergence_site_logo_idle() {
   jQuery(document).ready(function($){
     var fn = function() {
       $('#site-logo').addClass('idle');
-      console.log('big week');
     };
     setTimeout(fn, 1000 * 60 * 5);
   });
