@@ -77,6 +77,19 @@ get_header(); // Loads the header.php template. ?>
                 <div id="showboard">
                     <div id="showboard-wrapper">
                     
+                        <?php
+                            $startDate = "Thursday, November 1, 2012"; // testing
+                            $endDate = "Sunday, November 18, 2012";
+                            $boundry = array('start' => strtotime($startDate), 'end' => strtotime($endDate));
+                            if ( $boundry['start'] < time() && time() < $boundry['end'] ):
+                        ?>
+
+                        <div id="birthday-shelf">
+                            
+                        </div>
+
+                        <?php endif; ?>
+
                 <?php
                     $showboard_top_arguments = array(
                         "post_type" => "episode",
