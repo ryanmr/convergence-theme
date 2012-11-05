@@ -717,6 +717,48 @@ a[href^="http://bit.ly/tntv-survey"] {
   text-align: right; }
 
 /* put some media query magic here, for #villian, eventually */
+/* birtday styles */
+#birthday-shelf {
+  width: 720px;
+  background-color: #fff;
+  padding: 15px 20px;
+  box-shadow: 0 3px 12px #999;
+  overflow: hidden;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 25px;
+  color: #222; }
+  #birthday-shelf a:link {
+    text-decoration: underline; }
+  #birthday-shelf span[title] {
+    border-bottom: 1px dotted #ccc; }
+  #birthday-shelf .intro {
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Georgia, serif;
+    text-align: center;
+    display: block;
+    line-height: 34px !important; }
+  #birthday-shelf .intro::after {
+    content: ' ';
+    border-bottom: 1px solid #999;
+    width: 70%;
+    text-align: center;
+    padding: 20px; }
+  #birthday-shelf p {
+    font-size: 16px;
+    line-height: 24px; }
+  #birthday-shelf .signoff {
+    text-align: right;
+    margin: 0;
+    padding: 0; }
+  #birthday-shelf .signed {
+    float: right;
+    display: block;
+    margin: 0;
+    padding: 0; }
+
 /* === Home Template === */
 #showboard .episode-block {
   width: 300px;
