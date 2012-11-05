@@ -78,7 +78,7 @@ get_header(); // Loads the header.php template. ?>
                     <div id="showboard-wrapper">
                     
                         <?php
-                            $startDate = "Thursday, November 1, 2012"; // testing
+                            $startDate = "Thursday, November 8, 2012"; // testing
                             $endDate = "Sunday, November 18, 2012";
                             $boundry = array('start' => strtotime($startDate), 'end' => strtotime($endDate));
                             if ( $boundry['start'] < time() && time() < $boundry['end'] ):
@@ -93,15 +93,13 @@ get_header(); // Loads the header.php template. ?>
 
                                 <p>From there, we moved into a dedicated room serving as our studio. We were donated an amazing mixer and we purchased equipment, from microphones, to boom arms and literally hundreds of adapters to get everything ready. Finally, we launched this great home for The-Nexus online.</p>
 
-                                <p>This year we expanded to include <a href="http://the-nexus.tv/category/tu?birthday">The Universe</a> with Sam Ebertz in winter and <a href="http://the-nexus.tv/category/eb?birthday">Eight Bit</a> with Ian Buck and Ian Decker in late summer. In the coming months and in the year ahead, we plan on bringing you new podcats that we hope you will enjoy too.</p>
+                                <p>This year we expanded to include <a href="http://the-nexus.tv/category/tu?birthday">The Universe</a> with Sam Ebertz in winter and <a href="http://the-nexus.tv/category/eb?birthday">Eight Bit</a> with Ian Buck and Ian Decker in late summer. In the coming months and in the year ahead, we plan on bringing you new podcasts that we hope you will enjoy too.</p>
 
                                 <p>So, once again, thank you for listening to us. I really hope you stay with us for another year.</p>
 
                                 <p class="signoff">Have a good one,</p>
                                 <p class="signed">Ryan</p>
                             </p>
-
-                            <div class="end">&nbsp;</div>
 
                         </div>
 
