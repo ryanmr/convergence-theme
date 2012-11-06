@@ -78,10 +78,11 @@ get_header(); // Loads the header.php template. ?>
                     <div id="showboard-wrapper">
                     
                         <?php
-                            $startDate = "Thursday, November 8, 2012"; // testing
+                            $startDate = "Thursday, November 8, 2012";
                             $endDate = "Sunday, November 18, 2012";
                             $boundry = array('start' => strtotime($startDate), 'end' => strtotime($endDate));
-                            if ( $boundry['start'] < time() && time() < $boundry['end'] ):
+                            $birthday_override = isset($_GET['birthday']);
+                            if ( $birthday_override || ($boundry['start'] < time() && time() < $boundry['end']) ):
                         ?>
 
                         <div id="birthday-shelf">
@@ -98,7 +99,7 @@ get_header(); // Loads the header.php template. ?>
                                 <p>So, once again, thank you for listening to us. I really hope you stay with us for another year.</p>
 
                                 <p class="signoff">Have a good one,</p>
-                                <p class="signed">Ryan</p>
+                                <p class="signed"><img width="120px" src="<?php echo(get_bloginfo('template_directory') . '/resources/images/ryan-signature.png'); ?>" alt="Ryan" /></p>
                             </p>
 
                         </div>

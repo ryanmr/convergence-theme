@@ -739,7 +739,8 @@ a[href^="http://bit.ly/tntv-survey"] {
     font-family: Georgia, serif;
     text-align: center;
     display: block;
-    line-height: 34px !important; }
+    line-height: 34px !important;
+    /* this sucks, we need new css */ }
   #birthday-shelf .intro::after {
     content: ' ';
     border-bottom: 1px solid #999;
@@ -752,12 +753,12 @@ a[href^="http://bit.ly/tntv-survey"] {
   #birthday-shelf .signoff {
     text-align: right;
     margin: 0;
-    padding: 0; }
+    padding: 0 15px; }
   #birthday-shelf .signed {
     float: right;
     display: block;
     margin: 0;
-    padding: 0; }
+    padding: 10px; }
 
 /* === Home Template === */
 #showboard .episode-block {
