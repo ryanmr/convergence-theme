@@ -80,7 +80,7 @@ get_header(); // Loads the header.php template. ?>
                 <?php
                     $showboard_top_arguments = array(
                         "post_type" => "episode",
-                        "posts_per_page" => 9,
+                        "posts_per_page" => 6,
                         'post__not_in' => $villain_episodes
                     );
                     $showboard_top_arguments = convergence_exclude_category('tf', $showboard_top_arguments);
