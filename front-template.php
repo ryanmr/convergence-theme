@@ -77,6 +77,35 @@ get_header(); // Loads the header.php template. ?>
                 <div id="showboard">
                     <div id="showboard-wrapper">
                     
+                        <?php
+                            $startDate = "Thursday, November 8, 2012";
+                            $endDate = "Sunday, November 18, 2012";
+                            $boundry = array('start' => strtotime($startDate), 'end' => strtotime($endDate));
+                            $birthday_override = isset($_GET['birthday']);
+                            if ( $birthday_override || ($boundry['start'] < time() && time() < $boundry['end']) ):
+                        ?>
+
+                        <div id="birthday-shelf">
+                            
+                            <p>
+                                <p class="intro">It's our <span title="Sunday, November 13th, 2011">birthday</span> and we wanted to thank <em>you</em> for listening to The-Nexus.</p>
+
+                                <p>Matt and I started this network after standing out in the cold for hours last fall. We began <a href="http://the-nexus.tv/episode/atn1/?birthday">the first episode</a> with a low-quality recording through GarageBand on my MacBook Air in my basement office. We named the network one late night a few episodes later, and just days after that, christened our premiere podcast as <a href="http://the-nexus.tv/category/atn?birthday">At The Nexus</a>.</p>
+
+                                <p>From there, we moved into a dedicated room serving as our studio. We were donated an amazing mixer and we purchased equipment, from microphones, to boom arms and literally hundreds of adapters to get everything ready. Finally, we launched this great home for The-Nexus online.</p>
+
+                                <p>This year we expanded to include <a href="http://the-nexus.tv/category/tu?birthday">The Universe</a> with Sam Ebertz in winter and <a href="http://the-nexus.tv/category/eb?birthday">Eight Bit</a> with Ian Buck and Ian Decker in late summer. In the coming months and in the year ahead, we plan on bringing you new podcasts that we hope you will enjoy too.</p>
+
+                                <p>So, once again, thank you for listening to us. I really hope you stay with us for another year.</p>
+
+                                <p class="signoff">Have a good one,</p>
+                                <p class="signed"><img width="120px" src="<?php echo(get_bloginfo('template_directory') . '/resources/images/ryan-signature.png'); ?>" alt="Ryan" /></p>
+                            </p>
+
+                        </div>
+
+                        <?php endif; ?>
+
                 <?php
                     $showboard_top_arguments = array(
                         "post_type" => "episode",

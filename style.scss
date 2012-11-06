@@ -389,7 +389,64 @@ a[href^="http://bit.ly/tntv-survey"] {
 
 /* put some media query magic here, for #villian, eventually */
 
+/* birtday styles */
 
+#birthday-shelf {
+  width: 720px;
+  background-color: #fff;
+
+  padding: 15px 20px;
+  box-shadow: 0 3px 12px #999;
+  overflow: hidden;
+  
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 25px;
+
+  color: #222;
+  a:link {
+    text-decoration: underline;
+  }
+
+  span[title] {
+    border-bottom: 1px dotted #ccc;
+  }
+
+  .intro {
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Georgia, serif;
+    text-align: center;
+    display: block;
+    line-height: 34px !important; /* this sucks, we need new css */
+  }
+  .intro::after {
+    content: ' ';
+    border-bottom: 1px solid #999;
+    width: 70%;
+    text-align: center;
+    padding: 20px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .signoff {
+    text-align: right;
+    margin: 0;
+    padding: 0 15px;
+  }
+  .signed {
+    float: right;
+    display: block;
+    margin: 0;
+    padding: 10px;
+  }
+
+}
 
 /* === Home Template === */
 
