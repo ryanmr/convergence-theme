@@ -4,7 +4,7 @@
 * Author: Ryan Rampersad
 * Author URI: http://ryanrampersad.com/
 * Description: The 2012 theme for The Nexus TV.
-* Version: 0.301
+* Version: 0.302
 */
 /* normalize.css */
 /* normalize.css 2011-11-04T15:38 UTC - http://github.com/necolas/normalize.css */
@@ -486,19 +486,18 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 62px;
   line-height: 40px;
   font-family: 'LeagueGothicRegular', Helvetica, Arial, san-serif;
-  font-weight: normal;
-  /*  &:after {
-      content: ".tv";
-      font-size: 16px;
-      top: -2.1em;
-      position: relative;
-      line-height: 0px;
-      font-weight: normal;
-      text-transform: lowercase;
-    }*/ }
+  font-weight: normal; }
   #site-title a {
     color: #fff;
     text-decoration: none; }
+  #site-title:after {
+    content: ".tv";
+    font-size: 16px;
+    top: -2.1em;
+    position: relative;
+    line-height: 0px;
+    font-weight: normal;
+    text-transform: lowercase; }
 
 #site-description {
   margin-top: 2px;
@@ -693,14 +692,14 @@ a[href^="http://bit.ly/tntv-survey"] {
   #villain .feature a.cover:hover .mask {
     background-color: rgba(0, 0, 0, 0.65); }
   #villain .mask {
-    height: 108px;
+    height: 81.1923486px;
     color: #fff;
     font-family: Helvetica, Arial, sans-serif; }
   #villain .show-title {
-    font-size: 36px;
+    font-size: 28px;
     word-wrap: break-word; }
   #villain .long-title {
-    font-size: 30px; }
+    font-size: 26px; }
   #villain .epic-title {
     font-size: 24px; }
   #villain .show-name {
