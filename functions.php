@@ -506,6 +506,17 @@ function convergence_posted() {
   echo apply_atomic_shortcode('posted', $posted);
 }
 
+function convergence_people() {
+  $hosts = C::get_hosts();
+  $guests = C::get_guests();
+  $people = array_merge($hosts, $guests);
+  $single = join(', ', $people);
+
+  $output = '<h4 class="episode-people">With '.$single.'</h4>';
+
+  echo apply_atomic_shortcode('people', $output);
+}
+
 /**
  * Outputs, with formatting, the proper episode number.
  * @return string
