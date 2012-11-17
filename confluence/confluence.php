@@ -11,7 +11,7 @@ class Confluence {
 	}
 
 	public function hooks() {
-		/**/
+		/* literally nothing */
 	}
 
 }
@@ -58,14 +58,10 @@ class Confluence_Master {
 	public function save($post_id, $post) {
 		$nonce_key = 'confluence_nonce';
 
-/*		print_r($_POST); exit();*/
-
 		if ( !wp_verify_nonce($_POST[$this->nonce_key], $this->nonce_path) ) return $post_id;
 		if ( !isset( $_POST['confluence-nsfw'] ) ) return $post_id;
 
 		$new = ( isset( $_POST['confluence-nsfw'] ) ? '1' : '0' );
-
-/*		var_dump($new); exit();*/
 
 		$meta_key = 'confluence-nsfw';
 		$meta_value = get_post_meta($post_id, $meta_key, true);
@@ -78,6 +74,13 @@ class Confluence_Master {
 
 }
 
+class Confluence_Interface {
+	public static function get_nsfw() {
+		$meta = get_post_meta( get_the_ID() , "confluence-nsfw", true);
+		return $meta;
+	}
+}
+class_alias("Confluence_Interface", "C");
 
 function confluence_setup() {
 	$confluence = new Confluence();
