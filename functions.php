@@ -1,7 +1,10 @@
 <?php
 /* Load the core theme framework. */
 require_once( trailingslashit( TEMPLATEPATH ) . 'hybrid-core/hybrid.php' );
-$hybrid = new Hybrid();
+new Hybrid();
+
+require_once( trailingslashit( TEMPLATEPATH ) . 'confluence/confluence.php' );
+
 
 /* Do theme setup on the 'after_setup_theme' hook. */
 add_action( 'after_setup_theme', 'convergence_theme_setup_theme' );

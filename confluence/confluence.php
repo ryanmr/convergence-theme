@@ -11,7 +11,7 @@ class Confluence {
 	}
 
 	public function hooks() {
-
+		/**/
 	}
 
 }
@@ -23,11 +23,13 @@ class Confluence_Master {
 	public $nonce_key = 'confluence_nonce';
 
 	public function __construct() {
-		add_action('init', array($this, 'hooks'));
 		$this->nonce_path = basename(__FILE__);
+
+		if ( is_admin() ) add_action('init', array($this, 'admin_hooks'));
+
 	}
 
-	public function hooks() {
+	public function admin_hooks() {
 		$targets = array('load-post', 'load-post-new');
 		foreach ($targets as $target) {
 			add_action("$target.php", array($this, 'metabox_setup'));
@@ -61,14 +63,14 @@ class Confluence_Master {
 		if ( !wp_verify_nonce($_POST[$this->nonce_key], $this->nonce_path) ) return $post_id;
 		if ( !isset( $_POST['confluence-nsfw'] ) ) return $post_id;
 
-		$new = ( isset( $_POST['confluence-nsfw'] ) ? esc_attr( $_POST['confluence-nsfw'] ) : 'x' );
+		$new = ( isset( $_POST['confluence-nsfw'] ) ? '1' : '0' );
 
-		var_dump($new); exit();
+/*		var_dump($new); exit();*/
 
 		$meta_key = 'confluence-nsfw';
 		$meta_value = get_post_meta($post_id, $meta_key, true);
 
-		if ($new && '' == $meta_value) add_most_meta($post_id, $meta_key, $new, true);
+		if ($new && '' == $meta_value) add_post_meta($post_id, $meta_key, $new, true);
 		elseif ($new && $new != $meta_value) update_post_meta($post_id, $meta_key, $new);
 		elseif ('' == $new && $meta_value) delete_post_meta($post_id, $meta_key, $meta_value);
 
@@ -77,7 +79,11 @@ class Confluence_Master {
 }
 
 
-$confluence = new Confluence();
-$master = new Confluence_Master();
+function confluence_setup() {
+	$confluence = new Confluence();
+	$master = new Confluence_Master();
+}
+
+confluence_setup();
 
 ?>
