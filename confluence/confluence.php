@@ -71,11 +71,18 @@ class Confluence_Master {
 	}
 
 	private function _host_guest_basic($post_id, $post) {
+		$host = ( isset($_POST['confluence-host-basic']) ? wp_kses($_POST['confluence-host-basic']) : '' );
+		$guest = ( isset($_POST['confluence-guest-basic']) ? wp_kses($_POST['confluence-guest-basic']) : '' );
+
+		$meta_key = 'confluence-host-basic';
+		$this->tasukete($post_id, $meta_key, $host);
+		$meta_key = 'confluence-guest-basic';
+		$this->tasukete($post_id, $meta_key, $guest);
 
 	}
 
 	private function _nsfw($post_id, $post) {
-		
+
 		$new = ( isset( $_POST['confluence-nsfw'] )  ? '1' : '' );
 		$meta_key = 'confluence-nsfw';
 		$this->tasukete($post_id, $meta_key, $new);
@@ -97,6 +104,21 @@ class Confluence_Interface {
 		$meta = get_post_meta( get_the_ID() , "confluence-nsfw", true);
 		return $meta;
 	}
+
+	public static function get_hosts() {
+		$meta = get_post_meta( get_the_ID() , "confluence-host-basic", true);
+		$array = explode(',', $meta);
+		$array = array_map('trim', $array);
+		return $array;
+	}
+
+	public static function get_guests() {
+		$meta = get_post_meta( get_the_ID() , "confluence-guest-basic", true);
+		$array = explode(',', $meta);
+		$array = array_map('trim', $array);
+		return $array;
+	}
+
 }
 class_alias("Confluence_Interface", "C");
 
