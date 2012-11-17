@@ -15,20 +15,6 @@ wp_nonce_field($nonce_path, $nonce_key);
 		</p>
 	</div>
 
-
-	<div class="block">
-		<p>
-			<label><strong>Guests:</strong> <input type="text" class="widefat" name="confluence-guest-basic" value="<?php echo esc_attr( get_post_meta($object->ID, 'confluence-guest-basic', true) ); ?>" /></label>
-		</p>
-	</div>
-	<div class="block">
-		<p>
-			<label>This episode's content is <em><span title="Not Safe For Work?">NSFW</span></em>: 
-				<input type="checkbox" name="confluence-nsfw" <?php checked(get_post_meta($object->ID, 'confluence-nsfw', true)); ?> value="<?php echo esc_attr( get_post_meta($object->ID, 'confluence-nsfw', true) ); ?>" />
-			</label>
-		</p>
-	</div>
-
 </div>
 <div>
 <pre>

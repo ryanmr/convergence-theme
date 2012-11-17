@@ -35,7 +35,6 @@ get_header(); // Loads the header.php template. ?>
 							<h1 class="show-title"><a href="<?php echo get_permalink() ?>"><?php the_title(); ?></a></h1>
 							<?php convergence_episode(); ?>
 							<?php convergence_posted(); ?>
-							<?php convergence_people(); ?>
 
 							<div id="post-<?php the_ID(); ?>" class="<?php hybrid_entry_class(); ?>">
 
