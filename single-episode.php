@@ -46,6 +46,14 @@ get_header(); // Loads the header.php template. ?>
 										</div>
 									<?php endif; ?>
 
+									<!-- nsfw? -->
+									<?php if (C::get_nsfw() != ''): ?>
+										<div class="episode-nsfw">
+											<p>This episode has been flagged as <span class="nsfw" title="Not Safe For Work">NSFW</span>. Please be advised.</p>
+										</div>
+									<?php endif; ?>
+
+									<!-- content -->
 									<?php the_content(); ?>
 
 									<div class="edit"><?php edit_post_link( 'Edit Episode' ); ?></div>
