@@ -5,6 +5,13 @@ Plugin URI:
 Description: A package to add portable features to the Convergence theme.
 */
 
+if (!function_exists('class_alias')) {
+    function class_alias($original, $alias) {
+        eval('class ' . $alias . ' extends ' . $original . ' {}');
+        // an evil worse than any...
+    }
+}
+
 class Confluence {
 	public function __construct() {
 		add_action('init', array($this, 'hooks'));
@@ -24,9 +31,7 @@ class Confluence_Master {
 
 	public function __construct() {
 		$this->nonce_path = basename(__FILE__);
-
 		if ( is_admin() ) add_action('init', array($this, 'admin_hooks'));
-
 	}
 
 	public function admin_hooks() {
