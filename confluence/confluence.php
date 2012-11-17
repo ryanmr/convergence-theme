@@ -61,20 +61,33 @@ class Confluence_Master {
 	}
 
 	public function save($post_id, $post) {
-		$nonce_key = 'confluence_nonce';
 
+		if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return $post_id; 
 		if ( !wp_verify_nonce($_POST[$this->nonce_key], $this->nonce_path) ) return $post_id;
-		if ( !isset( $_POST['confluence-nsfw'] ) ) return $post_id;
 
-		$new = ( isset( $_POST['confluence-nsfw'] ) ? '1' : '0' );
+		$this->_nsfw($post_id, $post);
+		$this->_host_guest_basic($post_id, $post);
 
+	}
+
+	private function _host_guest_basic($post_id, $post) {
+
+	}
+
+	private function _nsfw($post_id, $post) {
+		
+		$new = ( isset( $_POST['confluence-nsfw'] )  ? '1' : '' );
 		$meta_key = 'confluence-nsfw';
-		$meta_value = get_post_meta($post_id, $meta_key, true);
+		$this->tasukete($post_id, $meta_key, $new);
+	}
 
+	/* private helpers */
+	/* tasukete - "save me" in japanese */
+	private function tasukete($post_id, $meta_key, $new) {
+		$meta_value = get_post_meta($post_id, $meta_key, true);
 		if ($new && '' == $meta_value) add_post_meta($post_id, $meta_key, $new, true);
 		elseif ($new && $new != $meta_value) update_post_meta($post_id, $meta_key, $new);
 		elseif ('' == $new && $meta_value) delete_post_meta($post_id, $meta_key, $meta_value);
-
 	}
 
 }
