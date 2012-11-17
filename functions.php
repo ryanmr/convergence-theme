@@ -1,7 +1,10 @@
 <?php
 /* Load the core theme framework. */
 require_once( trailingslashit( TEMPLATEPATH ) . 'hybrid-core/hybrid.php' );
-$hybrid = new Hybrid();
+new Hybrid();
+
+require_once( trailingslashit( TEMPLATEPATH ) . 'confluence/confluence.php' );
+
 
 /* Do theme setup on the 'after_setup_theme' hook. */
 add_action( 'after_setup_theme', 'convergence_theme_setup_theme' );
@@ -343,7 +346,12 @@ function convergence_feed_description_filter($content) {
   $post_id = $wp_query->post->ID;
   $excerpt = get_the_excerpt($post_id);
   
-  $content = strip_tags($excerpt) . "<br /><br />" . $content;
+  $nsfw = "";
+  if ( C::get_nsfw() != "" ) {
+    $nsfw = "<p>This episode has been flagged as <strong>NSFW</strong>. Please be advised.</p>";
+  }
+
+  $content = strip_tags($excerpt) . "<br /><br />" . $nsfw . "<br /><br />" . $content;
   $extra = '<br /><br />Listen to more at <a href='.get_bloginfo('siteurl').'>The-Nexus.tv</a> and follow us on <a href="http://twitter.com/thenexustv">Twitter</a>.';
   
   $content = $content . $extra;
