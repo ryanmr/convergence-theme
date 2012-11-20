@@ -46,7 +46,7 @@ class Confluence {
         'public' => true,
         'show_ui' => true,
         'show_in_menu' => true,
-        
+        'menu_position' => 8,
         
         'show_in_nav_menus' => true,
         'publicly_queryable' => true,
@@ -103,7 +103,16 @@ class Confluence_People_View {
 		if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return $post_id; 
 		if ( !wp_verify_nonce($_POST[$this->nonce_key], $this->nonce_path) ) return $post_id;
 
+		delete_post_meta($post_id, 'confluence-people'); // sadly, but needed
+		// always drop whatever we have right now
+		$people = $_POST['confluence-person']; // because people are singular when not together
 		
+		//var_dump( get_post_meta($post_id, 'confluence-people') ); exit();
+
+		foreach ($people as $person) {
+			$person = sanitize_title($person);
+			add_post_meta($post_id, 'confluence-people', $person);
+		}
 
 	}	
 
@@ -129,6 +138,11 @@ class Confluence_Master {
 	public function metabox_setup() {
 		add_action('add_meta_boxes', array($this, 'add_metabox'));
 		add_action('save_post', array($this, 'save'), 10, 2);
+		add_action('admin_footer', array($this, 'javascript'));
+	}
+
+	public function javascript() {
+		include('views/js/people.js.php');
 	}
 
 	public function add_metabox() {
@@ -183,6 +197,7 @@ class_alias("Confluence_Interface", "C");
 function confluence_setup() {
 	$confluence = new Confluence();
 	$master = new Confluence_Master();
+	$people_view = new Confluence_People_View();
 }
 
 confluence_setup();
