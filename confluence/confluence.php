@@ -65,7 +65,7 @@ class Confluence {
 
 class Confluence_People_View {
 
-		public $nonce_path;
+	public $nonce_path;
 	public $nonce_key = 'confluence_nonce';
 
 	public function __construct() {
@@ -105,8 +105,37 @@ class Confluence_People_View {
 		if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return $post_id; 
 		if ( !wp_verify_nonce($_POST[$this->nonce_key], $this->nonce_path) ) return $post_id;
 
-		$this->_nsfw($post_id, $post);
+		$this->_gravatar($post_id, $post);
+		$this->_website($post_id, $post);
+		$this->_social($post_id, $post);
 
+	}
+
+	private function _gravatar($post_id, $post) {
+		$new = ( isset( $_POST['confluence-person-gravatar'] )  ? esc_attr($_POST['confluence-person-gravatar']) : '' );
+		$meta_key = 'confluence-person-gravatar';
+		$this->tasukete($post_id, $meta_key, $new);
+	}
+
+	private function _website($post_id, $post) {
+		$new = ( isset( $_POST['confluence-person-website'] )  ? esc_attr($_POST['confluence-person-website']) : '' );
+		$meta_key = 'confluence-person-website';
+		$this->tasukete($post_id, $meta_key, $new);
+	}
+
+	private function _social($post_id, $post) {
+		$new = ( isset( $_POST['confluence-person-social'] )  ? esc_attr($_POST['confluence-person-social']) : '' );
+		$meta_key = 'confluence-person-social';
+		$this->tasukete($post_id, $meta_key, $new);
+	}
+
+	/* private helpers */
+	/* tasukete - "save me" in japanese */
+	private function tasukete($post_id, $meta_key, $new) {
+		$meta_value = get_post_meta($post_id, $meta_key, true);
+		if ($new && '' == $meta_value) add_post_meta($post_id, $meta_key, $new, true);
+		elseif ($new && $new != $meta_value) update_post_meta($post_id, $meta_key, $new);
+		elseif ('' == $new && $meta_value) delete_post_meta($post_id, $meta_key, $meta_value);
 	}
 
 }
@@ -247,7 +276,8 @@ class_alias("Confluence_Interface", "C");
 function confluence_setup() {
 	$confluence = new Confluence();
 	$master = new Confluence_Episode_View();
-	$people_view = new Confluence_Episode_People_View();
+	$people_episode_view = new Confluence_Episode_People_View();
+	$people_view = new Confluence_People_View();
 }
 
 confluence_setup();
