@@ -939,12 +939,13 @@ a[href^="http://bit.ly/tntv-survey"] {
 .person-aside {
   float: left;
   padding: 0 15px 15px 0; }
-  .person-aside p {
+  .person-aside .meta li {
     margin: 0;
     padding: 0;
     text-transform: uppercase;
     font-size: 13px;
-    font-weight: bold; }
+    font-weight: bold;
+    text-align: center; }
 
 .person .edit {
   clear: both; }
