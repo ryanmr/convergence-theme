@@ -272,7 +272,7 @@ class Confluence_Interface {
 	}
 
 	public static function get_person_gravatar() {
-		$meta = get_post_meta( get_the_ID(), 'confluence-person-website', true);
+		$meta = get_post_meta( get_the_ID(), 'confluence-person-gravatar', true);
 		// use the generic blank default
 		// but we need to avoid this as much as possible
 		$default = get_template_directory_uri() . '/resources/images/unknown-avatar.png';
