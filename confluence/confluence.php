@@ -267,9 +267,30 @@ class Confluence_Episode_People_View {
 
 class Confluence_Interface {
 	public static function get_nsfw() {
-		$meta = get_post_meta( get_the_ID() , "confluence-nsfw", true);
+		$meta = get_post_meta( get_the_ID() , 'confluence-nsfw', true);
 		return $meta;
 	}
+
+	public static function get_person_gravatar() {
+		$meta = get_post_meta( get_the_ID(), 'confluence-gravatar', true);
+		// use the generic blank default
+		// but we need to avoid this as much as possible
+		$default = get_template_directory() . '/resources/images/unknown-avatar.png';
+		// get_avatar expects an email address
+		$return = get_avatar($meta, 150, $default, get_the_title());
+		return $return;
+	}
+
+	public static function get_person_website() {
+		$meta = get_post_meta( get_the_ID(), 'confluence-person-website', true);
+		return $meta;
+	}
+
+	public static function get_person_social() {
+		$meta = get_post_meta( get_the_ID(), 'confluence-person-social', true);
+		return $meta;
+	}
+
 }
 class_alias("Confluence_Interface", "C");
 
