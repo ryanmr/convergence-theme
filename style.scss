@@ -690,6 +690,29 @@ a[href^="http://bit.ly/tntv-survey"] {
 }
 
 /* === people === */
+
+/* new */
+.avatar img {
+  margin: 10px;
+  background: #999;
+  border: 1px solid #444;
+}
+
+.person-aside {
+  float: left;
+  padding: 10px 15px 15px 0;
+  p {
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+  }
+}
+
+.people .edit {
+  clear: both;
+}
+
+/* new above, below deprecated */
 #content.people {
   width: 880px;
   margin: auto;
