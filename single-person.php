@@ -29,8 +29,8 @@ get_header(); // Loads the header.php template. ?>
 										<?php if ($website != ""):?>
 											<p class="person-website"><a href="<?php echo esc_attr($website); ?>">Website</a></p>
 										<?php endif; ?>
-										<?php if ($social != ""):?>
-											<p class="person-social"><a href="<?php echo esc_attr($social); ?>">Social</a></p>
+										<?php if ($social_website != ""):?>
+											<p class="person-social"><a href="<?php echo esc_attr($social_website); ?>">Social</a></p>
 										<?php endif; ?>
 									</div>
 									

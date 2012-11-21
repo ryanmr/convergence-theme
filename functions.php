@@ -368,6 +368,7 @@ function convergence_feed_description_filter($content) {
  */
 function convergence_post_title_filter($title, $s = "", $l = "") {
   global $wp_query;
+  if ( is_singular('episode') ) return $title;
   $modified = $title;
   if (is_single()) {
     $post_id = $wp_query->post->ID;

@@ -275,7 +275,7 @@ class Confluence_Interface {
 		$meta = get_post_meta( get_the_ID(), 'confluence-gravatar', true);
 		// use the generic blank default
 		// but we need to avoid this as much as possible
-		$default = get_template_directory() . '/resources/images/unknown-avatar.png';
+		$default = get_template_directory_uri() . '/resources/images/unknown-avatar.png';
 		// get_avatar expects an email address
 		$return = get_avatar($meta, 150, $default, get_the_title());
 		return $return;
