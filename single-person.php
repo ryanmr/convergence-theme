@@ -25,14 +25,14 @@ get_header(); // Loads the header.php template. ?>
 										$website = C::get_person_website();
 										$social_website = C::get_person_social();
 									?>
-									<div class="meta">
+									<ul class="meta">
 										<?php if ($website != ""):?>
-											<p class="person-website"><a href="<?php echo esc_attr($website); ?>">Website</a></p>
+											<li class="person-website"><a href="<?php echo esc_attr($website); ?>">Website</a></li>
 										<?php endif; ?>
 										<?php if ($social_website != ""):?>
-											<p class="person-social"><a href="<?php echo esc_attr($social_website); ?>">Social</a></p>
+											<li class="person-social"><a href="<?php echo esc_attr($social_website); ?>">Social</a></li>
 										<?php endif; ?>
-									</div>
+									</ul>
 									
 								</div>
 
