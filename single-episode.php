@@ -72,6 +72,8 @@ get_header(); // Loads the header.php template. ?>
 						<div id="content-sidebar">
 							<?php get_template_part('episode-file'); ?>
 
+							<?php get_template_part('episode-people'); ?>
+
 							<?php get_template_part('episode-subscribe'); ?>
 								
 							<?php get_template_part('episode-share'); ?>
