@@ -959,45 +959,20 @@ a[href^="http://bit.ly/tntv-survey"] {
 .person .edit {
   clear: both; }
 
-/* new above, below deprecated */
-#content.people {
-  width: 880px;
-  margin: auto; }
+#content-sidebar .people {
+  overflow: hidden; }
 
-#content.people .person-avatar,
-.archive-people .person-avatar {
+.person.promo {
   float: left;
-  padding: 0 20px 0 20px; }
+  padding: 5px; }
+  .person.promo .name {
+    font-size: 11px;
+    text-align: center; }
+  .person.promo .avatar img {
+    border: 5px solid #fff;
+    box-shadow: 1px 1px 5px #666; }
 
-.people-box {
-  margin-top: 10px;
-  margin-bottom: 20px;
-  background-color: #ededed;
-  padding: 10px;
-  line-height: 22px;
-  color: #000;
-  clear: both;
-  overflow: hidden;
-  border-top: 1px solid #999;
-  border-left: 1px solid #999;
-  border-right: 1px solid #fff;
-  border-bottom: 1px solid #ccc; }
-
-.person-box {
-  float: left; }
-  .person-box img {
-    border: 3px solid white;
-    width: 90px;
-    heigh: 90px;
-    box-shadow: 0 3px 5px #999;
-    -moz-box-shadow: 0 3px 5px #999;
-    -webkit-box-shadow: 0 3px 5px #999; }
-  .person-box .person-name {
-    font-size: 12px;
-    color: #666; }
-    .person-box .person-name a:hover {
-      color: inherit; }
-
+/* new above, below deprecated */
 /* === archives === */
 #content.archive div.post, #content.archive div.episode,
 #content.latest div.post,
