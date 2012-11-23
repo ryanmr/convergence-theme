@@ -275,8 +275,9 @@ class Confluence_Interface {
 		$meta = get_post_meta( get_the_ID(), 'confluence-person-gravatar', true);
 		// use the generic blank default
 		// but we need to avoid this as much as possible
-		$default = get_template_directory_uri() . '/resources/images/unknown-avatar.png';
-		// get_avatar expects an email address
+		//$default = get_template_directory_uri() . '/resources/images/unknown-avatar.png';
+		$default = ''; // none right now
+		// get_avatar expects an email addresss
 		$return = get_avatar($meta, $size, $default, get_the_title());
 		return $return;
 	}
@@ -284,6 +285,22 @@ class Confluence_Interface {
 	public static function get_people() {
 		$meta = get_post_meta( get_the_ID(), 'confluence-people');
 		return $meta;
+	}
+
+	public static function get_people_ids() {
+		global $wpdb;
+		// use for post__in
+		$ids = array();
+		$people = self::get_people();
+
+		foreach ($people as $person_slug) {
+			$query = "SELECT ID FROM $wpdb->posts WHERE post_name='".mysql_real_escape_string($person_slug)."' AND post_type = 'person';";
+			//var_dump($query);
+			$id = $wpdb->get_var($query);
+			if ($id != null) $ids[] = $id;
+		}
+
+		return $ids;
 	}
 
 	public static function get_person_website() {
