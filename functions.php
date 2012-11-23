@@ -407,7 +407,7 @@ function convergence_feed_title_filter($content) {
 function convergence_new_episode($tolerance = 5) {
   $date = get_the_date();
   if ( strtotime($date) > strtotime("-$tolerance days") ) {
-    echo('<span class="new">New</span>');
+    echo(' <span class="new">New</span> ');
   }
 }
 
