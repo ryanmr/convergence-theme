@@ -189,7 +189,7 @@ class Confluence_Episode_View {
 
 	private function _fringe_url($post_id, $post) {
 		if (empty($_POST['confluence-fringe-url'])) return $post_id;
-		$new = ( isset( $_POST['confluence-fringe-url'] )  ? esc_attr($_POST['confluence-fringe-url']) : '' );
+		$new = ( isset( $_POST['confluence-fringe-url'] )  ? esc_url($_POST['confluence-fringe-url']) : '' );
 		$meta_key = 'confluence-fringe-url';
 		$this->tasukete($post_id, $meta_key, $new);		
 	}
