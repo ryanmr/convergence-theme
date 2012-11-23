@@ -4,7 +4,7 @@
 * Author: Ryan Rampersad
 * Author URI: http://ryanrampersad.com/
 * Description: The 2012 theme for The Nexus TV.
-* Version: 0.310
+* Version: 0.311
 */
 /* normalize.css */
 /* normalize.css 2011-11-04T15:38 UTC - http://github.com/necolas/normalize.css */
@@ -706,7 +706,7 @@ a[href^="http://bit.ly/tntv-survey"] {
     text-transform: uppercase;
     font-size: 16px; }
   #villain .show-date {
-    font-size: 15px; }
+    font-size: 14px; }
   #villain h2, #villain h3, #villain h4, #villain h5 {
     text-shadow: 1px 1px 15px #000; }
 
@@ -823,8 +823,7 @@ a[href^="http://bit.ly/tntv-survey"] {
       text-decoration: none;
       color: #000; }
   #content-container .show-episode {
-    font-size: 16px;
-    text-transform: uppercase; }
+    font-size: 15px; }
   #content-container .show-date, #content-container .show-episode {
     text-shadow: 1px 2px 2px #fff; }
   #content-container a {

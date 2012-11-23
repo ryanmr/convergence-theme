@@ -183,7 +183,15 @@ class Confluence_Episode_View {
 		if ( !wp_verify_nonce($_POST[$this->nonce_key], $this->nonce_path) ) return $post_id;
 
 		$this->_nsfw($post_id, $post);
+		$this->_fringe_url($post_id, $post);
 
+	}
+
+	private function _fringe_url($post_id, $post) {
+		if (empty($_POST['confluence-fringe-url'])) return $post_id;
+		$new = ( isset( $_POST['confluence-fringe-url'] )  ? esc_url($_POST['confluence-fringe-url']) : '' );
+		$meta_key = 'confluence-fringe-url';
+		$this->tasukete($post_id, $meta_key, $new);		
 	}
 
 	private function _nsfw($post_id, $post) {
@@ -267,6 +275,11 @@ class Confluence_Episode_People_View {
 class Confluence_Interface {
 	public static function get_nsfw() {
 		$meta = get_post_meta( get_the_ID() , 'confluence-nsfw', true);
+		return $meta;
+	}
+
+	public static function get_related_fringe_url() {
+		$meta = get_post_meta( get_the_ID(), 'confluence-fringe-url', true);
 		return $meta;
 	}
 

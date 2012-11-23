@@ -347,10 +347,15 @@ function convergence_feed_description_filter($content) {
   
   $nsfw = "";
   if ( C::get_nsfw() != "" ) {
-    $nsfw = "<p>This episode has been flagged as <strong>NSFW</strong>. Please be advised.</p>";
+    $nsfw = "<p>This episode has been flagged as <strong>NSFW</strong>. Please be advised.</p><br /><br />";
   }
 
-  $content = strip_tags($excerpt) . "<br /><br />" . $nsfw . "<br /><br />" . $content;
+  $fringe = C::get_related_fringe_url();
+  if ( $fringe != "" ) {
+    $fringe = '<p>This episode has a related <a href="'.$fringe.'">Fringe</a> episode. You should listen!</a></p>';
+  }
+
+  $content = strip_tags($excerpt) . "<br /><br />" . $nsfw . $content . $fringe;
   $extra = '<br /><br />Listen to more at <a href='.get_bloginfo('siteurl').'>The-Nexus.tv</a> and follow us on <a href="http://twitter.com/thenexustv">Twitter</a>.';
   
   $content = $content . $extra;
@@ -521,8 +526,13 @@ function convergence_episode() {
   $episode = "";
   $type = get_post_type();
   
-	if ( in_array($type, array('post', 'episode')) ) {
-    $episode = '<h3 class="show-episode">Episode <span class="number">#'.get_episode_number( get_permalink() ).'</span></h3>';
+	if ( $type == 'episode' ) {
+    $fringe = C::get_related_fringe_url();
+    if ($fringe != '') {
+      $fringe = '<span class="with-fringe"> with <a href="'.$fringe.'">Fringe</a></span>';
+    }
+
+    $episode = '<h3 class="show-episode">Episode <span class="number">#'.get_episode_number( get_permalink() ).'</span>'.$fringe.'</h3>';
   }
   
   echo apply_atomic_shortcode('episode', $episode);
