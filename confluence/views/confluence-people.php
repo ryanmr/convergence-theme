@@ -32,6 +32,6 @@ wp_nonce_field($nonce_path, $nonce_key);
 </div>
 <div>
 <pre>
-<?php print_r(get_post_meta($object->ID)); ?>
+<?php //print_r(get_post_meta($object->ID)); ?>
 </pre>
 </div>
