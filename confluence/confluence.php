@@ -271,14 +271,19 @@ class Confluence_Interface {
 		return $meta;
 	}
 
-	public static function get_person_gravatar() {
+	public static function get_person_gravatar($size = 150) {
 		$meta = get_post_meta( get_the_ID(), 'confluence-person-gravatar', true);
 		// use the generic blank default
 		// but we need to avoid this as much as possible
 		$default = get_template_directory_uri() . '/resources/images/unknown-avatar.png';
 		// get_avatar expects an email address
-		$return = get_avatar($meta, 150, $default, get_the_title());
+		$return = get_avatar($meta, $size, $default, get_the_title());
 		return $return;
+	}
+
+	public static function get_people() {
+		$meta = get_post_meta( get_the_ID(), 'confluence-people');
+		return $meta;
 	}
 
 	public static function get_person_website() {
