@@ -53,10 +53,7 @@ get_header(); // Loads the header.php template. ?>
                     <h4 class="show-date">
                     <?php echo get_the_date("F j") ?>
                     <?php
-                        $date = get_the_date();
-                        if ( strtotime($date) > strtotime("-5 days") ) {
-                            echo('<span class="new">New</span>');
-                        }
+                        convergence_new_episode(5);
                     ?>
                     </h5>
 

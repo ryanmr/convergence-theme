@@ -400,9 +400,15 @@ function convergence_feed_title_filter($content) {
   return $string;
 }
 
-function convergence_get_episode_people() {
-  $who = C::get_people();
-  
+/**
+ * Displays the new tag if the episode is old enough based on the tolerance.
+ * @param int $tolerance
+ */
+function convergence_new_episode($tolerance = 5) {
+  $date = get_the_date();
+  if ( strtotime($date) > strtotime("-$tolerance days") ) {
+    echo('<span class="new">New</span>');
+  }
 }
 
 /**

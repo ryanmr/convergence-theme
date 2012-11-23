@@ -16,11 +16,8 @@
   
   
   <h5 class="show-date">
-      <?php echo get_the_date("F j") ?>
-      <?php
-        if ( strtotime($date) > strtotime("-5 days") ) {
-            echo('<span class="new">New</span>');
-        }
+      <?php echo get_the_date("F j");
+      convergence_new_episode(7);
       ?>
   </h5>
   
