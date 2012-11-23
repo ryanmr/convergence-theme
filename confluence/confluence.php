@@ -252,9 +252,8 @@ class Confluence_Episode_People_View {
 
 		delete_post_meta($post_id, 'confluence-people'); // sadly, but needed
 		// always drop whatever we have right now
-		$people = $_POST['confluence-person']; // because people are singular when not together
+		$people = isset($_POST['confluence-person']) && !empty($_POST['confluence-person']) ? $_POST['confluence-person'] : array(); // because people are singular when not together
 
-		//var_dump( get_post_meta($post_id, 'confluence-people') ); exit();
 
 		foreach ($people as $person) {
 			$person = sanitize_title($person);

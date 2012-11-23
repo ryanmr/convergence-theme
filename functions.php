@@ -156,6 +156,7 @@ function convergence_admin_bar() {
   $wp_admin_bar->remove_menu('new-media', 'new-content');
   $wp_admin_bar->remove_menu('new-page', 'new-content');
   $wp_admin_bar->remove_menu('new-user', 'new-content');
+  $wp_admin_bar->remove_menu('new-person', 'new-content');
 }
 
 /**
