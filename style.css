@@ -4,7 +4,7 @@
 * Author: Ryan Rampersad
 * Author URI: http://ryanrampersad.com/
 * Description: The 2012 theme for The Nexus TV.
-* Version: 0.303
+* Version: 0.304
 */
 /* normalize.css */
 /* normalize.css 2011-11-04T15:38 UTC - http://github.com/necolas/normalize.css */
@@ -931,44 +931,48 @@ a[href^="http://bit.ly/tntv-survey"] {
   border: 1px solid #999; }
 
 /* === people === */
-#content.people {
-  width: 880px;
-  margin: auto; }
+/* new */
+.singular-person #content-wrapper {
+  width: 720px; }
 
-#content.people .person-avatar,
-.archive-people .person-avatar {
+.avatar img {
+  border: 5px solid #fff;
+  box-shadow: 1px 1px 5px #666; }
+
+.person-aside {
   float: left;
-  padding: 0 20px 0 20px; }
-
-.people-box {
-  margin-top: 10px;
-  margin-bottom: 20px;
-  background-color: #ededed;
-  padding: 10px;
-  line-height: 22px;
-  color: #000;
-  clear: both;
-  overflow: hidden;
-  border-top: 1px solid #999;
-  border-left: 1px solid #999;
-  border-right: 1px solid #fff;
-  border-bottom: 1px solid #ccc; }
-
-.person-box {
-  float: left; }
-  .person-box img {
-    border: 3px solid white;
-    width: 90px;
-    heigh: 90px;
-    box-shadow: 0 3px 5px #999;
-    -moz-box-shadow: 0 3px 5px #999;
-    -webkit-box-shadow: 0 3px 5px #999; }
-  .person-box .person-name {
+  padding: 0 15px 15px 5px; }
+  .person-aside .meta li {
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
     font-size: 12px;
-    color: #666; }
-    .person-box .person-name a:hover {
-      color: inherit; }
+    font-weight: bold; }
 
+#content .meta {
+  list-style: none;
+  padding-left: 0px; }
+
+#content .meta li {
+  padding-left: 0px; }
+
+.person .edit {
+  clear: both; }
+
+#content-sidebar .people {
+  overflow: hidden; }
+
+.person.promo {
+  float: left;
+  padding: 10px; }
+  .person.promo .name {
+    font-size: 11px;
+    text-align: center; }
+  .person.promo .avatar img {
+    border: 5px solid #fff;
+    box-shadow: 1px 1px 5px #666; }
+
+/* new above, below deprecated */
 /* === archives === */
 #content.archive div.post, #content.archive div.episode,
 #content.latest div.post,

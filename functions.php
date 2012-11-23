@@ -269,8 +269,6 @@ function convergence_add_image_size() {
 	update_option('thumbnail_size_w', 270);
 	update_option('thumbnail_size_h', 150);
 	update_option('thumbnail_crop', false);
-
-
 }
 
 /**
@@ -368,6 +366,7 @@ function convergence_feed_description_filter($content) {
  */
 function convergence_post_title_filter($title, $s = "", $l = "") {
   global $wp_query;
+  if ( !is_singular('episode') ) return $title;
   $modified = $title;
   if (is_single()) {
     $post_id = $wp_query->post->ID;
@@ -393,6 +392,11 @@ function convergence_feed_title_filter($content) {
   $category = $categories[0];
   $string = $category->cat_name . ' #' . get_episode_number($permalink) . ": " . $content;
   return $string;
+}
+
+function convergence_get_episode_people() {
+  $who = C::get_people();
+  
 }
 
 /**
@@ -505,6 +509,7 @@ function convergence_posted() {
   
   echo apply_atomic_shortcode('posted', $posted);
 }
+
 
 /**
  * Outputs, with formatting, the proper episode number.
