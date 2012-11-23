@@ -16,6 +16,13 @@ wp_nonce_field($nonce_path, $nonce_key);
 			</label>
 		</p>
 	</div>
+	
+	<div class="block">
+		<p>
+			<label title="Does episode have a Fringe associated with it?">Fringe URL: </label>
+			<input type="text" class="widefat" name="confluence-fringe-url" value="<?php echo esc_attr(get_post_meta($object->ID, 'confluence-fringe-url', true)); ?>" />
+		</p>
+	</div>
 
 </div>
 <div>
