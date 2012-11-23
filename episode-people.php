@@ -17,8 +17,8 @@
 				<?php while ( $query->have_posts() ): $query->the_post(); ?>
 					<div class="person promo">
 						
-						<div class="avatar"><?php echo C::get_person_gravatar(80); ?></div>
-						<div class="name"><?php the_title(); ?></div>
+						<div class="avatar"><a href="<?php the_permalink(); ?>"><?php echo C::get_person_gravatar(75); ?></a></div>
+						<div class="name"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></div>
 						
 					</div>
 				<?php endwhile; ?>

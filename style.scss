@@ -697,8 +697,8 @@ a[href^="http://bit.ly/tntv-survey"] {
 }
 
 .avatar img {
-  background: #999;
-  border: 1px solid #444; 
+    border: 5px solid #fff;
+    box-shadow: 1px 1px 5px #666;
 }
 
 .person-aside {
@@ -725,7 +725,7 @@ a[href^="http://bit.ly/tntv-survey"] {
 
 .person.promo {
   float: left;
-  padding: 5px;
+  padding: 10px;
   .name {
     font-size: 11px;
     text-align: center;
