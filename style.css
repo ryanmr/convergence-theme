@@ -4,7 +4,7 @@
 * Author: Ryan Rampersad
 * Author URI: http://ryanrampersad.com/
 * Description: The 2012 theme for The Nexus TV.
-* Version: 0.313
+* Version: 0.314
 */
 /* normalize.css */
 /* normalize.css 2011-11-04T15:38 UTC - http://github.com/necolas/normalize.css */
@@ -386,7 +386,7 @@ body {
 #primary-menu,
 #hero .hero-meta,
 #hero .hero-image,
-body.home .episode-block,
+.episode-block,
 #content.episode, #content-sidebar {
   display: inline;
   float: left;
@@ -710,7 +710,7 @@ a[href^="http://bit.ly/tntv-survey"] {
   #villain h2, #villain h3, #villain h4, #villain h5 {
     text-shadow: 1px 1px 15px #000; }
 
-.show-date .new {
+span.new {
   text-transform: uppercase;
   color: #f00;
   text-align: right; }
@@ -802,6 +802,29 @@ a[href^="http://bit.ly/tntv-survey"] {
     padding-left: 20px;
     font-size: 24px;
     width: 150px; }
+
+/* Shows template (page) */
+#content.shows {
+  overflow: hidden;
+  padding: 10px 0px; }
+  #content.shows .episode-block {
+    width: 300px;
+    height: 200px;
+    margin-top: 10px;
+    padding-bottom: 20px; }
+  #content.shows .episode-block img {
+    border: 6px solid #fff;
+    display: block;
+    margin-bottom: 5px;
+    box-shadow: 0 3px 5px #999;
+    -moz-box-shadow: 0 3px 5px #999;
+    -webkit-box-shadow: 0 3px 5px #999; }
+  #content.shows .episode-block a:hover img {
+    box-shadow: 0 3px 5px #666;
+    -moz-box-shadow: 0 3px 5px #666;
+    -webkit-box-shadow: 0 3px 5px #666; }
+  #content.shows .meta {
+    text-align: center; }
 
 /* === singular view === */
 #content-container {
