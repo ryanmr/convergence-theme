@@ -12,7 +12,7 @@ get_header(); // Loads the header.php template. ?>
         <div id="content-wrapper">
             <div id="content" class="hfeed content">
     
-                <h1 class="show-title"><a href="<?php echo get_permalink() ?>"><?php the_title(); ?></a></h1>            
+                <h1><a href="<?php echo get_permalink() ?>"><?php the_title(); ?></a></h1>            
                 <div id="post-<?php the_ID(); ?>" class="<?php hybrid_entry_class(); ?>">
 
 				<div class="entry-content">
@@ -26,8 +26,6 @@ get_header(); // Loads the header.php template. ?>
 			</div><!-- .hentry -->
 
 			<?php do_atomic( 'after_singular' ); // hybrid_after_singular ?>
-
-			<?php comments_template( '/comments.php', true ); // Loads the comments.php template ?>
 
             </div><!-- .content .hfeed -->
             
