@@ -37,15 +37,17 @@ get_header(); // Loads the header.php template. ?>
 
 			<div id="post-<?php the_ID(); ?>" class="episode-block <?php hybrid_entry_class() ?>">
 
-			  <?php get_the_image(array('size'=>'thumbnail')); ?>
-			  
-			  <div class="meta">
-				  <h2 class="show-name">
-				    <span class="name"><?php echo $category->name ?></span>
-				  </h2>
-				  <h4 title="View the latest episode of <?php echo $category->name; ?>">		<span><?php convergence_new_episode(7); ?><span> Latest &raquo;
-				  </h3>
-			  </div>
+				<div class="block">
+				  <?php get_the_image(array('size'=>'thumbnail')); ?>
+				  
+				  <div class="meta">
+					  <h2 class="show-name">
+					    <span class="name"><?php echo $category->name ?></span>
+					  </h2>
+					  <h4 title="View the latest episode of <?php echo $category->name; ?>">		<span><?php convergence_new_episode(7); ?><span> Latest &raquo;
+					  </h3>
+				  </div>
+				</div>
 			  
 			</div><!-- .episode -->
 
