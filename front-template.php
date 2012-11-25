@@ -53,7 +53,7 @@ get_header(); // Loads the header.php template. ?>
                     <h4 class="show-date">
                     <?php echo get_the_date("F j") ?>
                     <?php
-                        convergence_new_episode(5);
+                        convergence_new_episode(7);
                     ?>
                     </h5>
 
