@@ -540,6 +540,7 @@ function _human_length($length) {
   /* ignore seconds */
   for ($i = 0; $i < 2; $i++) {
     $value = (int)$parts[$i];
+    if ( $value == 0 ) continue;
     $word = ( $value == 1 ? $times[$i][0] : $times[$i][1] );
     $output = $output . ($value . ' ' . $word . ' ');
   }
