@@ -815,6 +815,7 @@ span.new {
   #content.shows .episode-block img {
     border: 6px solid #fff;
     display: block;
+    margin: auto;
     margin-bottom: 5px;
     box-shadow: 0 3px 5px #999;
     -moz-box-shadow: 0 3px 5px #999;

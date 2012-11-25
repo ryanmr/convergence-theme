@@ -531,6 +531,7 @@ span.new {
   .episode-block img {
     border: 6px solid #fff;
     display: block;
+    margin: auto;
     margin-bottom: 5px;
 
     box-shadow: 0 3px 5px #999;
@@ -543,7 +544,7 @@ span.new {
     -moz-box-shadow: 0 3px 5px #666;
     -webkit-box-shadow: 0 3px 5px #666;
   }
-
+  
   .meta {
     text-align: center;
   }

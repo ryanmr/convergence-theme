@@ -32,20 +32,21 @@ get_header(); // Loads the header.php template. ?>
 			$query->query(array('posts_per_page' => 1, 'cat' => $category->term_id));
 			if ( $query->have_posts() ): $query->the_post();
 			// the loop is open
-			//var_dump($category);
 		?>
 
 			<div id="post-<?php the_ID(); ?>" class="episode-block <?php hybrid_entry_class() ?>">
 
-			  <?php get_the_image(array('size'=>'thumbnail')); ?>
-			  
-			  <div class="meta">
-				  <h2 class="show-name">
-				    <span class="name"><?php echo $category->name ?></span>
-				  </h2>
-				  <h4 title="View the latest episode of <?php echo $category->name; ?>">		<span><?php convergence_new_episode(7); ?><span> Latest &raquo;
-				  </h3>
-			  </div>
+				<div class="block">
+				  <a href="<?php echo get_category_link($category->term_id); ?>"><?php get_the_image(array('size'=>'thumbnail', 'link_to_post' => false)); ?></a>
+				  
+				  <div class="meta">
+					  <h2 class="show-name">
+					    <span class="name"><?php echo $category->name ?></span>
+					  </h2>
+					  <h4 title="View the latest episode of <?php echo $category->name; ?>">		<span><?php convergence_new_episode(7); ?><span> <a href="<?php echo get_permalink(); ?>" title="<?php echo get_the_title(); ?>">Latest &raquo;</a>
+					  </h3>
+				  </div>
+				</div>
 			  
 			</div><!-- .episode -->
 
