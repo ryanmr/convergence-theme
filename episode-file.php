@@ -4,6 +4,8 @@
 				if ( $content = get_the_powerpress_content() ) {
 						echo '<h3>Listen</h3>';
 						echo $content;
+						$values = powerpress_get_enclosure_data(get_the_ID());
+						
 				} else {
 						?>
 						<!-- files are not assigned -->
