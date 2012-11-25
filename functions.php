@@ -522,6 +522,40 @@ function convergence_posted() {
   echo apply_atomic_shortcode('posted', $posted);
 }
 
+function convergence_display_size($values) {
+  if (!$values || !isset($values['size'])) return '';
+  return _human_filesize($values['size']);
+}
+
+function convergence_display_length($values) {
+  if (!$values || !isset($values['duration'])) return '';
+  return _human_length($values['duration']);
+}
+
+function _human_length($length) {
+  /* this works for standard powerpress times 01:23:45 | hour | minute | second */
+  $parts = explode(':', $length);
+  $times = array( array('hour', 'hours'), array('minute', 'minutes'), array('second, seconds') );
+  $output = '';
+  /* ignore seconds */
+  for ($i = 0; $i < 2; $i++) {
+    $value = (int)$parts[$i];
+    $word = ( $value == 1 ? $times[$i][0] : $times[$i][1] );
+    $output = $output . ($value . ' ' . $word . ' ');
+  }
+
+  return trim($output);
+}
+
+function _human_filesize($size) {
+  $base = 1024;
+  $sizes = array('B', 'KB', 'MB', 'GB', 'TB');
+  $place = 0;
+  for (; $size > $base; $place++) { 
+    $size /= $base;
+  }
+  return round($size, 2) . ' ' . $sizes[$place];
+}
 
 /**
  * Outputs, with formatting, the proper episode number.
