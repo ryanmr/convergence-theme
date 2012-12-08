@@ -114,6 +114,8 @@ function convergence_theme_setup_theme() {
 
   convergence_remove_header_meta();
 
+  convergence_jetpack_alter();
+
 }
 
 /**
@@ -259,6 +261,11 @@ function convergence_jetpack_width() {
 function convergence_jetpack_height() {
   return 85;
 }
+
+/**
+ * Sets Jetpack to use reasonable wide images for Open Graph uses.
+ * @return void
+ */
 function convergence_jetpack_alter() {
   add_filter('jetpack_open_graph_image_width', 'convergence_jetpack_width');
   add_filter('jetpack_open_graph_image_height', 'convergence_jetpack_height');
