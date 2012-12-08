@@ -4,7 +4,7 @@
 * Author: Ryan Rampersad
 * Author URI: http://ryanrampersad.com/
 * Description: The 2012 theme for The Nexus TV.
-* Version: 0.314
+* Version: 0.315
 */
 
 /* normalize.css */
@@ -591,6 +591,10 @@ span.new {
   a:hover {
     color: #333;
     text-decoration: underline;
+  }
+
+  span.new {
+    font-weight: bold;
   }
 
 }
