@@ -252,6 +252,18 @@ function convergence_facebook_admin_meta_tag() {
   echo '<!-- facebook --><meta property="fb:admins" content="793140430" />';
 }
 
+
+function convergence_jetpack_width() {
+  return 150;
+}
+function convergence_jetpack_height() {
+  return 85;
+}
+function convergence_jetpack_alter() {
+  add_filter('jetpack_open_graph_image_width', 'convergence_jetpack_width');
+  add_filter('jetpack_open_graph_image_height', 'convergence_jetpack_height');
+}
+
 /**
  * Outputs a Google Webmaster meta tag into the header.
  * @return void
