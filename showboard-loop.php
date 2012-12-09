@@ -8,7 +8,7 @@
     <img src="<?php echo $image_url; ?>" alt="<?php echo $image['alt']; ?>" class="<?php echo $image['class']; ?>" />
   </a>
   
-  <h3 class="show-title"><a href="<?php echo get_permalink() ?>">
+  <h3 class="show-title"><a href="<?php echo get_permalink(); ?>">
       <?php the_title(); ?>
   </a></h3>
   
