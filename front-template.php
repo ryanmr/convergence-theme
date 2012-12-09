@@ -28,8 +28,9 @@ get_header(); // Loads the header.php template. ?>
 ?>
         <?php
             $f_img = get_the_image(array('size'=>'large', 'link_to_post'=>false, 'format'=>'array' ));
+            $f_img = convergence_villain_photon_image($f_img['url']);
         ?>
-        <div class="feature" style="background-image: url('<?php echo $f_img['url']; ?>');">
+        <div class="feature" style="background-image: url('<?php echo $f_img; ?>');">
             <a class="cover" href="<?php echo get_permalink() ?>">
                 <div class="mask">
                     <?php

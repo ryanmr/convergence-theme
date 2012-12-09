@@ -254,12 +254,35 @@ function convergence_facebook_admin_meta_tag() {
   echo '<!-- facebook --><meta property="fb:admins" content="793140430" />';
 }
 
+/**
+ * Returns true if Photon from Jetpack is supported.
+ * @return bool
+ */
+function convergence_photon_support() {
+  return class_exists( 'Jetpack' ) &&
+         method_exists( 'Jetpack', 'get_active_modules' ) && 
+         in_array( 'photon', Jetpack::get_active_modules() ) &&
+         function_exists( 'jetpack_photon_url' );
+}
+
+/**
+ * Returns a Photon based image Photon if Jetpack is enabled and Photon support is on.
+ * @param $url the URL of the image to be used in Photon
+ * @return bool
+ */
+function convergence_villain_photon_image($url) {
+  $photon = convergence_photon_support();
+  if (!$photon) return $url;
+  $url = substr($url, 7); // removes the http:// that photon breaks on
+  $path = "http://i0.wp.com/$url";
+  return $path;
+}
 
 function convergence_jetpack_width() {
-  return 150;
+  return 360;
 }
 function convergence_jetpack_height() {
-  return 85;
+  return 200;
 }
 
 /**
