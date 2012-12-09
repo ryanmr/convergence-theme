@@ -21,7 +21,13 @@ get_header(); // Loads the header.php template. ?>
 								</div>
 								
 								<div class="hero-image">
-										<?php get_the_image( array('size' => 'medium') ); ?>
+								  <?php
+								    $image = get_the_image(array('size'=>'thumbnail', 'link_to_post'=>false, 'format'=>'array' ));
+								    $image_url = convergence_villain_photon_image($image['url']);
+								  ?>
+								  <a href="<?php echo get_permalink(); ?>" title="<?php echo $image['alt']; ?>">
+								    <img src="<?php echo $image_url; ?>" alt="<?php echo $image['alt']; ?>" class="<?php echo $image['class']; ?>" />
+								  </a>
 								</div>
 								
 						</div>
