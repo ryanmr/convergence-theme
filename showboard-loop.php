@@ -1,6 +1,12 @@
 <div id="post-<?php the_ID(); ?>" class="episode-block <?php hybrid_entry_class() ?>">
 
-  <?php get_the_image(array('size'=>'thumbnail')); ?>
+  <?php
+    $image = get_the_image(array('size'=>'thumbnail', 'link_to_post'=>false, 'format'=>'array' ));
+    $image_url = convergence_villain_photon_image($image['url']);
+  ?>
+  <a href="<?php echo get_permalink(); ?>" title="<?php echo $image['alt']; ?>">
+    <img src="<?php echo $image_url; ?>" alt="<?php echo $image['alt']; ?>" class="<?php echo $image['class']; ?>" />
+  </a>
   
   <h3 class="show-title"><a href="<?php echo get_permalink() ?>">
       <?php the_title(); ?>
