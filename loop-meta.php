@@ -99,6 +99,20 @@
 
 		</div><!-- .loop-meta -->
 
+	<?php elseif ( is_post_type_archive('person') ) : ?>
+
+		<?php $post_type = get_post_type_object( get_query_var( 'post_type' ) ); ?>
+
+		<div class="loop-meta archive-info">
+
+			<h1 class="loop-title archive-title"><?php post_type_archive_title(); ?></h1>
+
+			<div class="loop-description archive-description">
+				Here are the people that make The Nexus incredible. Meet them.
+			</div><!-- .loop-description -->
+
+		</div><!-- .loop-meta -->
+
 	<?php elseif ( is_post_type_archive() ) : ?>
 
 		<?php $post_type = get_post_type_object( get_query_var( 'post_type' ) ); ?>

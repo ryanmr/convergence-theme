@@ -100,7 +100,7 @@ get_header(); // Loads the header.php template. ?>
                 <?php
                     $showboard_bottom_arguments = array(
                         "post_type" => "episode",
-                        "posts_per_page" => 2,
+                        "posts_per_page" => 3,
                         'category_name' => 'tf'
                     );
                     $showboard_bottom_arguments['tax_query'] = array(convergence_exclude_episode_attributes('hidden'));
@@ -112,7 +112,11 @@ get_header(); // Loads the header.php template. ?>
                         <?php get_template_part('showboard-loop'); ?>
                         <?php endwhile; ?>
 
-                        <div class="episode-block overflow">
+
+                        <div class="end-cap all-shows">
+                            <h3><a href="<?php echo get_bloginfo('site_url'); ?>/shows">&laquo; All Shows</a></h3>
+                        </div>
+                        <div class="end-cap more-episodes">
                             <h3><a href="<?php echo get_bloginfo('site_url'); ?>/latest">More Episodes &raquo;</a></h3>
                         </div>
 
