@@ -108,7 +108,14 @@ class Confluence_People_View {
 		$this->_gravatar($post_id, $post);
 		$this->_website($post_id, $post);
 		$this->_social($post_id, $post);
+		$this->_host($post_id, $post);
 
+	}
+
+	private function _host($post_id, $post) {
+		$new = ( isset( $_POST['confluence-person-host'] )  ? '1' : '0' );
+		$meta_key = 'confluence-person-host';
+		update_post_meta($post_id, $meta_key, $new);
 	}
 
 	private function _gravatar($post_id, $post) {
@@ -278,6 +285,11 @@ class Confluence_Interface {
 		return $meta;
 	}
 
+	public static function get_person_host() {
+		$meta = get_post_meta( get_the_ID() , 'confluence-person-host', true);
+		return $meta;
+	}
+
 	public static function get_related_fringe_url() {
 		$meta = get_post_meta( get_the_ID(), 'confluence-fringe-url', true);
 		return $meta;
@@ -307,7 +319,6 @@ class Confluence_Interface {
 
 		foreach ($people as $person_slug) {
 			$query = "SELECT ID FROM $wpdb->posts WHERE post_name='".mysql_real_escape_string($person_slug)."' AND post_type = 'person';";
-			//var_dump($query);
 			$id = $wpdb->get_var($query);
 			if ($id != null) $ids[] = $id;
 		}
