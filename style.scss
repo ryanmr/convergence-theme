@@ -514,8 +514,9 @@ span.new {
   }
 
   .end-cap {
+    padding-top: 25px;
     width: 480px;
-    font-size: 24px;
+    font-size: 18px;
     float: left;
     &.all-shows {text-align: left;}
     &.more-episodes {text-align: right;}

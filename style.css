@@ -803,8 +803,9 @@ span.new {
     font-size: 24px;
     width: 150px; }
   #bottom-shelf .end-cap {
+    padding-top: 25px;
     width: 480px;
-    font-size: 24px;
+    font-size: 18px;
     float: left; }
     #bottom-shelf .end-cap.all-shows {
       text-align: left; }
