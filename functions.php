@@ -79,6 +79,7 @@ function convergence_theme_setup_theme() {
 	add_action( "{$prefix}_before_comment", 'hybrid_comment_meta' );
   
   /* Add the custom post type 'episode' back into category pages. */
+  add_action('pre_get_posts', 'convergence_person_post_type');
 	add_action('pre_get_posts', 'convergence_category_post_types');
   add_action('pre_get_posts', 'convergence_exclude_episode_attribute_hidden');
 
@@ -318,6 +319,36 @@ function convergence_exclude_episode_attributes($terms) {
 }
 
 /**
+ * Alters queries for Person CPT so that hosts are ordered first in Person/Archive.
+ * @param query $query 
+ * @return $query
+ */
+function convergence_person_post_type($query) {
+  if ( $query->is_post_type_archive('person') && !is_admin() ) {
+
+    $query->set('posts_per_page', 12);
+    $query->set('orderby', 'title');
+    $query->set('order', 'ASC');
+    $query->set('meta_key', 'confluence-person-host');
+
+    add_filter('posts_orderby', 'convergence_person_post_type_orderby');
+  }
+  return $query;
+}
+
+/**
+ * Alters the OrderBy parameter of the query so both title and meta_value (host status) can be sorted on.
+ * @param query $orderyby 
+ * @return $orderby
+ */
+function convergence_person_post_type_orderby($orderby) {
+  global $wpdb;
+  $orderby = $wpdb->postmeta . '.meta_value DESC, ' . $orderby;
+  return $orderby;
+}
+
+
+/**
  * Allows custom post type 'episode' to be seen in category page listings.
  * @param query $query 
  * @return $query
@@ -365,7 +396,7 @@ function convergence_feed_delay($where) {
 
 /**
  * Filter. Adds a call to action to the end of all Feed items.
- * @param type $content 
+ * @param type $content
  * @return type
  */
 function convergence_feed_description_filter($content) {

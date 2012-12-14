@@ -30,22 +30,9 @@ get_header(); // Loads the header.php template. ?>
 
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-			<div id="post-<?php the_ID(); ?>" class="<?php hybrid_entry_class(); ?>">
+			<?php get_template_part('loop-archive'); ?>
 
-				<?php get_the_image( array( 'size' => 'thumbnail' ) ); ?>
-
-				<?php do_atomic( 'before_entry' ); // hybrid_before_entry ?>
-                
-				<div class="entry-summary">
-					<?php the_excerpt(); ?>
-                    
-				</div><!-- .entry-summary -->
-
-				<?php do_atomic( 'after_entry' ); // hybrid_after_entry ?>
-
-			</div><!-- .hentry -->
-
-			<?php endwhile; ?>
+		<?php endwhile; ?>
 
 		<?php else: ?>
 
