@@ -762,7 +762,7 @@ span.new {
 /* === Home Template === */
 #showboard .episode-block {
   width: 300px;
-  height: 225px;
+  height: 215px;
   margin-top: 10px;
   padding-bottom: 20px; }
 #showboard .episode-block img {
@@ -802,6 +802,14 @@ span.new {
     padding-left: 20px;
     font-size: 24px;
     width: 150px; }
+  #bottom-shelf .end-cap {
+    width: 480px;
+    font-size: 24px;
+    float: left; }
+    #bottom-shelf .end-cap.all-shows {
+      text-align: left; }
+    #bottom-shelf .end-cap.more-episodes {
+      text-align: right; }
 
 /* Shows template (page) */
 #content.shows {
