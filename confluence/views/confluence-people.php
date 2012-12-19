@@ -34,7 +34,7 @@ wp_nonce_field($nonce_path, $nonce_key);
 		<p>
 			<label>Host</em>: 
 				<input type="hidden" name="confluence-person-host" value="0" /><!-- trickery -->
-				<input type="checkbox" name="confluence-person-host" <?php checked(get_post_meta($object->ID, 'confluence-person-host', true)); ?> value="<?php echo esc_attr( get_post_meta($object->ID, 'confluence-person-host', true) ); ?>" />
+				<input type="checkbox" name="confluence-person-host" <?php checked(get_post_meta($object->ID, 'confluence-person-host', true), '1'); ?> value="1" />
 			</label>
 		</p>
 	</div>
@@ -42,6 +42,6 @@ wp_nonce_field($nonce_path, $nonce_key);
 </div>
 <div>
 <pre>
-<?php print_r(get_post_meta($object->ID)); ?>
+<?php //print_r(get_post_meta($object->ID)); ?>
 </pre>
 </div>

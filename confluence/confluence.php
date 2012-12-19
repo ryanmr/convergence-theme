@@ -113,9 +113,9 @@ class Confluence_People_View {
 	}
 
 	private function _host($post_id, $post) {
-		$new = ( isset( $_POST['confluence-person-host'] )  ? '1' : '0' );
+		$new = (( isset( $_POST['confluence-person-host'] ) && $_POST['confluence-person-host'] == 1 )  ? '1' : '0' );
 		$meta_key = 'confluence-person-host';
-		update_post_meta($post_id, $meta_key, $new);
+		$v = update_post_meta($post_id, $meta_key, $new);
 	}
 
 	private function _gravatar($post_id, $post) {
