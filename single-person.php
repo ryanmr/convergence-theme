@@ -45,6 +45,41 @@ get_header(); // Loads the header.php template. ?>
 
 								</div><!-- .entry-content -->
 
+								<div class="person-listings">
+
+									<?php
+										$qpost = $post;
+										$paged = (get_query_var('page')) ? get_query_var('page') : 1;
+										$listing_args = array(
+											'post_type' => 'episode',
+											'posts_per_page' => 25,
+											'paged' => $paged,
+											'meta_value' => $post->post_name
+										);
+										$episodes = query_posts($listing_args);
+										if ( have_posts() ):
+									?>
+									<h3>Episodes with <?php echo get_the_title(); ?></h3>
+									<ul>
+									<?php
+										while ( have_posts() ) : the_post();
+									?>
+
+									<div class="episode-listing">
+										<li><a href="<?php the_permalink(); ?>"><?php echo convergence_episode_title($post); ?></a></li>
+									</div>
+
+									<?php
+										endwhile;
+										add_filter('loop_pagination', 'convergence_navigation_person_rewrite');
+										get_template_part('loop', 'nav');
+										endif;
+										wp_reset_query();
+										wp_reset_postdata();
+									?>
+									</ul>
+								</div>
+
 								<?php do_atomic( 'after_entry' ); ?>
 
 							</div><!-- .hentry -->
