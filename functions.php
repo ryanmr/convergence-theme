@@ -116,7 +116,23 @@ function convergence_theme_setup_theme() {
   convergence_remove_header_meta();
 
   convergence_jetpack_alter();
+}
 
+/**
+ * Rewrites the links output on /person/{person}/# so that they work properly.
+ * 
+ * Blame Hybrid.
+ * 
+ * @return clean string for /person/page links
+ */
+function convergence_navigation_person_rewrite($content) {
+  $content = str_replace(array('page/1/', '/1/', 'page/'), '', $content);
+  return $content;
+}
+
+function convergence_navigation_person_args($args) {
+  $args['base'] = '';
+  return $args;
 }
 
 /**
@@ -441,6 +457,22 @@ function convergence_post_title_filter($title, $s = "", $l = "") {
     $category = $categories[0];
     $modified = $category->cat_name . " #" . $episode . ": " . $title . " &raquo; " . get_bloginfo('sitename');
   }
+  return $modified;
+}
+
+/**
+ * Gets the proper name for an episode.
+ * @param object Post object
+ */
+function convergence_episode_title($post_object) {
+  global $wp_query;
+  $post_id = $post_object->ID;
+  $permalink = get_permalink($post_id);
+  $episode = get_episode_number($permalink);
+  $categories = get_the_category($post_id);
+  $category = $categories[0];
+  $title = get_the_title($post_id);
+  $modified = $category->cat_name . " #" . $episode . ": " . $title;
   return $modified;
 }
 
