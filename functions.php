@@ -126,7 +126,13 @@ function convergence_theme_setup_theme() {
  * @return clean string for /person/page links
  */
 function convergence_navigation_person_rewrite($content) {
-  return str_replace('page/', '', $content);
+  $content = str_replace(array('page/1/', '/1/', 'page/'), '', $content);
+  return $content;
+}
+
+function convergence_navigation_person_args($args) {
+  $args['base'] = '';
+  return $args;
 }
 
 /**
