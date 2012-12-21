@@ -105,6 +105,9 @@ function convergence_theme_setup_theme() {
 
   add_action('wp_print_styles', 'convergence_enqueue_styles');
 
+  add_filter( 'redirect_canonical', 'convergence_redirect_canonical' );
+
+
   if ( is_front_page() ) {
     remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
   }
@@ -116,6 +119,7 @@ function convergence_theme_setup_theme() {
   convergence_remove_header_meta();
 
   convergence_jetpack_alter();
+
 
 }
 
@@ -348,6 +352,16 @@ function convergence_person_post_type_orderby($orderby) {
 }
 
 
+
+function convergence_redirect_canonical( $redirect_url ) {
+
+  if ( is_singular( 'person' ) )
+    $redirect_url = false;
+
+  return $redirect_url;
+}
+
+
 /**
  * Allows custom post type 'episode' to be seen in category page listings.
  * @param query $query 
@@ -441,6 +455,22 @@ function convergence_post_title_filter($title, $s = "", $l = "") {
     $category = $categories[0];
     $modified = $category->cat_name . " #" . $episode . ": " . $title . " &raquo; " . get_bloginfo('sitename');
   }
+  return $modified;
+}
+
+/**
+ * Gets the proper name for an episode.
+ * @param object Post object
+ */
+function convergence_episode_title($post_object) {
+  global $wp_query;
+  $post_id = $post_object->ID;
+  $permalink = get_permalink($post_id);
+  $episode = get_episode_number($permalink);
+  $categories = get_the_category($post_id);
+  $category = $categories[0];
+  $title = get_the_title($post_id);
+  $modified = $category->cat_name . " #" . $episode . ": " . $title;
   return $modified;
 }
 
