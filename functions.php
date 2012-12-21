@@ -124,23 +124,6 @@ function convergence_theme_setup_theme() {
 }
 
 /**
- * Rewrites the links output on /person/{person}/# so that they work properly.
- * 
- * Blame Hybrid.
- * 
- * @return clean string for /person/page links
- */
-function convergence_navigation_person_rewrite($content) {
-  $content = str_replace(array('page/1/', '/1/', 'page/'), '', $content);
-  return $content;
-}
-
-function convergence_navigation_person_args($args) {
-  $args['base'] = '';
-  return $args;
-}
-
-/**
  * Enqueues global styles.
  * @return void
  */
