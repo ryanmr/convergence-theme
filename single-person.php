@@ -51,7 +51,7 @@ get_header(); // Loads the header.php template. ?>
 										$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 										$episode_listing_args = array(
 											'post_type' => 'episode',
-											'posts_per_page' => 3,
+											'posts_per_page' => 20,
 											'paged' => $paged,
 											'meta_value' => $post->post_name
 										);
