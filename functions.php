@@ -105,6 +105,9 @@ function convergence_theme_setup_theme() {
 
   add_action('wp_print_styles', 'convergence_enqueue_styles');
 
+  add_filter( 'redirect_canonical', 'convergence_redirect_canonical' );
+
+
   if ( is_front_page() ) {
     remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
   }
@@ -116,6 +119,8 @@ function convergence_theme_setup_theme() {
   convergence_remove_header_meta();
 
   convergence_jetpack_alter();
+
+
 }
 
 /**
@@ -361,6 +366,16 @@ function convergence_person_post_type_orderby($orderby) {
   global $wpdb;
   $orderby = $wpdb->postmeta . '.meta_value DESC, ' . $orderby;
   return $orderby;
+}
+
+
+
+function convergence_redirect_canonical( $redirect_url ) {
+
+  if ( is_singular( 'person' ) )
+    $redirect_url = false;
+
+  return $redirect_url;
 }
 
 

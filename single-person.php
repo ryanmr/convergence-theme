@@ -48,10 +48,10 @@ get_header(); // Loads the header.php template. ?>
 								<div class="person-listings">
 
 									<?php
-										$paged = (get_query_var('page')) ? get_query_var('page') : 1;
+										$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 										$episode_listing_args = array(
 											'post_type' => 'episode',
-											'posts_per_page' => 15,
+											'posts_per_page' => 3,
 											'paged' => $paged,
 											'meta_value' => $post->post_name
 										);
@@ -70,9 +70,6 @@ get_header(); // Loads the header.php template. ?>
 
 									<?php
 										endwhile;
-										// hax - please fix
-										add_filter('loop_pagination', 'convergence_navigation_person_rewrite');
-										add_filter('loop_pagination', 'convergence_navigation_person_args');
 										get_template_part('loop', 'nav');
 										endif;
 										wp_reset_query();
