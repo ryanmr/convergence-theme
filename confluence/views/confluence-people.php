@@ -37,6 +37,8 @@ wp_nonce_field($nonce_path, $nonce_key);
 				<input type="checkbox" name="confluence-person-host" <?php checked(get_post_meta($object->ID, 'confluence-person-host', true), '1'); ?> value="1" />
 			</label>
 		</p>
+		
+		<p>If there is no available Gravatar for this person, do <em>not</em> set an email-address for the gravatar.</p>
 	</div>
 
 </div>

@@ -41,6 +41,9 @@
 				
 			</div>
 			<br class="clearfix" />
+			
+			<?php if ( sizeof($no_gravatar) > 0 ): ?>
+			
 			<div class="auxillary-people">
 				<?php
 					/*
@@ -56,6 +59,8 @@
 				
 				<p>Along with <?php echo _implode_and($alterted); ?>.</p>
 			</div>
+			
+			<?php endif; ?>
 			
 	</div>
 	

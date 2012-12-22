@@ -103,7 +103,7 @@ class Confluence_People_View {
 	public function save($post_id, $post) {
 
 		if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return $post_id; 
-		if ( !wp_verify_nonce($_POST[$this->nonce_key], $this->nonce_path) ) return $post_id;
+		if ( !isset($_POST[$this->nonce_key]) || !wp_verify_nonce($_POST[$this->nonce_key], $this->nonce_path) ) return $post_id;
 
 		$this->_gravatar($post_id, $post);
 		$this->_website($post_id, $post);
@@ -187,7 +187,7 @@ class Confluence_Episode_View {
 	public function save($post_id, $post) {
 
 		if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return $post_id; 
-		if ( !wp_verify_nonce($_POST[$this->nonce_key], $this->nonce_path) ) return $post_id;
+		if ( !isset($_POST[$this->nonce_key]) || !wp_verify_nonce($_POST[$this->nonce_key], $this->nonce_path) ) return $post_id;
 
 		$this->_nsfw($post_id, $post);
 		$this->_fringe_url($post_id, $post);
@@ -263,7 +263,7 @@ class Confluence_Episode_People_View {
 	public function save($post_id, $post) {
 
 		if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return $post_id; 
-		if ( !wp_verify_nonce($_POST[$this->nonce_key], $this->nonce_path) ) return $post_id;
+		if ( !isset($_POST[$this->nonce_key]) || !wp_verify_nonce($_POST[$this->nonce_key], $this->nonce_path) ) return $post_id;
 
 		delete_post_meta($post_id, 'confluence-people'); // sadly, but needed
 		// always drop whatever we have right now
