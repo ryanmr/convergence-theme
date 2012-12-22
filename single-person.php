@@ -44,8 +44,8 @@ get_header(); // Loads the header.php template. ?>
 									<div class="edit"><?php edit_post_link( 'Edit Person' ); ?></div>
 
 								</div><!-- .entry-content -->
-
-								<div class="person-listings">
+								
+								<div class="episode-listings">
 
 									<?php
 										$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;

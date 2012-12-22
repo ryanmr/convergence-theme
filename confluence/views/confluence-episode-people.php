@@ -18,7 +18,18 @@ wp_nonce_field($nonce_path, $nonce_key);
 
 				<?php
 					$people = get_post_meta($object->ID, 'confluence-people');
+					$once = array();
+					$removed = 0;
+					/*
+						On each iteration, only output the Person meta entry box if it's not already there.
+						This prevents duplicates.
+					*/
 					foreach ( $people as $person ):
+						if ( in_array($person, $once) ) {
+							$removed++;
+							continue;
+						}
+						$once[] = $person;
 				?>
 					<div class="person-input">
 						<p style="text-align: right;">
@@ -27,6 +38,10 @@ wp_nonce_field($nonce_path, $nonce_key);
 						</p>
 					</div>
 				<?php endforeach; ?>
+
+				<?php if ($removed > 0): ?>
+						<p>There were duplicate entries removed. (<?php echo $removed; ?>)</p>
+				<?php endif; ?>
 
 			</div>
 

@@ -621,6 +621,14 @@ function convergence_display_length($values) {
   return _human_length($values['duration']);
 }
 
+function _implode_and($array, $sep = ', ', $join = ' and ') {
+  if ( 1 == sizeof($array) ) return $array[0];
+  $last  = array_slice($array, -1);
+  $first = join($sep, array_slice($array, 0, -1));
+  $both  = array_filter(array_merge(array($first), $last));
+  return join($join, $both);
+}
+
 function _human_length($length) {
   /* this works for standard powerpress times 01:23:45 | hour | minute | second */
   $parts = explode(':', $length);
