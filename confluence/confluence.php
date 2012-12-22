@@ -295,6 +295,11 @@ class Confluence_Interface {
 		return $meta;
 	}
 
+	public static function get_person_gravatar_raw() {
+		$meta = get_post_meta( get_the_ID(), 'confluence-person-gravatar', true);
+		return $meta;
+	}
+
 	public static function get_person_gravatar($size = 150) {
 		$meta = get_post_meta( get_the_ID(), 'confluence-person-gravatar', true);
 		// use the generic blank default
