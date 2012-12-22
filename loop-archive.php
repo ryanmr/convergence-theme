@@ -1,11 +1,19 @@
 <?php if ( is_post_type_archive('person') ): ?>
 
+	<?php if ( '' != trim(C::get_person_gravatar_raw()) ):
+				/*
+					This will only display People with $gravatar images.
+				*/
+	?>
+
 		<div class="person promo">
 			
 			<div class="avatar"><a href="<?php the_permalink(); ?>"><?php echo C::get_person_gravatar(175); ?></a></div>
 			<div class="name"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></div>
 			
 		</div>
+		
+	<?php endif; ?>
 
 <?php else: ?>
 	<div id="post-<?php the_ID(); ?>" class="<?php hybrid_entry_class(); ?>">
