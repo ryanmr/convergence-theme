@@ -381,7 +381,7 @@ function convergence_category_post_types($query) {
  */
 function convergence_exclude_episode_attribute_hidden($query) {
 
-  if ( !is_user_logged_in() ) {
+  if ( is_object($query->tax_query) && !is_user_logged_in() ) {
     $tax_query = $query->tax_query->queries;
     $tax_query['hidden'] = convergence_exclude_episode_attributes('hidden');
     $query->set('tax_query', $tax_query);
