@@ -774,23 +774,35 @@ function human_time_difference( $from, $to = '' ) {
 
 
 function convergence_get_primary() {
-	get_sidebar( 'primary' );
+  get_sidebar( 'primary' );
 }
 
 function convergence_get_secondary() {
-	get_sidebar( 'secondary' );
+  get_sidebar( 'secondary' );
 }
 
 function convergence_get_subsidiary() {
-	get_sidebar( 'subsidiary' );
+  get_sidebar( 'subsidiary' );
+}
+
+function convergence_get_utility_before_content() {
+  get_sidebar( 'before-content' );
+}
+
+function convergence_get_utility_after_content() {
+  get_sidebar( 'after-content' );
+}
+
+function convergence_get_utility_after_singular() {
+  get_sidebar( 'after-singular' );
 }
 
 function convergence_get_primary_menu() {
-	get_template_part( 'menu', 'primary' );
+  get_template_part( 'menu', 'primary' );
 }
 
 function convergence_get_secondary_menu() {
-	get_template_part( 'menu', 'secondary' );
+  get_template_part( 'menu', 'secondary' );
 }
 
 ?>
