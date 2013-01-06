@@ -1,0 +1,489 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"out",
+				"output_style"
+			],
+			[
+				"marg",
+				"margin-left"
+			],
+			[
+				"str_rep",
+				"str_replace"
+			],
+			[
+				"re",
+				"request"
+			],
+			[
+				"reque",
+				"request_complete"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"border-s",
+				"border-style"
+			],
+			[
+				"or",
+				"orderby"
+			],
+			[
+				"content",
+				"content-wrapper"
+			],
+			[
+				"appl",
+				"apply_atomic_shortcode"
+			],
+			[
+				"Conf",
+				"Confluence_Present"
+			],
+			[
+				"conf",
+				"confluence-guest-basic"
+			],
+			[
+				"meta",
+				"meta_key"
+			],
+			[
+				"post",
+				"post_id"
+			],
+			[
+				"pos",
+				"post_id"
+			],
+			[
+				"font-",
+				"font-style"
+			],
+			[
+				"Con",
+				"Confluence_Interface"
+			],
+			[
+				"esc",
+				"esc_html"
+			],
+			[
+				"none",
+				"nonce_path"
+			],
+			[
+				"nonce",
+				"nonce_key"
+			],
+			[
+				"met",
+				"meta_key"
+			],
+			[
+				"con",
+				"confluence"
+			],
+			[
+				"text-",
+				"text-decoration"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"end",
+				"endDate"
+			],
+			[
+				"star",
+				"startDate"
+			],
+			[
+				"primar",
+				"primary-menu"
+			],
+			[
+				"prim",
+				"primary-menu"
+			],
+			[
+				"fon",
+				"font-weight"
+			],
+			[
+				"strto",
+				"strtotime"
+			],
+			[
+				"vil",
+				"villain_episodes"
+			],
+			[
+				"show_title",
+				"show_title_length"
+			],
+			[
+				"v",
+				"v_loop"
+			],
+			[
+				"text",
+				"text-decoration"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"Install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: Install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 512.0
+	},
+	"console":
+	{
+		"height": 188.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/style.scss",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/app.scss",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/functions.php",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/resources/css/layout.scss",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/.gitignore",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/resources/css/normalize.scss",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/confluence/convergence.php",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/front-template.php",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/assets/sass/_settings.scss",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/hybrid-core/functions/sidebars.php",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/sidebar-primary.php",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/config.rb",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/assets/sass/app.scss",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/convergence/config.rb",
+		"//RYAN-SERVER/www/public/client/truhavenranch.org/wp-content/themes/truhaven/resources/css/normalize.css",
+		"//RYAN-SERVER/www/public/client/truhavenranch.org/wp-content/themes/truhaven/style.css",
+		"//RYAN-SERVER/www/public/client/truhavenranch.org/wp-content/themes/truhaven/resources/css/default.css",
+		"//RYAN-SERVER/www/public/client/truhavenranch.org/wp-content/themes/truhaven/header.php",
+		"//RYAN-SERVER/quick/ModifiedFibonacci.java",
+		"//RYAN-SERVER/quick/java/MonteCarloRain_Thread.java",
+		"//RYAN-SERVER/quick/ClosedFibonacci.java",
+		"/C/Users/ryan/Desktop/quick/WG/war-2012.10.09.23.17.43.txt",
+		"/C/Users/ryan/Desktop/quick/WG/WarGame.java",
+		"//RYAN-SERVER/www/public/client/truhavenranch.org/wp-content/themes/truhaven/functions.php",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/hybrid-core/functions/core.php",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/hybrid-core/functions/widgets.php",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/hybrid-core/hybrid.php",
+		"/C/Users/ryan/Downloads/truhaven/truhaven/style.css",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/confluence/confluence.php",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/loop-nav.php",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/hybrid-core/extensions/loop-pagination.php",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/index.php",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/loop-archive.php",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/archive.php",
+		"//RYAN-SERVER/www/public/tntv-soundboard/soundboard/demo/style.css",
+		"//RYAN-SERVER/www/public/tntv-soundboard/soundboard/demo/sounds.demo.js",
+		"//RYAN-SERVER/www/public/tntv-soundboard/soundboard/index.html",
+		"//RYAN-SERVER/www/public/tntv-soundboard/soundboard/resources/js/script.js",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/single-person.php",
+		"/C/Users/ryan/Downloads/foundation.custom/foundation/humans.txt",
+		"/C/Users/ryan/Downloads/foundation.custom/foundation/robots.txt",
+		"//RYAN-SERVER/www/public/the-nexus.tv/.htaccess",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/loop-meta.php",
+		"//RYAN-SERVER/www/public/autoplay/pinger.php",
+		"//RYAN-SERVER/www/public/autoplay/index.html",
+		"/C/Users/ryan/Documents/Hi.txt",
+		"//RYAN-SERVER/www/public/autoplay/normalize.css",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/single-episode.php",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/confluence/views/confluence-people.php",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/episode-share.php",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/confluence/views/confluence-episode.php",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-config.php",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/archive-person.php",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/hybrid-core/functions/template-hierarchy.php",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/hybrid-core/extensions/theme-layouts.php",
+		"/C/Users/ryan/Downloads/powerpress.4.0.4/powerpress/powerpressadmin-customfeeds.php",
+		"/C/Users/ryan/Downloads/powerpress.4.0.4/powerpress/powerpressadmin.php",
+		"/C/Users/ryan/Downloads/powerpress.4.0.4/powerpress/powerpress.php",
+		"/E/podcast/raw/atn50/show2_output/TMPE933.tmp",
+		"/C/Users/ryan/Downloads/powerpress.4.0.4/powerpress/powerpressadmin-categoryfeeds.php",
+		"/C/Users/ryan/Downloads/powerpress.4.0.4/powerpress/feed-podcast.php",
+		"/C/Users/ryan/Downloads/powerpress.4.0.4/powerpress/powerpressadmin-jquery.php",
+		"/C/Users/ryan/Downloads/powerpress.4.0.4/powerpress/powerpressadmin-tags.php",
+		"/C/Users/ryan/Downloads/TDmat.mat",
+		"//RYAN-SERVER/www/public/quiz/quiz.html",
+		"//RYAN-SERVER/www/public/quiz/prime.php",
+		"//RYAN-SERVER/www/public/quiz/index.html",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/showboard-loop.php",
+		"/C/Users/ryan/Documents/Guild Wars 2/Local.dat",
+		"/C/Users/ryan/AppData/Local/Temp/fz3-13550302828350",
+		"//RYAN-SERVER/cs2021/Convertbase/convert_base.c",
+		"/C/Users/ryan/Downloads/powerpress.4.0.4/powerpress/powerpressadmin-metabox.php",
+		"/C/Users/ryan/Downloads/powerpress.4.0.4/powerpress/getid3/index.php",
+		"/C/Users/ryan/Downloads/powerpress.4.0.4/powerpress/getid3/getid3.php",
+		"/C/Users/ryan/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/ryan/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/README.md",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/confluence/views/master.php",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/episode-file.php",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/episode-navigation.php",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/episode-subscribe.php",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/plugins/confluence/confluence.php",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/confluence/style.css",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/confluence/readme.md",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/plugins/confluence/readme..md",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/plugins/confluence/views/master.php",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/plugins/confluence/.gitignore",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/confluence/readme..md",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/plugins/assemblage/assemblage.php",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/plugins/ajax-thumbnail-rebuild/ajax-thumbnail-rebuild.php",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/sidebar-before-content.php",
+		"//RYAN-SERVER/www/public/dev/tntv-titler/index.html",
+		"//RYAN-SERVER/www/public/dev/tntv-titler/README.md",
+		"//RYAN-SERVER/www/public/dev/tntv-titler/process/parse.php",
+		"//RYAN-SERVER/www/public/dev/tntv-titler/process.php",
+		"//RYAN-SERVER/www/public/dev/tntv-titler/process/fetch.php",
+		"//RYAN-SERVER/www/public/dev/tntv-titler/functions.php",
+		"//RYAN-SERVER/www/public/dev/tntv-titler/resources/style.css",
+		"/C/Users/ryan/Desktop/quick/umn-cal.html",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/header.php",
+		"//RYAN-SERVER/www/public/the-nexus.tv/wp-content/themes/convergence/search.php",
+		"/C/Users/ryan/AppData/Local/Temp/fz3temp-1/index.html",
+		"/C/Users/ryan/Desktop/quick/html-day-two/step6/style.css",
+		"/C/Users/ryan/Desktop/quick/html-day-two/step6/projects.html",
+		"/C/Users/ryan/Desktop/quick/html-day-two/step6/links.html",
+		"/C/Users/ryan/Desktop/quick/html-day-two/step6/index.html",
+		"/C/Users/ryan/Desktop/quick/html-day-two/step6/about.html",
+		"/C/Users/ryan/Desktop/quick/html-day-two/step5/style.css",
+		"/C/Users/ryan/Desktop/quick/html-day-two/step5/about.html",
+		"/C/Users/ryan/Desktop/quick/html-day-two/step5/projects.html",
+		"/C/Users/ryan/Desktop/quick/html-day-two/step5/links.html",
+		"/C/Users/ryan/Desktop/quick/html-day-two/step4/index.html",
+		"/C/Users/ryan/Desktop/quick/html-day-two/step4/about.html",
+		"/C/Users/ryan/Desktop/quick/html-day-two/step4/style.css",
+		"/C/Users/ryan/Desktop/quick/html-day-two/step3/style.css",
+		"/C/Users/ryan/Desktop/quick/html-day-two/step3/projects.html",
+		"/C/Users/ryan/Desktop/quick/html-day-two/step3/links.html",
+		"/C/Users/ryan/Desktop/quick/html-day-two/step3/about.html",
+		"/C/Users/ryan/Desktop/quick/html-day-two/step3/index.html",
+		"/C/Users/ryan/Desktop/quick/html-day-two/step5/index.html",
+		"/C/Users/ryan/Desktop/quick/html-day-two/step1/index.html",
+		"/C/Users/ryan/Downloads/WG/war-2012.10.12.15.27.29.txt",
+		"/C/Users/ryan/Downloads/html-day-one/html-day-one/step8/index.html",
+		"//RYAN-SERVER/cs2021/Datalab32/bits.c"
+	],
+	"find":
+	{
+		"height": 40.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"wrapper",
+			"convergence_enqueue_styles",
+			"convergence_episode_attribute",
+			"secondary",
+			"convergence_get_primary",
+			"subsidiary",
+			"widget",
+			"(){\n",
+			"}\n",
+			"show-description",
+			"Source+Sans+Pro",
+			"convergence_person_post_type",
+			"convergence_category_post_types",
+			"convergence_category_post_types\n",
+			"convergence_exclude_episode_attribute_hidden",
+			"convergence_person_post_type",
+			"pre_get",
+			"convergence_category_post_types",
+			"$wp_query->post",
+			"convergence_category_post_types",
+			"pre_get_posts",
+			"person",
+			"people",
+			"archive",
+			"convergence_photon_support",
+			"image",
+			"content",
+			"rotate_benchmark_count",
+			"episode-block",
+			"span.new",
+			"#content",
+			"#content	",
+			"#content",
+			".episode-block",
+			"register",
+			"episodes",
+			"#content-sideba",
+			"#content-sidebar > div",
+			".file",
+			"powerpress_get_enclosure_data",
+			"EpisodeData",
+			"powerpress_premium_content_authorized",
+			"do_atomic",
+			"($));",
+			"convergence_site_logo_idle",
+			"draw",
+			"convergence_site_logo_idle",
+			"convergence_episode",
+			");\n",
+			"}\n",
+			"hosts",
+			".episode-share",
+			".episode",
+			" );",
+			"cover",
+			"convergence_post_meta_boxes_setup",
+			"convergence_site_logo_idle",
+			"convergence_site_title",
+			"hybrid_entry_title",
+			"menu",
+			"remove_sidebars",
+			"_remove_sidebars",
+			"hybrid_theme_remove_sidebars",
+			"convergence_theme_register_sidebars",
+			"body_class",
+			"convergence_hybrid_theme_body_class\nconvergence_hybrid_theme_body_class",
+			"convergence_hybrid_theme_body_class\n",
+			"trans",
+			"transition",
+			"content-container",
+			"template",
+			"></",
+			">\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}
