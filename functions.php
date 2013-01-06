@@ -785,18 +785,6 @@ function convergence_get_subsidiary() {
 	get_sidebar( 'subsidiary' );
 }
 
-function convergence_get_utility_before_content() {
-	get_sidebar( 'before-content' );
-}
-
-function convergence_get_utility_after_content() {
-	get_sidebar( 'after-content' );
-}
-
-function convergence_get_utility_after_singular() {
-	get_sidebar( 'after-singular' );
-}
-
 function convergence_get_primary_menu() {
 	get_template_part( 'menu', 'primary' );
 }
