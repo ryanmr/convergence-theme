@@ -128,7 +128,7 @@ function convergence_theme_setup_theme() {
  * @return void
  */
 function convergence_enqueue_styles() {
-  wp_enqueue_style('google-typography', 'http://fonts.googleapis.com/css?family=Exo:400,700|Montserrat');
+  wp_enqueue_style('google-typography', 'http://fonts.googleapis.com/css?family=Exo:400,700|Montserrat|Open+Sans:400,700');
   wp_enqueue_style('main', get_stylesheet_directory_uri() . '/style.css');
 }
 
