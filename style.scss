@@ -946,16 +946,37 @@ textarea {
 #subsidiary {
   font-size: 14px;
 
-  ul {
-    list-style: square;
-    margin: 0 0 10px 0;
-  }
+
 
   div.widget {
     float: left;
     width: 300px;
     overflow: hidden;
-    margin-left: 15px;
+    margin-left: 30px;
+  }
+  div.widget:first-child {
+    margin-left: 0px;
+  }
+}
+
+.footer-nav {
+
+}
+.footer-nav ul {
+  -moz-column-count: 2;
+  -moz-column-gap: 5px;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 5px;
+
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  width: 170px;
+
+  li {
+    margin: 0;
+    padding: 0;
+    width: 100px;
   }
 
 }
