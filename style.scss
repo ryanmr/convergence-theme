@@ -449,16 +449,16 @@ span.new {
 
 /* === Home Template === */
 
-#showboard {
-  
-  .episode-block {
+//#showboard {
+.episode-block {
+
     width: 300px;
     height: 215px;
     margin-top: 10px;
     padding-bottom: 20px;
-  }
 
-  .episode-block img {
+
+   img {
     border: 6px solid #fff;
     display: block;
     margin-bottom: 5px;
@@ -468,7 +468,7 @@ span.new {
     -webkit-box-shadow: 0 3px 5px #999;
   }
 
-  .episode-block a:hover img {
+  a:hover img {
     box-shadow: 0 3px 5px #666;
     -moz-box-shadow: 0 3px 5px #666;
     -webkit-box-shadow: 0 3px 5px #666;
@@ -499,6 +499,7 @@ span.new {
   }
 
 }
+//}
 
 #bottom-shelf {
   clear: both;
@@ -908,8 +909,8 @@ textarea {
 
 /* === footer === */
 #footer-container {
-  padding: 2% 0 2% 0;
-  border-top: 1px solid #333;
+  padding: 10px 0 20px 0;
+  border-top: 20px solid rgba(0,0,0,.1);
   color: #ccc;
   font-size: 14px;
 
@@ -933,9 +934,15 @@ textarea {
   font-size: 12px;
   clear: both;
 
-  .copyright, .credit {
+  .copyright {
     margin: 0;
     font-size: 11px;
+    color: #888;
+    text-align: center;
+    a {
+      color: #888;
+      text-decoration: underline;
+    }
   }
 
 }
@@ -945,17 +952,55 @@ textarea {
 #subsidiary {
   font-size: 14px;
 
-
-
-  div.widget {
+  .widget {
     float: left;
     width: 300px;
     overflow: hidden;
     margin-left: 30px;
   }
-  div.widget:first-child {
+
+  .widget-latest-episode {
+    width: 240px;
+  }
+
+
+  .nav-menu {
+    width: 175px;
+  }
+
+  .widget:first-child {
     margin-left: 0px;
   }
+
+  .widget_text {
+    width: 475px;
+    line-height: 22px;
+  }
+
+}
+
+.widget .episode-block {
+  float: none;
+  width: auto;
+  margin-top: 5px;
+}
+
+
+.widget .episode-block img {
+  border: 3px solid #6D6D6D;
+
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+
+  width: 210px;
+  height: auto;
+}
+.widget .episode-block a:hover img {
+  border: 3px solid #828282;
+  box-shadow: 0 3px 5px #222;
+  -moz-box-shadow: 0 3px 5px #222;
+  -webkit-box-shadow: 0 3px 5px #222;
 }
 
 .footer-nav {
@@ -973,6 +1018,7 @@ textarea {
   width: 170px;
 
   li {
+    line-height: 22px;
     margin: 0;
     padding: 0;
     width: 100px;
