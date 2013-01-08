@@ -4,6 +4,7 @@ require_once( trailingslashit( TEMPLATEPATH ) . 'hybrid-core/hybrid.php' );
 new Hybrid();
 
 require_once( trailingslashit( TEMPLATEPATH ) . 'confluence/confluence.php' );
+require_once( trailingslashit( TEMPLATEPATH ) . 'confluence/Latest_Episode.php' );
 
 
 /* Do theme setup on the 'after_setup_theme' hook. */

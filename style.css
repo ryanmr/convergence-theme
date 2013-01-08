@@ -1,10 +1,10 @@
 /**
 * Theme Name: Convergence
-* Theme URI: http://the-nexus.tv/
+* Theme URI: https://github.com/ryanmr/convergence-theme
 * Author: Ryan Rampersad
 * Author URI: http://ryanrampersad.com/
-* Description: The 2012 theme for The Nexus TV.
-* Version: 0.322
+* Description: Convergence is the theme that powers The-Nexus.tv website. The theme is inspired by only the best practices, designs and code on the Internet.
+* Version: 0.330
 */
 /* normalize.css */
 /* normalize.css 2011-11-04T15:38 UTC - http://github.com/necolas/normalize.css */
@@ -760,38 +760,38 @@ span.new {
     padding: 10px; }
 
 /* === Home Template === */
-#showboard .episode-block {
+.episode-block {
   width: 300px;
   height: 215px;
   margin-top: 10px;
   padding-bottom: 20px; }
-#showboard .episode-block img {
-  border: 6px solid white;
-  display: block;
-  margin-bottom: 5px;
-  box-shadow: 0 3px 5px #999999;
-  -moz-box-shadow: 0 3px 5px #999999;
-  -webkit-box-shadow: 0 3px 5px #999999; }
-#showboard .episode-block a:hover img {
-  box-shadow: 0 3px 5px #666666;
-  -moz-box-shadow: 0 3px 5px #666666;
-  -webkit-box-shadow: 0 3px 5px #666666; }
-#showboard .show-title {
-  font-size: 16px; }
-#showboard .show-name {
-  font-size: 14px;
-  color: #444;
-  text-transform: uppercase; }
-#showboard .show-date {
-  font-size: 14px;
-  color: #666;
-  font-weight: normal; }
-#showboard .show-title, #showboard .show-name, #showboard .show-date {
-  text-decoration: none;
-  margin: 0; }
-  #showboard .show-title a, #showboard .show-name a, #showboard .show-date a {
+  .episode-block img {
+    border: 6px solid white;
+    display: block;
+    margin-bottom: 5px;
+    box-shadow: 0 3px 5px #999999;
+    -moz-box-shadow: 0 3px 5px #999999;
+    -webkit-box-shadow: 0 3px 5px #999999; }
+  .episode-block a:hover img {
+    box-shadow: 0 3px 5px #666666;
+    -moz-box-shadow: 0 3px 5px #666666;
+    -webkit-box-shadow: 0 3px 5px #666666; }
+  .episode-block .show-title {
+    font-size: 16px; }
+  .episode-block .show-name {
+    font-size: 14px;
+    color: #444;
+    text-transform: uppercase; }
+  .episode-block .show-date {
+    font-size: 14px;
+    color: #666;
+    font-weight: normal; }
+  .episode-block .show-title, .episode-block .show-name, .episode-block .show-date {
     text-decoration: none;
-    color: inherit; }
+    margin: 0; }
+    .episode-block .show-title a, .episode-block .show-name a, .episode-block .show-date a {
+      text-decoration: none;
+      color: inherit; }
 
 #bottom-shelf {
   clear: both;
@@ -1106,8 +1106,8 @@ textarea {
 
 /* === footer === */
 #footer-container {
-  padding: 2% 0 2% 0;
-  border-top: 1px solid #333333;
+  padding: 10px 0 20px 0;
+  border-top: 20px solid rgba(0, 0, 0, 0.1);
   color: #ccc;
   font-size: 14px; }
   #footer-container a {
@@ -1123,22 +1123,55 @@ textarea {
   padding-top: 20px;
   font-size: 12px;
   clear: both; }
-  #footer .copyright, #footer .credit {
+  #footer .copyright {
     margin: 0;
-    font-size: 11px; }
+    font-size: 11px;
+    color: #888;
+    text-align: center; }
+    #footer .copyright a {
+      color: #888;
+      text-decoration: underline; }
 
 /* === subsidiary widgets === */
 #subsidiary {
   font-size: 14px; }
-  #subsidiary div.widget {
+  #subsidiary .widget {
     float: left;
     width: 300px;
     overflow: hidden;
     margin-left: 30px; }
-  #subsidiary div.widget:first-child {
+  #subsidiary .widget-latest-episode {
+    width: 240px; }
+  #subsidiary .nav-menu {
+    width: 175px; }
+  #subsidiary .widget:first-child {
     margin-left: 0px; }
+  #subsidiary .widget_text {
+    width: 475px;
+    line-height: 22px; }
+
+.widget .episode-block {
+  float: none;
+  width: auto;
+  margin-top: 5px; }
+
+.widget .episode-block img {
+  border: 3px solid #6d6d6d;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  width: 210px;
+  height: auto; }
+
+.widget .episode-block a:hover img {
+  border: 3px solid #828282;
+  box-shadow: 0 3px 5px #222222;
+  -moz-box-shadow: 0 3px 5px #222222;
+  -webkit-box-shadow: 0 3px 5px #222222; }
 
 .footer-nav ul {
+  column-count: 2;
+  column-gap: 5px;
   -moz-column-count: 2;
   -moz-column-gap: 5px;
   -webkit-column-count: 2;
@@ -1148,6 +1181,7 @@ textarea {
   padding: 0px;
   width: 170px; }
   .footer-nav ul li {
+    line-height: 22px;
     margin: 0;
     padding: 0;
     width: 100px; }
