@@ -5,6 +5,8 @@ Plugin URI:
 Description: A package to add portable features to the Convergence theme.
 */
 
+define('CONFLUENCE_VIEWS', 'confluence-views');
+
 if (!function_exists('class_alias')) {
     function class_alias($original, $alias) {
         eval('class ' . $alias . ' extends ' . $original . ' {}');
@@ -97,7 +99,7 @@ class Confluence_People_View {
 	public function display($object, $box) {
 		$nonce_key = $this->nonce_key;
 		$nonce_path = $this->nonce_path;
-		include('views/confluence-people.php');
+		include(CONFLUENCE_VIEWS . '/confluence-people.php');
 	}
 
 	public function save($post_id, $post) {
@@ -181,7 +183,7 @@ class Confluence_Episode_View {
 	public function display($object, $box) {
 		$nonce_key = $this->nonce_key;
 		$nonce_path = $this->nonce_path;
-		include('views/confluence-episode.php');
+		include(CONFLUENCE_VIEWS . '/confluence-episode.php');
 	}
 
 	public function save($post_id, $post) {
@@ -242,7 +244,7 @@ class Confluence_Episode_People_View {
 	}
 
 	public function javascript() {
-		include('views/js/confluence-episode-people.js.php');
+		include(CONFLUENCE_VIEWS . '/js/confluence-episode-people.js.php');
 	}
 
 	public function add_metabox() {
@@ -257,7 +259,7 @@ class Confluence_Episode_People_View {
 	public function display($object, $box) {
 		$nonce_key = $this->nonce_key;
 		$nonce_path = $this->nonce_path;
-		include('views/confluence-episode-people.php');
+		include(CONFLUENCE_VIEWS . '/confluence-episode-people.php');
 	}
 
 	public function save($post_id, $post) {

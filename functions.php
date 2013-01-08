@@ -4,6 +4,7 @@ require_once( trailingslashit( TEMPLATEPATH ) . 'hybrid-core/hybrid.php' );
 new Hybrid();
 
 require_once( trailingslashit( TEMPLATEPATH ) . 'confluence/confluence.php' );
+require_once( trailingslashit( TEMPLATEPATH ) . 'confluence/Latest_Episode.php' );
 
 
 /* Do theme setup on the 'after_setup_theme' hook. */
@@ -128,7 +129,7 @@ function convergence_theme_setup_theme() {
  * @return void
  */
 function convergence_enqueue_styles() {
-  wp_enqueue_style('google-typography', 'http://fonts.googleapis.com/css?family=Exo:400,700|Montserrat');
+  wp_enqueue_style('google-typography', 'http://fonts.googleapis.com/css?family=Exo:400,700|Montserrat|Open+Sans:400,700');
   wp_enqueue_style('main', get_stylesheet_directory_uri() . '/style.css');
 }
 
@@ -381,7 +382,7 @@ function convergence_category_post_types($query) {
  */
 function convergence_exclude_episode_attribute_hidden($query) {
 
-  if ( !is_user_logged_in() ) {
+  if ( is_object($query->tax_query) && !is_user_logged_in() ) {
     $tax_query = $query->tax_query->queries;
     $tax_query['hidden'] = convergence_exclude_episode_attributes('hidden');
     $query->set('tax_query', $tax_query);
@@ -774,35 +775,35 @@ function human_time_difference( $from, $to = '' ) {
 
 
 function convergence_get_primary() {
-	get_sidebar( 'primary' );
+  get_sidebar( 'primary' );
 }
 
 function convergence_get_secondary() {
-	get_sidebar( 'secondary' );
+  get_sidebar( 'secondary' );
 }
 
 function convergence_get_subsidiary() {
-	get_sidebar( 'subsidiary' );
+  get_sidebar( 'subsidiary' );
 }
 
 function convergence_get_utility_before_content() {
-	get_sidebar( 'before-content' );
+  get_sidebar( 'before-content' );
 }
 
 function convergence_get_utility_after_content() {
-	get_sidebar( 'after-content' );
+  get_sidebar( 'after-content' );
 }
 
 function convergence_get_utility_after_singular() {
-	get_sidebar( 'after-singular' );
+  get_sidebar( 'after-singular' );
 }
 
 function convergence_get_primary_menu() {
-	get_template_part( 'menu', 'primary' );
+  get_template_part( 'menu', 'primary' );
 }
 
 function convergence_get_secondary_menu() {
-	get_template_part( 'menu', 'secondary' );
+  get_template_part( 'menu', 'secondary' );
 }
 
 ?>

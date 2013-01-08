@@ -1,10 +1,10 @@
 /**
 * Theme Name: Convergence
-* Theme URI: http://the-nexus.tv/
+* Theme URI: https://github.com/ryanmr/convergence-theme
 * Author: Ryan Rampersad
 * Author URI: http://ryanrampersad.com/
-* Description: The 2012 theme for The Nexus TV.
-* Version: 0.322
+* Description: Convergence is the theme that powers The-Nexus.tv website. The theme is inspired by only the best practices, designs and code on the Internet.
+* Version: 0.330
 */
 /* normalize.css */
 /* normalize.css 2011-11-04T15:38 UTC - http://github.com/necolas/normalize.css */
@@ -149,7 +149,7 @@ code,
 kbd,
 samp {
   font-family: monospace, serif;
-  _font-family: 'courier new', monospace;
+  _font-family: "courier new", monospace;
   font-size: 1em; }
 
 /*
@@ -252,7 +252,7 @@ form {
  * Define consistent border, margin, and padding
  */
 fieldset {
-  border: 1px solid #c0c0c0;
+  border: 1px solid silver;
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em; }
 
@@ -453,7 +453,7 @@ body {
   background: #222222 url("resources/textures/darkdenim3.png"); }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Exo', Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0; }
 
@@ -462,7 +462,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /*  === header === */
 #header-container {
-  border-bottom: 1px solid #222;
+  border-bottom: 1px solid #222222;
   padding-bottom: 10px;
   box-shadow: inset 0 -5px 10px 1px rgba(0, 0, 0, 0.2);
   overflow: hidden; }
@@ -485,7 +485,7 @@ h1, h2, h3, h4, h5, h6 {
 #site-title {
   font-size: 62px;
   line-height: 40px;
-  font-family: 'LeagueGothicRegular', Helvetica, Arial, san-serif;
+  font-family: "LeagueGothicRegular", Helvetica, Arial, san-serif;
   font-weight: normal; }
   #site-title a {
     color: #fff;
@@ -501,10 +501,10 @@ h1, h2, h3, h4, h5, h6 {
 
 #site-description {
   margin-top: 2px;
-  font-size: 16px;
+  font-size: 14px;
   letter-spacing: normal;
   line-height: normal;
-  font-family: 'Exo', Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
   font-weight: bold; }
 
 #site-logo {
@@ -568,18 +568,18 @@ a[href^="http://bit.ly/tntv-survey"] {
 #container {
   background: #eeeeee url("resources/textures/body-texture.png");
   padding-bottom: 10px;
-  border-bottom: 1px solid #fff; }
+  border-bottom: 1px solid white; }
 
 /* === Hero === */
 #hero-container {
   background: white url("resources/textures/little_pluses.png");
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid #999999;
   padding: 20px 0 20px 0;
   box-shadow: 0px 1px 10px rgba(50, 50, 50, 0.75);
   overflow: hidden; }
 
 #hero {
-  font-family: 'Montserrat', Arial, sans-serif; }
+  font-family: "Montserrat", Arial, sans-serif; }
   #hero .hero-meta {
     width: 560px;
     position: relative; }
@@ -649,9 +649,9 @@ a[href^="http://bit.ly/tntv-survey"] {
     -moz-box-shadow: 1px 2px 30px rgba(0, 0, 0, 0.85);
     box-shadow: 1px 2px 30px rgba(0, 0, 0, 0.85); }
   #hero .hero-image a img {
-    border: 6px solid #fff; }
+    border: 6px solid white; }
   #hero .hero-image a:hover img {
-    border: 6px solid #C9662B; }
+    border: 6px solid #c9662b; }
 
 #villain {
   box-shadow: 0px 10px 20px rgba(50, 50, 50, 0.75);
@@ -708,7 +708,7 @@ a[href^="http://bit.ly/tntv-survey"] {
   #villain .show-date {
     font-size: 14px; }
   #villain h2, #villain h3, #villain h4, #villain h5 {
-    text-shadow: 1px 1px 15px #000; }
+    text-shadow: 1px 1px 15px black; }
 
 span.new {
   text-transform: uppercase;
@@ -721,7 +721,7 @@ span.new {
   width: 720px;
   background-color: #fff;
   padding: 15px 20px;
-  box-shadow: 0 3px 12px #999;
+  box-shadow: 0 3px 12px #999999;
   overflow: hidden;
   margin: auto;
   margin-top: 15px;
@@ -730,7 +730,7 @@ span.new {
   #birthday-shelf a:link {
     text-decoration: underline; }
   #birthday-shelf span[title] {
-    border-bottom: 1px dotted #ccc; }
+    border-bottom: 1px dotted #cccccc; }
   #birthday-shelf .intro {
     margin-top: 10px;
     font-size: 24px;
@@ -742,7 +742,7 @@ span.new {
     /* this sucks, we need new css */ }
   #birthday-shelf .intro::after {
     content: ' ';
-    border-bottom: 1px solid #999;
+    border-bottom: 1px solid #999999;
     width: 70%;
     text-align: center;
     padding: 20px; }
@@ -760,42 +760,42 @@ span.new {
     padding: 10px; }
 
 /* === Home Template === */
-#showboard .episode-block {
+.episode-block {
   width: 300px;
   height: 215px;
   margin-top: 10px;
   padding-bottom: 20px; }
-#showboard .episode-block img {
-  border: 6px solid #fff;
-  display: block;
-  margin-bottom: 5px;
-  box-shadow: 0 3px 5px #999;
-  -moz-box-shadow: 0 3px 5px #999;
-  -webkit-box-shadow: 0 3px 5px #999; }
-#showboard .episode-block a:hover img {
-  box-shadow: 0 3px 5px #666;
-  -moz-box-shadow: 0 3px 5px #666;
-  -webkit-box-shadow: 0 3px 5px #666; }
-#showboard .show-title {
-  font-size: 16px; }
-#showboard .show-name {
-  font-size: 14px;
-  color: #444;
-  text-transform: uppercase; }
-#showboard .show-date {
-  font-size: 14px;
-  color: #666;
-  font-weight: normal; }
-#showboard .show-title, #showboard .show-name, #showboard .show-date {
-  text-decoration: none;
-  margin: 0; }
-  #showboard .show-title a, #showboard .show-name a, #showboard .show-date a {
+  .episode-block img {
+    border: 6px solid white;
+    display: block;
+    margin-bottom: 5px;
+    box-shadow: 0 3px 5px #999999;
+    -moz-box-shadow: 0 3px 5px #999999;
+    -webkit-box-shadow: 0 3px 5px #999999; }
+  .episode-block a:hover img {
+    box-shadow: 0 3px 5px #666666;
+    -moz-box-shadow: 0 3px 5px #666666;
+    -webkit-box-shadow: 0 3px 5px #666666; }
+  .episode-block .show-title {
+    font-size: 16px; }
+  .episode-block .show-name {
+    font-size: 14px;
+    color: #444;
+    text-transform: uppercase; }
+  .episode-block .show-date {
+    font-size: 14px;
+    color: #666;
+    font-weight: normal; }
+  .episode-block .show-title, .episode-block .show-name, .episode-block .show-date {
     text-decoration: none;
-    color: inherit; }
+    margin: 0; }
+    .episode-block .show-title a, .episode-block .show-name a, .episode-block .show-date a {
+      text-decoration: none;
+      color: inherit; }
 
 #bottom-shelf {
   clear: both;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #cccccc;
   padding-top: 15px; }
   #bottom-shelf .overflow {
     padding-top: 48px;
@@ -822,17 +822,17 @@ span.new {
     margin-top: 10px;
     padding-bottom: 20px; }
   #content.shows .episode-block img {
-    border: 6px solid #fff;
+    border: 6px solid white;
     display: block;
     margin: auto;
     margin-bottom: 5px;
-    box-shadow: 0 3px 5px #999;
-    -moz-box-shadow: 0 3px 5px #999;
-    -webkit-box-shadow: 0 3px 5px #999; }
+    box-shadow: 0 3px 5px #999999;
+    -moz-box-shadow: 0 3px 5px #999999;
+    -webkit-box-shadow: 0 3px 5px #999999; }
   #content.shows .episode-block a:hover img {
-    box-shadow: 0 3px 5px #666;
-    -moz-box-shadow: 0 3px 5px #666;
-    -webkit-box-shadow: 0 3px 5px #666; }
+    box-shadow: 0 3px 5px #666666;
+    -moz-box-shadow: 0 3px 5px #666666;
+    -webkit-box-shadow: 0 3px 5px #666666; }
   #content.shows .meta {
     text-align: center; }
 
@@ -858,7 +858,7 @@ span.new {
   #content-container .show-episode {
     font-size: 15px; }
   #content-container .show-date, #content-container .show-episode {
-    text-shadow: 1px 2px 2px #fff; }
+    text-shadow: 1px 2px 2px white; }
   #content-container a {
     color: #222;
     text-decoration: none; }
@@ -890,11 +890,11 @@ span.new {
     line-height: 18px; }
   #content hr {
     height: 1px;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #cccccc;
     width: 98%;
     margin: auto; }
   #content blockquote {
-    border-left: 1px dotted #999;
+    border-left: 1px dotted #999999;
     padding-left: 10px;
     margin-left: 15px; }
   #content .entry-meta {
@@ -904,14 +904,14 @@ span.new {
     padding: 10px;
     line-height: 22px;
     color: #000;
-    border-top: 1px solid #999;
-    border-left: 1px solid #999;
-    border-right: 1px solid #fff;
-    border-bottom: 1px solid #ccc; }
+    border-top: 1px solid #999999;
+    border-left: 1px solid #999999;
+    border-right: 1px solid white;
+    border-bottom: 1px solid #cccccc; }
   #content .notice {
     padding: 10px;
     background-color: #ddd;
-    border: 1px solid #ccc; }
+    border: 1px solid #cccccc; }
 
 #content-sidebar {
   font-size: 14px; }
@@ -925,12 +925,12 @@ span.new {
   font-style: italic;
   padding: 10px;
   background-color: #ddd;
-  border: 1px solid #ccc;
+  border: 1px solid #cccccc;
   margin-bottom: 21px; }
   .episode-nsfw .nsfw {
     font-weight: bold;
     color: #f00;
-    text-shadow: 1px 1px 20px #999; }
+    text-shadow: 1px 1px 20px #999999; }
 
 .files {
   font-size: 13px; }
@@ -974,7 +974,7 @@ span.new {
   padding: 10px;
   margin: 10px;
   background-color: #ccc;
-  border: 1px solid #999; }
+  border: 1px solid #999999; }
 
 /* === people === */
 /* new */
@@ -982,8 +982,8 @@ span.new {
   width: 720px; }
 
 .avatar img {
-  border: 5px solid #fff;
-  box-shadow: 1px 1px 5px #666; }
+  border: 5px solid white;
+  box-shadow: 1px 1px 5px #666666; }
 
 .person-aside {
   float: left;
@@ -1015,8 +1015,8 @@ span.new {
     font-size: 11px;
     text-align: center; }
   .person.promo .avatar img {
-    border: 5px solid #fff;
-    box-shadow: 1px 1px 5px #666; }
+    border: 5px solid white;
+    box-shadow: 1px 1px 5px #666666; }
 
 .auxillary-people {
   font-size: 12px; }
@@ -1033,10 +1033,10 @@ span.new {
 #content.latest img {
   float: left;
   margin: 0 10px 10px 10px;
-  border: 6px solid #fff;
-  box-shadow: 0 3px 5px #999;
-  -moz-box-shadow: 0 3px 5px #999;
-  -webkit-box-shadow: 0 3px 5px #999; }
+  border: 6px solid white;
+  box-shadow: 0 3px 5px #999999;
+  -moz-box-shadow: 0 3px 5px #999999;
+  -webkit-box-shadow: 0 3px 5px #999999; }
 
 /* === pages === */
 .page-template-default #container,
@@ -1057,7 +1057,7 @@ span.new {
   text-align: center;
   margin: 20px 0 20px 0; }
   #kawaii-error img {
-    border: 6px solid #ccc; }
+    border: 6px solid #cccccc; }
 
 /* === navigation links === */
 .navigation-links {
@@ -1072,11 +1072,11 @@ span.new {
     text-align: right; }
 
 .pagination {
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #dddddd;
   padding-top: 5px;
   font-size: 14px;
   text-align: center;
-  text-shadow: 1px 1px #fff;
+  text-shadow: 1px 1px white;
   color: #333; }
 
 /* === global form === */
@@ -1098,7 +1098,7 @@ textarea {
   margin-right: 15px;
   padding: 7px 15px 8px 15px;
   background: #fff;
-  border: 1px solid #ccc; }
+  border: 1px solid #cccccc; }
 
 #submit:hover {
   cursor: pointer;
@@ -1106,8 +1106,8 @@ textarea {
 
 /* === footer === */
 #footer-container {
-  padding: 2% 0 2% 0;
-  border-top: 1px solid #333;
+  padding: 10px 0 20px 0;
+  border-top: 20px solid rgba(0, 0, 0, 0.1);
   color: #ccc;
   font-size: 14px; }
   #footer-container a {
@@ -1117,24 +1117,71 @@ textarea {
     color: #fff;
     text-decoration: underline; }
   #footer-container h1, #footer-container h2, #footer-container h3, #footer-container h4, #footer-container h5, #footer-container h6 {
-    text-shadow: 1px 2px 2px #333; }
+    text-shadow: 1px 2px 2px #333333; }
 
 #footer {
   padding-top: 20px;
   font-size: 12px;
   clear: both; }
-  #footer .copyright, #footer .credit {
+  #footer .copyright {
     margin: 0;
-    font-size: 11px; }
+    font-size: 11px;
+    color: #888;
+    text-align: center; }
+    #footer .copyright a {
+      color: #888;
+      text-decoration: underline; }
 
 /* === subsidiary widgets === */
 #subsidiary {
   font-size: 14px; }
-  #subsidiary ul {
-    list-style: square;
-    margin: 0 0 10px 0; }
-  #subsidiary div.widget {
+  #subsidiary .widget {
     float: left;
     width: 300px;
     overflow: hidden;
-    margin-left: 15px; }
+    margin-left: 30px; }
+  #subsidiary .widget-latest-episode {
+    width: 240px; }
+  #subsidiary .nav-menu {
+    width: 175px; }
+  #subsidiary .widget:first-child {
+    margin-left: 0px; }
+  #subsidiary .widget_text {
+    width: 475px;
+    line-height: 22px; }
+
+.widget .episode-block {
+  float: none;
+  width: auto;
+  margin-top: 5px; }
+
+.widget .episode-block img {
+  border: 3px solid #6d6d6d;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  width: 210px;
+  height: auto; }
+
+.widget .episode-block a:hover img {
+  border: 3px solid #828282;
+  box-shadow: 0 3px 5px #222222;
+  -moz-box-shadow: 0 3px 5px #222222;
+  -webkit-box-shadow: 0 3px 5px #222222; }
+
+.footer-nav ul {
+  column-count: 2;
+  column-gap: 5px;
+  -moz-column-count: 2;
+  -moz-column-gap: 5px;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 5px;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  width: 170px; }
+  .footer-nav ul li {
+    line-height: 22px;
+    margin: 0;
+    padding: 0;
+    width: 100px; }
