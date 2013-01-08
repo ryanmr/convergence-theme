@@ -1,10 +1,10 @@
 /**
 * Theme Name: Convergence
-* Theme URI: http://the-nexus.tv/
+* Theme URI: https://github.com/ryanmr/convergence-theme
 * Author: Ryan Rampersad
 * Author URI: http://ryanrampersad.com/
-* Description: The 2012 theme for The Nexus TV.
-* Version: 0.322
+* Description: Convergence is the theme that powers The-Nexus.tv website. The theme is inspired by only the best practices, designs and code on the Internet.
+* Version: 0.330
 */
 
 /* normalize.css */
@@ -1003,10 +1003,9 @@ textarea {
   -webkit-box-shadow: 0 3px 5px #222;
 }
 
-.footer-nav {
-
-}
 .footer-nav ul {
+  column-count: 2;
+  column-gap: 5px;
   -moz-column-count: 2;
   -moz-column-gap: 5px;
   -webkit-column-count: 2;
