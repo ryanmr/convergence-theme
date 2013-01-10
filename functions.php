@@ -323,6 +323,12 @@ function convergence_exclude_episode_attributes($terms) {
     );
 }
 
+function c_test() {
+  //wp_reset_query();
+  //wp_reset_postdata();
+  remove_filter('posts_orderby', 'convergence_person_post_type_orderby');
+}
+
 /**
  * Alters queries for Person CPT so that hosts are ordered first in Person/Archive.
  * @param query $query 
@@ -349,6 +355,10 @@ function convergence_person_post_type($query) {
 function convergence_person_post_type_orderby($orderby) {
   global $wpdb;
   $orderby = $wpdb->postmeta . '.meta_value DESC, ' . $orderby;
+
+  // self unhooking
+  c_test();
+
   return $orderby;
 }
 
