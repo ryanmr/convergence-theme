@@ -4,7 +4,7 @@
 * Author: Ryan Rampersad
 * Author URI: http://ryanrampersad.com/
 * Description: Convergence is the theme that powers The-Nexus.tv website. The theme is inspired by only the best practices, designs and code on the Internet.
-* Version: 0.330
+* Version: 0.331
 */
 /* normalize.css */
 /* normalize.css 2011-11-04T15:38 UTC - http://github.com/necolas/normalize.css */
@@ -557,12 +557,8 @@ h1, h2, h3, h4, h5, h6 {
     color: #fff;
     text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5); }
 
-a[href^="http://bit.ly/tntv-survey"] {
-  text-shadow: 1px 1px 20px red, -2px -2px 2px blue; }
-
 /* === container === */
 #content-container {
-  /*border-top: 1px solid #eee;*/
   padding-top: 20px; }
 
 #container {
@@ -575,8 +571,8 @@ a[href^="http://bit.ly/tntv-survey"] {
   background: white url("resources/textures/little_pluses.png");
   border-bottom: 1px solid #999999;
   padding: 20px 0 20px 0;
-  box-shadow: 0px 1px 10px rgba(50, 50, 50, 0.75);
-  overflow: hidden; }
+  overflow: hidden;
+  box-shadow: 0px 1px 10px rgba(50, 50, 50, 0.75); }
 
 #hero {
   font-family: "Montserrat", Arial, sans-serif; }
@@ -692,9 +688,8 @@ a[href^="http://bit.ly/tntv-survey"] {
   #villain .feature a.cover:hover .mask {
     background-color: rgba(0, 0, 0, 0.65); }
   #villain .mask {
-    height: 81.1923486px;
-    color: #fff;
-    font-family: Helvetica, Arial, sans-serif; }
+    height: 81px;
+    color: #fff; }
   #villain .show-title {
     font-size: 28px;
     word-wrap: break-word; }
@@ -816,24 +811,7 @@ span.new {
 #content.shows {
   overflow: hidden;
   padding: 10px 0px; }
-  #content.shows .episode-block {
-    width: 300px;
-    height: 200px;
-    margin-top: 10px;
-    padding-bottom: 20px; }
-  #content.shows .episode-block img {
-    border: 6px solid white;
-    display: block;
-    margin: auto;
-    margin-bottom: 5px;
-    box-shadow: 0 3px 5px #999999;
-    -moz-box-shadow: 0 3px 5px #999999;
-    -webkit-box-shadow: 0 3px 5px #999999; }
-  #content.shows .episode-block a:hover img {
-    box-shadow: 0 3px 5px #666666;
-    -moz-box-shadow: 0 3px 5px #666666;
-    -webkit-box-shadow: 0 3px 5px #666666; }
-  #content.shows .meta {
+  #content.shows .episode-block .meta {
     text-align: center; }
 
 /* === singular view === */
@@ -878,26 +856,26 @@ span.new {
   font-size: 14px;
   width: 380px; }
 
-#content {
+.content {
   font-size: 14px;
   color: #333; }
-  #content p {
+  .content p {
     line-height: 20px;
     margin-bottom: 14px; }
-  #content ul {
+  .content ul {
     list-style-type: square;
     padding-left: 20px;
     line-height: 18px; }
-  #content hr {
+  .content hr {
     height: 1px;
     border-top: 1px solid #cccccc;
     width: 98%;
     margin: auto; }
-  #content blockquote {
+  .content blockquote {
     border-left: 1px dotted #999999;
     padding-left: 10px;
     margin-left: 15px; }
-  #content .entry-meta {
+  .content .entry-meta {
     margin-top: 10px;
     margin-bottom: 20px;
     background-color: #ededed;
@@ -908,7 +886,7 @@ span.new {
     border-left: 1px solid #999999;
     border-right: 1px solid white;
     border-bottom: 1px solid #cccccc; }
-  #content .notice {
+  .content .notice {
     padding: 10px;
     background-color: #ddd;
     border: 1px solid #cccccc; }
