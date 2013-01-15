@@ -107,7 +107,7 @@ function convergence_theme_setup_theme() {
   add_action('wp_print_styles', 'convergence_enqueue_styles');
 
   add_filter( 'redirect_canonical', 'convergence_redirect_canonical' );
-
+  add_filter('confluence_latest_episode_args', 'convergence_latest_episode_filter');
 
   if ( is_front_page() ) {
     remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
@@ -323,12 +323,6 @@ function convergence_exclude_episode_attributes($terms) {
     );
 }
 
-function c_test() {
-  //wp_reset_query();
-  //wp_reset_postdata();
-  remove_filter('posts_orderby', 'convergence_person_post_type_orderby');
-}
-
 /**
  * Alters queries for Person CPT so that hosts are ordered first in Person/Archive.
  * @param query $query 
@@ -356,12 +350,16 @@ function convergence_person_post_type_orderby($orderby) {
   global $wpdb;
   $orderby = $wpdb->postmeta . '.meta_value DESC, ' . $orderby;
 
-  // self unhooking
-  c_test();
+  remove_filter('posts_orderby', 'convergence_person_post_type_orderby');
 
   return $orderby;
 }
 
+
+function convergence_latest_episode_filter($args) {
+  $args = convergence_exclude_category('tf', $args);
+  return $args;
+}
 
 
 function convergence_redirect_canonical( $redirect_url ) {
