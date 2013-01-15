@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"A",
+				"acceleration"
+			],
+			[
+				"th",
+				"threads"
+			],
+			[
 				"episode",
 				"episode-block"
 			],
@@ -151,6 +159,14 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "//RYAN-SERVER/quick/WG2/App.java",
+			"settings":
+			{
+				"buffer_size": 2483,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -341,6 +357,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"TestT",
+			");\n",
 			"featured",
 			"featured	",
 			"()",
@@ -430,6 +448,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"WarGameThread"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -440,8 +459,36 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "//RYAN-SERVER/quick/WG2/App.java",
+					"settings":
+					{
+						"buffer_size": 2483,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1701,
+								1701
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1260.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -478,7 +525,7 @@
 	"menu_visible": true,
 	"replace":
 	{
-		"height": 0.0
+		"height": 66.0
 	},
 	"save_all_on_build": true,
 	"select_file":
