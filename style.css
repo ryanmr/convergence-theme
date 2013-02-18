@@ -4,7 +4,7 @@
 * Author: Ryan Rampersad
 * Author URI: http://ryanrampersad.com/
 * Description: Convergence is the theme that powers The-Nexus.tv website. The theme is inspired by only the best practices, designs and code on the Internet.
-* Version: 0.331
+* Version: 0.332
 */
 /* normalize.css */
 /* normalize.css 2011-11-04T15:38 UTC - http://github.com/necolas/normalize.css */
@@ -666,8 +666,11 @@ h1, h2, h3, h4, h5, h6 {
     -o-background-size: cover;
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     height: 300px;
     overflow: hidden; }
+  #villain .feature:nth-child(2) {
+    width: 33.4%; }
   #villain .feature a.cover {
     position: absolute;
     top: 0;
