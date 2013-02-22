@@ -36,10 +36,11 @@ class Latest_Episode extends WP_Widget {
 	}
 
 	private function get_episode() {
-	   $args = array(
-	        "post_type" => "episode",
-	        "posts_per_page" => 1,
-	    );
+		$args = array(
+			"post_type" => "episode",
+			"posts_per_page" => 1,
+		);
+		$args = apply_filters('confluence_latest_episode_args', $args);
 		$query = new WP_Query($args);
 		return $query;
 	}

@@ -4,7 +4,7 @@
 * Author: Ryan Rampersad
 * Author URI: http://ryanrampersad.com/
 * Description: Convergence is the theme that powers The-Nexus.tv website. The theme is inspired by only the best practices, designs and code on the Internet.
-* Version: 0.330
+* Version: 0.332
 */
 
 /* normalize.css */
@@ -160,16 +160,10 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 
-a[href^="http://bit.ly/tntv-survey"] {
-  text-shadow: 1px 1px 20px red, -2px -2px 2px blue;
-}
-
-
 /* === container === */
 
 
 #content-container {
-  /*border-top: 1px solid #eee;*/
   padding-top: 20px;
 }
 
@@ -186,8 +180,8 @@ a[href^="http://bit.ly/tntv-survey"] {
   background: #fff url("resources/textures/little_pluses.png");
   border-bottom: 1px solid #999;
   padding: 20px 0 20px 0;
-    box-shadow: 0px 1px 10px rgba(50, 50, 50, 0.75);
   overflow: hidden;
+  box-shadow: 0px 1px 10px rgba(50, 50, 50, 0.75);
 }
 
 #hero {
@@ -320,9 +314,15 @@ a[href^="http://bit.ly/tntv-survey"] {
     -o-background-size: cover;
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     height: 300px;
     overflow: hidden;
   }
+
+  .feature:nth-child(2) {
+    width: 33.4%;
+  }
+
 
   .feature a.cover {
     position: absolute;
@@ -353,9 +353,8 @@ a[href^="http://bit.ly/tntv-survey"] {
   }
 
   .mask {
-    height: 81.1923486px;
+    height: 81px;
     color: #fff;
-    font-family: Helvetica, Arial, sans-serif;
   }
 
   .show-title {
@@ -449,7 +448,6 @@ span.new {
 
 /* === Home Template === */
 
-//#showboard {
 .episode-block {
 
     width: 300px;
@@ -499,7 +497,6 @@ span.new {
   }
 
 }
-//}
 
 #bottom-shelf {
   clear: both;
@@ -526,40 +523,15 @@ span.new {
 
 /* Shows template (page) */
 #content.shows {
-  // dear sir, just so you know
-  // all of this #id.stuff is a travesty. kthxbai
+
   overflow: hidden;
   padding: 10px 0px;
 
-  .episode-block {
-    width: 300px;
-    height: 200px;
-    margin-top: 10px;
-    padding-bottom: 20px;
-  }
-
-  .episode-block img {
-    border: 6px solid #fff;
-    display: block;
-    margin: auto;
-    margin-bottom: 5px;
-
-    box-shadow: 0 3px 5px #999;
-    -moz-box-shadow: 0 3px 5px #999;
-    -webkit-box-shadow: 0 3px 5px #999;
-  }
-
-  .episode-block a:hover img {
-    box-shadow: 0 3px 5px #666;
-    -moz-box-shadow: 0 3px 5px #666;
-    -webkit-box-shadow: 0 3px 5px #666;
-  }
-  
-  .meta {
+  .episode-block .meta {
     text-align: center;
   }
-
 }
+
 
 /* === singular view === */
 
@@ -620,7 +592,7 @@ span.new {
   width: 380px;
 }
 
-#content {
+.content {
   font-size: 14px;
   color: #333;
 

@@ -23,6 +23,7 @@ get_header(); // Loads the header.php template. ?>
     $v_args['tax_query'] = array(convergence_exclude_episode_attributes('hidden'));
     $v_loop = new WP_Query($v_args);
     $villain_episodes = array();
+    $feature_counter = 1;
     while ($v_loop->have_posts()): $v_loop->the_post();
     $villain_episodes[] = get_the_ID();
 ?>
@@ -30,7 +31,7 @@ get_header(); // Loads the header.php template. ?>
             $f_img = get_the_image(array('size'=>'large', 'link_to_post'=>false, 'format'=>'array' ));
             $f_img = convergence_villain_photon_image($f_img['url']);
         ?>
-        <div class="feature" style="background-image: url('<?php echo $f_img; ?>');">
+        <div id="<?php echo('villain-feature-' . $feature_counter++); ?>" class="feature" style="background-image: url('<?php echo $f_img; ?>');">
             <a class="cover" href="<?php echo get_permalink() ?>">
                 <div class="mask">
                     <?php
