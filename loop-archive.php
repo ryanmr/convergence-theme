@@ -13,6 +13,15 @@
 			
 		</div>
 		
+	<?php else: ?>
+
+		<div class="person promo character-break">
+			
+			<div class="avatar"><a href="<?php the_permalink(); ?>"><?php echo C::get_person_gravatar(175); ?></a></div>
+			<div class="name"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></div>
+			
+		</div>
+
 	<?php endif; ?>
 
 <?php else: ?>

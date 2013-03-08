@@ -999,11 +999,14 @@ span.new {
   float: left;
   padding: 10px; }
   .person.promo .name {
-    font-size: 11px;
+    font-size: 13px;
     text-align: center; }
   .person.promo .avatar img {
     border: 5px solid white;
     box-shadow: 1px 1px 5px #666666; }
+
+.person.promo + .pagination {
+  clear: both; }
 
 .auxillary-people {
   font-size: 12px; }
