@@ -767,13 +767,17 @@ span.new {
   float: left;
   padding: 10px;
   .name {
-    font-size: 11px;
+    font-size: 13px;
     text-align: center;
   }
   .avatar img {
     border: 5px solid #fff;
     box-shadow: 1px 1px 5px #666;
   }
+}
+
+.person.promo + .pagination {
+  clear:both;
 }
 
 .auxillary-people {
