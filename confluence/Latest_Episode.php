@@ -11,6 +11,11 @@ class Latest_Episode extends WP_Widget {
 			'description' => 'A plugin for displaying the latest episode.'
 		);
 		$this->WP_Widget(self::slug, self::name, $options);
+		$this->add_actions();
+	}
+
+	public function add_actions() {
+		add_action('save_post', array($this, 'update_post'));
 	}
 
 	public function widget($args, $instance) {
@@ -36,17 +41,35 @@ class Latest_Episode extends WP_Widget {
 	}
 
 	private function get_episode() {
-		$args = array(
-			"post_type" => "episode",
-			"posts_per_page" => 1,
-		);
-		$args = apply_filters('confluence_latest_episode_args', $args);
-		$query = new WP_Query($args);
+
+		$query = get_transient('nx_latest_episode');
+
+		if ( false === $query ) {
+
+			$args = array(
+				"post_type" => "episode",
+				"posts_per_page" => 1,
+			);
+			$args = convergence_exclude_category('tf', $args);
+			$args = apply_filters('confluence_latest_episode_args', $args);
+			$query = new WP_Query($args);
+			set_transient('nx_latest_episode', $query, 60 * 60 * 24);
+
+		}
+
 		return $query;
 	}
 
 	private function strip($obj, $title) {
 		return strip_tags(stripslashes($obj[$title]));
+	}
+
+	public function update_post($post_id, $post) {
+		if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
+		if ( !is_object($post) || !$isset($post->post_type) ) return;
+		if ( $post->post_type == 'episode' ) {
+			delete_transient('nx_latest_episode');
+		}
 	}
 
 	public static function register() {
