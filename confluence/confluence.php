@@ -281,6 +281,33 @@ class Confluence_Episode_People_View {
 
 }
 
+
+class Confluence_AdminMagic {
+	public $nonce_path;
+	public $nonce_key = 'confluence_nonce';
+
+	public function __construct() {
+		$this->nonce_path = basename(__FILE__);
+		if ( is_admin() ) add_action('init', array($this, 'admin_hooks'));
+	}
+	public function admin_hooks() {
+		add_action('admin_menu', array($this, 'setup_menus'));
+	}
+
+	public function setup_menus() {
+		add_menu_page( 'Magic', 'Magic', 'administrator', 'confluence-magic', array($this, 'menu_display'));
+	}
+
+	public function menu_display() {
+		global $wp_query;
+		include('confluence-views/confluence-admin-magic.php');
+		
+	}
+
+}
+
+
+
 class Confluence_Interface {
 	public static function get_nsfw() {
 		$meta = get_post_meta( get_the_ID() , 'confluence-nsfw', true);
@@ -351,6 +378,8 @@ function confluence_setup() {
 	$master = new Confluence_Episode_View();
 	$people_episode_view = new Confluence_Episode_People_View();
 	$people_view = new Confluence_People_View();
+
+	$magic = new Confluence_AdminMagic();
 }
 
 confluence_setup();
