@@ -46,7 +46,7 @@ class Playboard_Dashboard {
 		$arguments = array('hide_empty' => false);
 		$uncategorized = get_category_by_slug('uncategorized');
 		if ($uncategorized) {
-			$arguments['exclude'] = '' + $uncategorized->term_id;
+			$arguments['category__not_in'] = array($uncategorized->term_id);
 		}
 
 		$playboard = array(
