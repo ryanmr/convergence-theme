@@ -122,8 +122,14 @@ function convergence_theme_setup_theme() {
 
   convergence_jetpack_alter();
 
+  add_filter('admin_footer_text', 'convergence_alter_admin_footer');
+
 }
 
+function convergence_alter_admin_footer() {
+  $theme = wp_get_theme();
+  echo('Running <a href="https://github.com/ryanmr/convergence-theme">Convergence ' . $theme->Version . '</a> and <a href="http://wordpress.org/?thenexustv">WordPress</a>.');
+}
 
 /**
  * Enqueues global styles.
