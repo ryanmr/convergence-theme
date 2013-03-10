@@ -4,21 +4,25 @@ if (!class_exists('Confluence')) exit();
 
 <style type="text/css">
 	
-#scoreboard .inner {
+#scoreboard {
 	font-size: 1.3em;
-	padding: 1em;
 }
 
-#scoreboard .data-list,
-#scoreboard .stats-list {
+#scoreboard .data-list {
 	-moz-column-count:3; /* Firefox */
 	-webkit-column-count:3; /* Safari and Chrome */
 	column-count:3;
 }
+#scoreboard .stats-list {
+	-moz-column-count:4; /* Firefox */
+	-webkit-column-count:4; /* Safari and Chrome */
+	column-count:4;
+}
+
 #scoreboard .data-list {
 	margin-top: 0;
 	padding-bottom: .5em;
-	border-bottom: 1px solid #eee;
+	border-bottom: 1px solid #ccc;
 }
 #scoreboard .stats-list {
 	margin-bottom: 0;
@@ -28,7 +32,7 @@ if (!class_exists('Confluence')) exit();
 #scoreboard .stats-list dt {
 	text-align: center;
 	font-size: 1.2em;
-	padding: .3em;
+	padding: .5em;
 }
 #scoreboard .series-episode-count,
 #scoreboard .stats-list dd {
@@ -46,49 +50,36 @@ if (!class_exists('Confluence')) exit();
 	font-size: .9em;
 }
 
+#scoreboard .meta {
+	font-size: .8em;
+}
+
 </style>
 
-		<div id="scoreboard" class="box grid_6">
-			<div class="inner">
-				
-				<dl class="data-list">
-					<dt class="series-short-name">ATN</dt>
-					<dd class="series-episode-count">63</dd>
-
-					<dt class="series-short-name">CS</dt>
-					<dd class="series-episode-count">15</dd>
-
-					<dt class="series-short-name">DM</dt>
-					<dd class="series-episode-count">0</dd>
-					
-					<dt class="series-short-name">EB</dt>
-					<dd class="series-episode-count">24</dd>
-					
-					<dt class="series-short-name">NS</dt>
-					<dd class="series-episode-count">16</dd>
-					
-					<dt class="series-short-name">SS</dt>
-					<dd class="series-episode-count">0</dd>
-					
-					<dt class="series-short-name">TF</dt>
-					<dd class="series-episode-count">50</dd>
-					
-					<dt class="series-short-name">TED</dt>
-					<dd class="series-episode-count">0</dd>
-					
-					<dt class="series-short-name">TU</dt>
-					<dd class="series-episode-count">19</dd>
-										
-				</dl>
-				
-				<dl class="stats-list">
-					<dt>Total</dt>
-					<dd>181</dd>
-					<dt>30 Days</dt>
-					<dd>22</dd>
-					<dt>7 Days</dt>
-					<dd>6</dd>
-				</dl>
-				
-			</div>
+<div id="scoreboard" class="box grid_6">
+	<div class="inner">
+		
+		<dl class="data-list">
+<?php foreach ($playboard['series'] as $show): ?>
+<dt class="series-short-name"><?php echo $show['slug']; ?></dt>
+<dd class="series-episode-count"><?php echo $show['count']; ?></dd>
+<?php endforeach; ?>
+		</dl>
+		
+		<dl class="stats-list">
+			<dt>Total</dt>
+			<dd><?php echo($playboard['total_all']); ?></dd>
+			<dt>90 Days</dt>
+			<dd><?php echo($playboard['total_ninety']); ?></dd>
+			<dt>30 Days</dt>
+			<dd><?php echo($playboard['total_thirty']); ?></dd>
+			<dt>7 Days</dt>
+			<dd><?php echo($playboard['total_seven']); ?></dd>
+		</dl>
+		
+		<div class="meta">
+			<p class="datetime" title="<?php echo(date('l jS \of F Y h:i:s A', $playboard['last_update'])); ?>"><?php echo(date('l, F jS, Y', $playboard['last_update'])); ?></p>
 		</div>
+
+	</div>
+</div>
