@@ -66,7 +66,6 @@ class Latest_Episode extends WP_Widget {
 
 	public function update_post($post_id, $post) {
 		if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
-		if ( isset($post) && is_object($post)  ) return;
 		if ( $post->post_type == 'episode' ) {
 			delete_transient('nx_latest_episode');
 		}

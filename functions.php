@@ -5,6 +5,7 @@ new Hybrid();
 
 require_once( trailingslashit( TEMPLATEPATH ) . 'confluence/confluence.php' );
 require_once( trailingslashit( TEMPLATEPATH ) . 'confluence/Latest_Episode.php' );
+require_once( trailingslashit( TEMPLATEPATH ) . 'confluence/Playboard_Dashboard.php' );
 
 
 /* Do theme setup on the 'after_setup_theme' hook. */
@@ -121,8 +122,8 @@ function convergence_theme_setup_theme() {
 
   convergence_jetpack_alter();
 
-
 }
+
 
 /**
  * Enqueues global styles.
