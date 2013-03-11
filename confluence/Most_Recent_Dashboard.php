@@ -49,24 +49,30 @@ class Most_Recent_Dashboard {
 			'fringe' => array()
 		);
 
-		$arguments = array(
+		$fringe_arguments = array(
 			'numberposts' => 1,
 			'post_type' => 'episode',
 			'post_status' => 'publish'
 		);
-
-		$recent['fringe'] = wp_get_recent_posts($arguments);
+		$recent['fringe'] = wp_get_recent_posts($fringe_arguments);
+		
 
 		$uncategorized = get_category_by_slug('uncategorized');
-
 		$fringe = get_category_by_slug('tf');
+		$show_arguments = array(
+			'numberposts' => 1,
+			'post_type' => 'episode',
+			'post_status' => 'publish',
+			'post__not_in' => array($recent['fringe'][0]['ID'])
+		);
 		if ($uncategorized || $fringe) {
 			$arguments['category__not_in'] = array($uncategorized->term_id, $fringe->term_id);
+			//var_dump($arguments);
 		}
-		$recent['show'] = wp_get_recent_posts($arguments);
+		$recent['show'] = wp_get_recent_posts($show_arguments);
+
 
 		return $recent;
-
 	}
 
 

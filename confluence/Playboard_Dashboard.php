@@ -92,10 +92,6 @@ class Playboard_Dashboard {
 		return $results;
 	}
 
-
-
-
-
 }
 
 $nx_playboard = new Playboard_Dashboard();

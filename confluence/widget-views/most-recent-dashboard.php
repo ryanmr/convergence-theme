@@ -36,8 +36,8 @@ if (!class_exists('Confluence')) exit();
 
 <div id="most-recent">
 	<div class="inner">
-	
-	<?php foreach ($recent['show'] as $post): //var_dump($post); ?>
+
+	<?php foreach ($recent['show'] as $post): ?>
 		<div class="episode">
 			<h4 class="title-bag"><a href="<?php echo(get_permalink($post['ID'])); ?>"><?php echo(convergence_episode_title((object)$post)); ?></a></h4>
 			<div><p><?php echo($post['post_excerpt']); ?></p></div>
@@ -57,7 +57,7 @@ if (!class_exists('Confluence')) exit();
 	<br class="clear" />
 	<hr  />
 
-	<?php foreach ($recent['fringe'] as $post): //var_dump($post); ?>
+	<?php foreach ($recent['fringe'] as $post): ?>
 		<div class="episode">
 			<h4 class="title-bag"><a href="<?php echo(get_permalink($post['ID'])); ?>"><?php echo(convergence_episode_title((object)$post)); ?></a></h4>
 			<div><p><?php echo($post['post_excerpt']); ?></p></div>
