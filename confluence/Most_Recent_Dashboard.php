@@ -32,6 +32,18 @@ class Most_Recent_Dashboard {
 
 	public function get_recent_data() {
 
+		$recent = get_transient(self::slug . '-data');
+		if (false === $recent) {
+			$recent = $this->get_data();
+			set_transient(self::slug . '-data', $recent, 60 * 60 * 24);
+		}
+
+		return $recent;
+
+	}
+
+	private function get_data() {
+
 		$recent = array(
 			'show' => array(),
 			'fringe' => array()
@@ -53,15 +65,7 @@ class Most_Recent_Dashboard {
 		}
 		$recent['show'] = wp_get_recent_posts($arguments);
 
-
-
 		return $recent;
-
-	}
-
-	private function get_data() {
-
-
 
 	}
 
