@@ -56,7 +56,7 @@ if (!class_exists('Confluence')) exit();
 
 </style>
 
-<div id="scoreboard" class="box grid_6">
+<div id="scoreboard">
 	<div class="inner">
 		
 		<dl class="data-list">

@@ -6,6 +6,7 @@ new Hybrid();
 require_once( trailingslashit( TEMPLATEPATH ) . 'confluence/confluence.php' );
 require_once( trailingslashit( TEMPLATEPATH ) . 'confluence/Latest_Episode.php' );
 require_once( trailingslashit( TEMPLATEPATH ) . 'confluence/Playboard_Dashboard.php' );
+require_once( trailingslashit( TEMPLATEPATH ) . 'confluence/Most_Recent_Dashboard.php' );
 
 
 /* Do theme setup on the 'after_setup_theme' hook. */
