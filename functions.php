@@ -119,7 +119,7 @@ function convergence_theme_setup_theme() {
     add_action('admin_menu', 'convergence_admin_menu');
     add_filter('admin_footer_text', 'convergence_alter_admin_footer');
     add_filter('enter_title_here', 'convergence_enter_title_here');
-    add_filter('the_title', 'admin_episode_title');
+    add_filter('the_title', 'convergence_admin_episode_title');
   }
 
   convergence_remove_header_meta();
@@ -128,7 +128,7 @@ function convergence_theme_setup_theme() {
 
 }
 
-function admin_episode_title($title) {
+function convergence_admin_episode_title($title) {
   global $post;
   $screen = get_current_screen();
   if ('edit-episode' != $screen->id || !$post) return $title; 
