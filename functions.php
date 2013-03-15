@@ -117,14 +117,36 @@ function convergence_theme_setup_theme() {
 
   if ( is_admin() ) {
     add_action('admin_menu', 'convergence_admin_menu');
+    add_filter('admin_footer_text', 'convergence_alter_admin_footer');
+    add_filter('enter_title_here', 'convergence_enter_title_here');
+    add_filter('the_title', 'admin_episode_title');
   }
 
   convergence_remove_header_meta();
 
   convergence_jetpack_alter();
 
-  add_filter('admin_footer_text', 'convergence_alter_admin_footer');
+}
 
+function admin_episode_title($title) {
+  global $post;
+  $screen = get_current_screen();
+  if ('edit-episode' != $screen->id || !$post) return $title; 
+  $number = get_episode_number(get_permalink($post));
+
+  // return "#$number: " . $title;
+  return convergence_episode_title($post, $title);
+}
+
+function convergence_enter_title_here($title) {
+  $screen = get_current_screen();
+  if ( 'episode' == $screen->post_type ) {
+    $title = 'Enter Show Title';
+  }
+  if ( 'person' == $screen->post_type ) {
+    $title = 'Person\'s Name';
+  }
+  return $title;
 }
 
 function convergence_alter_admin_footer() {
@@ -478,16 +500,20 @@ function convergence_post_title_filter($title, $s = "", $l = "") {
 /**
  * Gets the proper name for an episode.
  * @param object Post object
+ * 
+ * TODO: fix this function.
+ * 
  */
-function convergence_episode_title($post_object) {
+function convergence_episode_title($post_object, $title = "") {
   global $wp_query;
   $post_id = $post_object->ID;
   $permalink = get_permalink($post_id);
   $episode = get_episode_number($permalink);
   $categories = get_the_category($post_id);
-  $category = $categories[0];
-  $title = get_the_title($post_id);
-  $modified = $category->cat_name . " #" . $episode . ": " . $title;
+  $category = "Episode ";
+  if ( isset($categories[0]) ) $category = $categories[0]->cat_name;
+  if ( "" == $title ) $title = get_the_title($post_id);
+  $modified = $category . " #" . $episode . ": " . $title;
   return $modified;
 }
 
