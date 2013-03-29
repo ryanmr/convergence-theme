@@ -126,6 +126,20 @@ function convergence_theme_setup_theme() {
 
   convergence_jetpack_alter();
 
+  add_action('wp_enqueue_scripts', 'convergence_april');
+
+}
+
+function convergence_april() {
+  $start = '2013-03-30';
+  $end = '2013-04-03';
+  $start = strtotime($start);
+  $end = strtotime($end);
+  $now = time();
+  if ( $start < $now && $now < $end ) {
+    wp_enqueue_style( "april", get_template_directory_uri() . '/resources/april.css', array('main'));
+    wp_enqueue_script( "april-js", get_template_directory_uri() . '/resources/april.js');
+  }
 }
 
 function convergence_admin_episode_title($title) {

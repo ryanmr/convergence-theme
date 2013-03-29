@@ -1,0 +1,31 @@
+#header-container:hover #site-logo .logo {
+	background-image: url("http://s3.amazonaws.com/the-nexus-tv/static/album-art/misc/ncr-flag-logo.png");
+}
+
+#site-logo .logo {
+	width: 100px;
+	height: 65px;
+	background-size: 100px 65px;
+	background-image: url("http://s3.amazonaws.com/the-nexus-tv/static/album-art/misc/ncr-flag-logo.png");
+}
+
+#header {
+	width: 400px;
+}
+
+#primary-menu ul {
+	margin-left: 30px;
+}
+
+.home #villain .feature {
+	background-image: url(http://i0.wp.com/the-nexus.tv/wp-content/uploads/2012/12/the-universe-wide-001.jpg) !important;
+}
+.home .episode-block img {
+	background-image: url(http://i0.wp.com/the-nexus.tv/wp-content/uploads/2012/12/the-universe-wide-001.jpg) !important;
+}
+
+.home .with-feature {
+	text-transform: none;
+	font-size: 11px;
+	padding-left: 3px;
+}
