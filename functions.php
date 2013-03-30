@@ -131,8 +131,8 @@ function convergence_theme_setup_theme() {
 }
 
 function convergence_april() {
-  $start = '2013-03-30';
-  $end = '2013-04-03';
+  $start = '2013-03-30 12:00';
+  $end = '2013-04-03 12:00';
   $start = strtotime($start);
   $end = strtotime($end);
   $now = time();
