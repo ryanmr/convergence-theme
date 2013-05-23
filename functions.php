@@ -102,6 +102,7 @@ function convergence_theme_setup_theme() {
 	add_filter('posts_where', 'convergence_feed_delay');
 
   add_action('wp_footer', 'convergence_site_logo_idle');
+  add_action('wp_footer', 'convergence_episode_target_links');
 
   add_action('wp_before_admin_bar_render', 'convergence_admin_bar');
   add_action('init', 'convergence_remove_header_meta');
@@ -126,20 +127,8 @@ function convergence_theme_setup_theme() {
 
   convergence_jetpack_alter();
 
-  add_action('wp_enqueue_scripts', 'convergence_april');
 
-}
 
-function convergence_april() {
-  $start = '2013-03-31 16:00';
-  $end = '2013-04-02 12:00';
-  $start = strtotime($start);
-  $end = strtotime($end);
-  $now = time();
-  if ( $start < $now && $now < $end ) {
-    wp_enqueue_style( "april", get_template_directory_uri() . '/resources/april.css', array('main'));
-    wp_enqueue_script( "april-js", get_template_directory_uri() . '/resources/april.js');
-  }
 }
 
 function convergence_admin_episode_title($title) {
@@ -626,6 +615,20 @@ function convergence_site_logo_idle() {
   });
 </script>
 <?php 
+}
+
+/**
+* Adds javascript to handle opening links in their own tabs.
+*/
+function convergence_episode_target_links() {
+?>
+<script type="text/javascript">
+  jQuery(document).ready(function($){
+    console.log('big week?')
+      $('.singular-episode .entry-content li a').attr('target', '_blank');
+  });
+</script>
+<?php
 }
 
 /**

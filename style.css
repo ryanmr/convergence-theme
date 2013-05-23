@@ -4,11 +4,12 @@
 * Author: Ryan Rampersad
 * Author URI: http://ryanrampersad.com/
 * Description: Convergence is the theme that powers The Nexus TV content mangement system built on top of WordPress.
-* Version: 0.342
+* Version: 0.343
 */
 /**
 Changelog
 
+0.343: Removed April Fool's content, added JS to handle link opening.
 0.342: Added April Fool's script and css.
 0.341: Added formal titles to WP Admin listing.
 0.340: Added Dashboard widgets.
@@ -18,1164 +19,398 @@ Changelog
 */
 /* normalize.css */
 /* normalize.css 2011-11-04T15:38 UTC - http://github.com/necolas/normalize.css */
-/* =============================================================================
-   HTML5 display definitions
-   ========================================================================== */
-/*
- * Corrects block display not defined in IE6/7/8/9 & FF3
- */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-nav,
-section {
-  display: block; }
+/* ============================================================================= HTML5 display definitions ========================================================================== */
+/* Corrects block display not defined in IE6/7/8/9 & FF3 */
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
 
-/*
- * Corrects inline-block display not defined in IE6/7/8/9 & FF3
- */
-audio,
-canvas,
-video {
-  display: inline-block;
-  *display: inline;
-  *zoom: 1; }
+/* Corrects inline-block display not defined in IE6/7/8/9 & FF3 */
+audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
 
-/*
- * Prevents modern browsers from displaying 'audio' without controls
- */
-audio:not([controls]) {
-  display: none; }
+/* Prevents modern browsers from displaying 'audio' without controls */
+audio:not([controls]) { display: none; }
 
-/*
- * Addresses styling for 'hidden' attribute not present in IE7/8/9, FF3, S4
- * Known issue: no IE6 support
- */
-[hidden] {
-  display: none; }
+/* Addresses styling for 'hidden' attribute not present in IE7/8/9, FF3, S4 Known issue: no IE6 support */
+[hidden] { display: none; }
 
-/* =============================================================================
-   Base
-   ========================================================================== */
-/*
- * 1. Corrects text resizing oddly in IE6/7 when body font-size is set using em units
- *    http://clagnut.com/blog/348/#c790
- * 2. Keeps page centred in all browsers regardless of content height
- * 3. Prevents iOS text size adjust after orientation change, without disabling user zoom
- *    www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/
- */
-html {
-  font-size: 100%;
-  /* 1 */
-  overflow-y: scroll;
-  /* 2 */
-  -webkit-text-size-adjust: 100%;
-  /* 3 */
-  -ms-text-size-adjust: 100%;
-  /* 3 */ }
+/* ============================================================================= Base ========================================================================== */
+/* 1. Corrects text resizing oddly in IE6/7 when body font-size is set using em units http://clagnut.com/blog/348/#c790 2. Keeps page centred in all browsers regardless of content height 3. Prevents iOS text size adjust after orientation change, without disabling user zoom www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
+html { font-size: 100%; /* 1 */ overflow-y: scroll; /* 2 */ -webkit-text-size-adjust: 100%; /* 3 */ -ms-text-size-adjust: 100%; /* 3 */ }
 
-/*
- * Addresses margins handled incorrectly in IE6/7
- */
-body {
-  margin: 0; }
+/* Addresses margins handled incorrectly in IE6/7 */
+body { margin: 0; }
 
-/* 
- * Addresses font-family inconsistency between 'textarea' and other form elements.
- */
-body,
-button,
-input,
-select,
-textarea {
-  font-family: sans-serif; }
+/*  Addresses font-family inconsistency between 'textarea' and other form elements. */
+body, button, input, select, textarea { font-family: sans-serif; }
 
-/* =============================================================================
-   Links
-   ========================================================================== */
-/*
- * Addresses outline displayed oddly in Chrome
- */
-a:focus {
-  outline: thin dotted; }
+/* ============================================================================= Links ========================================================================== */
+/* Addresses outline displayed oddly in Chrome */
+a:focus { outline: thin dotted; }
 
-/*
- * Improves readability when focused and also mouse hovered in all browsers
- * people.opera.com/patrickl/experiments/keyboard/test
- */
-a:hover,
-a:active {
-  outline: 0; }
+/* Improves readability when focused and also mouse hovered in all browsers people.opera.com/patrickl/experiments/keyboard/test */
+a:hover, a:active { outline: 0; }
 
-/* =============================================================================
-   Typography
-   ========================================================================== */
-/*
- * Neutralise smaller font-size in 'section' and 'article' in FF4+, Chrome, S5
- */
-h1 {
-  font-size: 2em; }
+/* ============================================================================= Typography ========================================================================== */
+/* Neutralise smaller font-size in 'section' and 'article' in FF4+, Chrome, S5 */
+h1 { font-size: 2em; }
 
-/*
- * Addresses styling not present in IE7/8/9, S5, Chrome
- */
-abbr[title] {
-  border-bottom: 1px dotted; }
+/* Addresses styling not present in IE7/8/9, S5, Chrome */
+abbr[title] { border-bottom: 1px dotted; }
 
-/*
- * Addresses style set to 'bolder' in FF3+, S4/5, Chrome
+/* Addresses style set to 'bolder' in FF3+, S4/5, Chrome
 */
-b,
-strong {
-  font-weight: bold; }
+b, strong { font-weight: bold; }
 
-blockquote {
-  margin: 1em 40px; }
+blockquote { margin: 1em 40px; }
 
-/*
- * Addresses styling not present in S5, Chrome
- */
-dfn {
-  font-style: italic; }
+/* Addresses styling not present in S5, Chrome */
+dfn { font-style: italic; }
 
-/*
- * Addresses styling not present in IE6/7/8/9
- */
-mark {
-  background: #ff0;
-  color: #000; }
+/* Addresses styling not present in IE6/7/8/9 */
+mark { background: #ff0; color: #000; }
 
-/*
- * Corrects font family set oddly in IE6, S4/5, Chrome
- * en.wikipedia.org/wiki/User:Davidgothberg/Test59
- */
-pre,
-code,
-kbd,
-samp {
-  font-family: monospace, serif;
-  _font-family: "courier new", monospace;
-  font-size: 1em; }
+/* Corrects font family set oddly in IE6, S4/5, Chrome en.wikipedia.org/wiki/User:Davidgothberg/Test59 */
+pre, code, kbd, samp { font-family: monospace, serif; _font-family: "courier new", monospace; font-size: 1em; }
 
-/*
- * Improves readability of pre-formatted text in all browsers
- */
-pre {
-  white-space: pre;
-  white-space: pre-wrap;
-  word-wrap: break-word; }
+/* Improves readability of pre-formatted text in all browsers */
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 
-/*
- * 1. Addresses CSS quotes not supported in IE6/7
- * 2. Addresses quote property not supported in S4
- */
+/* 1. Addresses CSS quotes not supported in IE6/7 2. Addresses quote property not supported in S4 */
 /* 1 */
-q {
-  quotes: none; }
+q { quotes: none; }
 
 /* 2 */
-q:before,
-q:after {
-  content: '';
-  content: none; }
+q:before, q:after { content: ''; content: none; }
 
-small {
-  font-size: 75%; }
+small { font-size: 75%; }
 
-/*
- * Prevents sub and sup affecting line-height in all browsers
- * gist.github.com/413930
- */
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline; }
+/* Prevents sub and sup affecting line-height in all browsers gist.github.com/413930 */
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
 
-sup {
-  top: -0.5em; }
+sup { top: -0.5em; }
 
-sub {
-  bottom: -0.25em; }
+sub { bottom: -0.25em; }
 
-/* =============================================================================
-   Lists
-   ========================================================================== */
-ul,
-ol {
-  margin-left: 0;
-  padding: 0 0 0 40px; }
+/* ============================================================================= Lists ========================================================================== */
+ul, ol { margin-left: 0; padding: 0 0 0 40px; }
 
-dd {
-  margin: 0 0 0 40px; }
+dd { margin: 0 0 0 40px; }
 
-nav ul,
-nav ol {
-  list-style: none;
-  list-style-image: none; }
+nav ul, nav ol { list-style: none; list-style-image: none; }
 
-/* =============================================================================
-   Embedded content
-   ========================================================================== */
-/*
- * 1. Removes border when inside 'a' element in IE6/7/8/9, FF3
- * 2. Improves image quality when scaled in IE7
- *    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
- */
-img {
-  border: 0;
-  /* 1 */
-  -ms-interpolation-mode: bicubic;
-  /* 2 */ }
+/* ============================================================================= Embedded content ========================================================================== */
+/* 1. Removes border when inside 'a' element in IE6/7/8/9, FF3 2. Improves image quality when scaled in IE7 code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+img { border: 0; /* 1 */ -ms-interpolation-mode: bicubic; /* 2 */ }
 
-/*
- * Corrects overflow displayed oddly in IE9 
- */
-svg:not(:root) {
-  overflow: hidden; }
+/* Corrects overflow displayed oddly in IE9  */
+svg:not(:root) { overflow: hidden; }
 
-/* =============================================================================
-   Figures
-   ========================================================================== */
-/*
- * Addresses margin not present in IE6/7/8/9, S5, O11
- */
-figure {
-  margin: 0; }
+/* ============================================================================= Figures ========================================================================== */
+/* Addresses margin not present in IE6/7/8/9, S5, O11 */
+figure { margin: 0; }
 
-/* =============================================================================
-   Forms
-   ========================================================================== */
-/*
- * Corrects margin displayed oddly in IE6/7
- */
-form {
-  margin: 0; }
+/* ============================================================================= Forms ========================================================================== */
+/* Corrects margin displayed oddly in IE6/7 */
+form { margin: 0; }
 
-/*
- * Define consistent border, margin, and padding
- */
-fieldset {
-  border: 1px solid silver;
-  margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em; }
+/* Define consistent border, margin, and padding */
+fieldset { border: 1px solid silver; margin: 0 2px; padding: 0.35em 0.625em 0.75em; }
 
-/*
- * 1. Corrects color not being inherited in IE6/7/8/9
- * 2. Corrects alignment displayed oddly in IE6/7
- */
-legend {
-  border: 0;
-  /* 1 */
-  *margin-left: -7px;
-  /* 2 */ }
+/* 1. Corrects color not being inherited in IE6/7/8/9 2. Corrects alignment displayed oddly in IE6/7 */
+legend { border: 0; /* 1 */ *margin-left: -7px; /* 2 */ }
 
-/*
- * 1. Corrects font size not being inherited in all browsers
- * 2. Addresses margins set differently in IE6/7, FF3+, S5, Chrome
- * 3. Improves appearance and consistency in all browsers
- */
-button,
-input,
-select,
-textarea {
-  font-size: 100%;
-  /* 1 */
-  margin: 0;
-  /* 2 */
-  vertical-align: baseline;
-  /* 3 */
-  *vertical-align: middle;
-  /* 3 */ }
+/* 1. Corrects font size not being inherited in all browsers 2. Addresses margins set differently in IE6/7, FF3+, S5, Chrome 3. Improves appearance and consistency in all browsers */
+button, input, select, textarea { font-size: 100%; /* 1 */ margin: 0; /* 2 */ vertical-align: baseline; /* 3 */ *vertical-align: middle; /* 3 */ }
 
-/*
- * Addresses FF3/4 setting line-height on 'input' using !important in the UA stylesheet
- */
-button,
-input {
-  line-height: normal;
-  /* 1 */ }
+/* Addresses FF3/4 setting line-height on 'input' using !important in the UA stylesheet */
+button, input { line-height: normal; /* 1 */ }
 
-/*
- * 1. Improves usability and consistency of cursor style between image-type 'input' and others
- * 2. Corrects inability to style clickable 'input' types in iOS
- * 3. Removes inner spacing in IE7 without affecting normal text inputs
- *    Known issue: inner spacing remains in IE6
- */
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-  cursor: pointer;
-  /* 1 */
-  -webkit-appearance: button;
-  /* 2 */
-  *overflow: visible;
-  /* 3 */ }
+/* 1. Improves usability and consistency of cursor style between image-type 'input' and others 2. Corrects inability to style clickable 'input' types in iOS 3. Removes inner spacing in IE7 without affecting normal text inputs Known issue: inner spacing remains in IE6 */
+button, input[type="button"], input[type="reset"], input[type="submit"] { cursor: pointer; /* 1 */ -webkit-appearance: button; /* 2 */ *overflow: visible; /* 3 */ }
 
-/*
- * 1. Addresses box sizing set to content-box in IE8/9
- * 2. Removes excess padding in IE8/9
- */
-input[type="checkbox"],
-input[type="radio"] {
-  box-sizing: border-box;
-  /* 1 */
-  padding: 0;
-  /* 2 */ }
+/* 1. Addresses box sizing set to content-box in IE8/9 2. Removes excess padding in IE8/9 */
+input[type="checkbox"], input[type="radio"] { box-sizing: border-box; /* 1 */ padding: 0; /* 2 */ }
 
-/*
- * 1. Addresses appearance set to searchfield in S5, Chrome
- * 2. Addresses box-sizing set to border-box in S5, Chrome (include -moz to future-proof)
- */
-input[type="search"] {
-  -webkit-appearance: textfield;
-  /* 1 */
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
-  /* 2 */
-  box-sizing: content-box; }
+/* 1. Addresses appearance set to searchfield in S5, Chrome 2. Addresses box-sizing set to border-box in S5, Chrome (include -moz to future-proof) */
+input[type="search"] { -webkit-appearance: textfield; /* 1 */ -moz-box-sizing: content-box; -webkit-box-sizing: content-box; /* 2 */ box-sizing: content-box; }
 
-/*
- * Removes inner padding that is displayed in S5, Chrome on OS X
- */
-input[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none; }
+/* Removes inner padding that is displayed in S5, Chrome on OS X */
+input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
 
-/*
- * Removes inner padding and border in FF3+
- * www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/
- */
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
-  padding: 0; }
+/* Removes inner padding and border in FF3+ www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/ */
+button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
 
-/*
- * 1. Removes default vertical scrollbar in IE6/7/8/9
- * 2. Improves readability and alignment in all browsers
- */
-textarea {
-  overflow: auto;
-  /* 1 */
-  vertical-align: top;
-  /* 2 */ }
+/* 1. Removes default vertical scrollbar in IE6/7/8/9 2. Improves readability and alignment in all browsers */
+textarea { overflow: auto; /* 1 */ vertical-align: top; /* 2 */ }
 
-/* =============================================================================
-   Tables
-   ========================================================================== */
-/* 
- * Remove most spacing between table cells
- */
-table {
-  border-collapse: collapse;
-  border-spacing: 0; }
+/* ============================================================================= Tables ========================================================================== */
+/*  Remove most spacing between table cells */
+table { border-collapse: collapse; border-spacing: 0; }
 
 /* layout.css */
-body {
-  min-width: 960px; }
+body { min-width: 960px; }
 
 /* containers */
-#header-wrapper,
-#hero-wrapper,
-#content-wrapper,
-#showboard-wrapper,
-#footer-wrapper {
-  margin-left: auto;
-  margin-right: auto;
-  width: 960px; }
+#header-wrapper, #hero-wrapper, #content-wrapper, #showboard-wrapper, #footer-wrapper { margin-left: auto; margin-right: auto; width: 960px; }
 
 /* floats */
-#header,
-#primary-menu,
-#hero .hero-meta,
-#hero .hero-image,
-.episode-block,
-#content.episode, #content-sidebar {
-  display: inline;
-  float: left;
-  margin-left: 10px;
-  margin-right: 10px; }
+#header, #primary-menu, #hero .hero-meta, #hero .hero-image, .episode-block, #content.episode, #content-sidebar { display: inline; float: left; margin-left: 10px; margin-right: 10px; }
 
 /* clearfix */
-.clear {
-  clear: both;
-  display: block;
-  overflow: hidden;
-  visibility: hidden;
-  width: 0;
-  height: 0; }
+.clear { clear: both; display: block; overflow: hidden; visibility: hidden; width: 0; height: 0; }
 
 /* http://www.yuiblog.com/blog/2010/09/27/clearfix-reloaded-overflowhidden-demystified */
-.clearfix:before,
-.clearfix:after,
-#header-wrapper:before,
-#header-wrapper:after,
-#hero-wrapper:before,
-#hero-wrapper:after,
-#content-wrapper:before,
-#content-wrapper:after,
-#showboard-wrapper:before,
-#showboard-wrapper:after {
-  content: '.';
-  display: block;
-  overflow: hidden;
-  visibility: hidden;
-  font-size: 0;
-  line-height: 0;
-  width: 0;
-  height: 0; }
+.clearfix:before, .clearfix:after, #header-wrapper:before, #header-wrapper:after, #hero-wrapper:before, #hero-wrapper:after, #content-wrapper:before, #content-wrapper:after, #showboard-wrapper:before, #showboard-wrapper:after { content: '.'; display: block; overflow: hidden; visibility: hidden; font-size: 0; line-height: 0; width: 0; height: 0; }
 
-.clearfix:after,
-#header-wrapper:after,
-#hero-wrapper:after,
-#content-wrapper:after,
-#showboard-wrapper:after {
-  clear: both; }
+.clearfix:after, #header-wrapper:after, #hero-wrapper:after, #content-wrapper:after, #showboard-wrapper:after { clear: both; }
 
-/*
-  The following zoom:1 rule is specifically for IE6 + IE7.
-  Move to separate stylesheet if invalid CSS is a problem.
+/* The following zoom:1 rule is specifically for IE6 + IE7. Move to separate stylesheet if invalid CSS is a problem.
 */
-.clearfix,
-#header-wrapper,
-#hero-wrapper,
-#content-wrapper,
-#showboard-wrapper {
-  zoom: 1; }
+.clearfix, #header-wrapper, #hero-wrapper, #content-wrapper, #showboard-wrapper { zoom: 1; }
 
 /* fonts.css */
-@font-face {
-  font-family: 'LeagueGothicRegular';
-  src: url("resources/fonts/league-gothic/League_Gothic-webfont.eot");
-  src: url("resources/fonts/league-gothic/League_Gothic-webfont.eot?#iefix") format("embedded-opentype"), url("resources/fonts/league-gothic/League_Gothic-webfont.woff") format("woff"), url("resources/fonts/league-gothic/League_Gothic-webfont.ttf") format("truetype"), url("resources/fonts/league-gothic/League_Gothic-webfont.svg#LeagueGothicRegular") format("svg");
-  font-weight: normal;
-  font-style: normal; }
+@font-face { font-family: 'LeagueGothicRegular'; src: url("resources/fonts/league-gothic/League_Gothic-webfont.eot"); src: url("resources/fonts/league-gothic/League_Gothic-webfont.eot?#iefix") format("embedded-opentype"), url("resources/fonts/league-gothic/League_Gothic-webfont.woff") format("woff"), url("resources/fonts/league-gothic/League_Gothic-webfont.ttf") format("truetype"), url("resources/fonts/league-gothic/League_Gothic-webfont.svg#LeagueGothicRegular") format("svg"); font-weight: normal; font-style: normal; }
 
-body {
-  color: #000;
-  background: #222222 url("resources/textures/darkdenim3.png"); }
+body { color: #000; background: #222222 url("resources/textures/darkdenim3.png"); }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  margin: 0;
-  padding: 0; }
+h1, h2, h3, h4, h5, h6 { font-family: "Open Sans", Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
 
-.clearfix {
-  clear: both; }
+.clearfix { clear: both; }
 
 /*  === header === */
-#header-container {
-  border-bottom: 1px solid #222222;
-  padding-bottom: 10px;
-  box-shadow: inset 0 -5px 10px 1px rgba(0, 0, 0, 0.2);
-  overflow: hidden; }
+#header-container { border-bottom: 1px solid #222222; padding-bottom: 10px; box-shadow: inset 0 -5px 10px 1px rgba(0, 0, 0, 0.2); overflow: hidden; }
 
-#header {
-  padding-top: 20px;
-  width: 320px; }
+#header { padding-top: 20px; width: 320px; }
 
 /* === site title === */
-#site-title, #site-description {
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-size: 36px;
-  line-height: 22px;
-  color: #fff;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
-  margin: 0;
-  padding: 0; }
+#site-title, #site-description { text-transform: uppercase; letter-spacing: 3px; font-size: 36px; line-height: 22px; color: #fff; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4); margin: 0; padding: 0; }
 
-#site-title {
-  font-size: 62px;
-  line-height: 40px;
-  font-family: "LeagueGothicRegular", Helvetica, Arial, san-serif;
-  font-weight: normal; }
-  #site-title a {
-    color: #fff;
-    text-decoration: none; }
-  #site-title:after {
-    content: ".tv";
-    font-size: 16px;
-    top: -2.1em;
-    position: relative;
-    line-height: 0px;
-    font-weight: normal;
-    text-transform: lowercase; }
+#site-title { font-size: 62px; line-height: 40px; font-family: "LeagueGothicRegular", Helvetica, Arial, san-serif; font-weight: normal; }
+#site-title a { color: #fff; text-decoration: none; }
+#site-title:after { content: ".tv"; font-size: 16px; top: -2.1em; position: relative; line-height: 0px; font-weight: normal; text-transform: lowercase; }
 
-#site-description {
-  margin-top: 2px;
-  font-size: 14px;
-  letter-spacing: normal;
-  line-height: normal;
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  font-weight: bold; }
+#site-description { margin-top: 2px; font-size: 14px; letter-spacing: normal; line-height: normal; font-family: "Open Sans", Helvetica, Arial, sans-serif; font-weight: bold; }
 
-#site-logo {
-  float: left;
-  position: relative;
-  top: -5px;
-  padding-right: 10px; }
-  #site-logo .logo {
-    width: 64px;
-    height: 64px;
-    background-size: 64px 64px;
-    background-image: url("resources/images/nx-logo-grayscale.png");
-    display: block; }
+#site-logo { float: left; position: relative; top: -5px; padding-right: 10px; }
+#site-logo .logo { width: 64px; height: 64px; background-size: 64px 64px; background-image: url("resources/images/nx-logo-grayscale.png"); display: block; }
 
-#header-container:hover #site-logo .logo {
-  background-image: url("resources/images/nx-logo-color.png"); }
+#header-container:hover #site-logo .logo { background-image: url("resources/images/nx-logo-color.png"); }
 
-@-webkit-keyframes logo-rotate {
-  from {
-    -webkit-transform: rotate(0deg); }
+@-webkit-keyframes logo-rotate { from { -webkit-transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); } }
 
-  to {
-    -webkit-transform: rotate(360deg); } }
-
-#site-logo.idle {
-  -webkit-animation-name: logo-rotate;
-  -webkit-animation-duration: 30s;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear; }
-  #site-logo.idle .logo {
-    -webkit-transform: scale(0.9); }
+#site-logo.idle { -webkit-animation-name: logo-rotate; -webkit-animation-duration: 30s; -webkit-animation-iteration-count: infinite; -webkit-animation-timing-function: linear; }
+#site-logo.idle .logo { -webkit-transform: scale(0.9); }
 
 /* === primary navigation (header) === */
-#primary-menu ul {
-  list-style: none;
-  margin-left: 50px;
-  padding-top: 25px; }
-  #primary-menu ul li {
-    font-size: 13px;
-    text-transform: uppercase;
-    display: inline;
-    margin-left: 15px;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
-    color: #bbb;
-    letter-spacing: 1px; }
-  #primary-menu ul a, #primary-menu ul a:link {
-    color: inherit;
-    text-decoration: none; }
-  #primary-menu ul a:hover {
-    color: #fff;
-    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5); }
+#primary-menu ul { list-style: none; margin-left: 50px; padding-top: 25px; }
+#primary-menu ul li { font-size: 13px; text-transform: uppercase; display: inline; margin-left: 15px; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4); color: #bbb; letter-spacing: 1px; }
+#primary-menu ul a, #primary-menu ul a:link { color: inherit; text-decoration: none; }
+#primary-menu ul a:hover { color: #fff; text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5); }
 
 /* === container === */
-#content-container {
-  padding-top: 20px; }
+#content-container { padding-top: 20px; }
 
-#container {
-  background: #eeeeee url("resources/textures/body-texture.png");
-  padding-bottom: 10px;
-  border-bottom: 1px solid white; }
+#container { background: #eeeeee url("resources/textures/body-texture.png"); padding-bottom: 10px; border-bottom: 1px solid white; }
 
 /* === Hero === */
-#hero-container {
-  background: white url("resources/textures/little_pluses.png");
-  border-bottom: 1px solid #999999;
-  padding: 20px 0 20px 0;
-  overflow: hidden;
-  box-shadow: 0px 1px 10px rgba(50, 50, 50, 0.75); }
+#hero-container { background: white url("resources/textures/little_pluses.png"); border-bottom: 1px solid #999999; padding: 20px 0 20px 0; overflow: hidden; box-shadow: 0px 1px 10px rgba(50, 50, 50, 0.75); }
 
-#hero {
-  font-family: "Montserrat", Arial, sans-serif; }
-  #hero .hero-meta {
-    width: 560px;
-    position: relative; }
-  #hero .hero-image {
-    margin-top: 10px;
-    width: 360px; }
-  #hero .show-title,
-  #hero .show-name,
-  #hero .archive-title {
-    font-size: 32px;
-    margin-bottom: 3px;
-    line-height: 34px;
-    letter-spacing: 1px;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); }
-    #hero .show-title a,
-    #hero .show-name a,
-    #hero .archive-title a {
-      color: #000;
-      text-decoration: none; }
-    #hero .show-title a:hover,
-    #hero .show-name a:hover,
-    #hero .archive-title a:hover {
-      color: #222;
-      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4); }
-  #hero .show-title + .show-name {
-    font-size: 16px;
-    line-height: 16px;
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    font-size: 16px;
-    color: #333; }
-    #hero .show-title + .show-name a {
-      color: inherit;
-      text-decoration: none; }
-    #hero .show-title + .show-name a:hover {
-      color: #444;
-      text-decoration: none; }
-  #hero .show-date {
-    margin: 0;
-    font-size: 14px;
-    color: #444;
-    text-shadow: 1px 2px 2px white; }
-    #hero .show-date a {
-      color: inherit;
-      text-decoration: none; }
-    #hero .show-date a:hover {
-      color: #666;
-      text-decoration: none; }
-  #hero .episode-description {
-    line-height: 22px;
-    font-size: 15px;
-    color: #000;
-    text-shadow: 1px 2px 2px white; }
-  #hero .show-description,
-  #hero .archive-description {
-    margin-top: 20px;
-    font-size: 18px;
-    line-height: 30px;
-    color: #333;
-    text-shadow: 0 1px 1px white; }
-  #hero .hero-image {
-    text-align: center; }
-  #hero .hero-image img {
-    display: block;
-    margin: auto;
-    -webkit-box-shadow: 1px 2px 30px rgba(0, 0, 0, 0.85);
-    -moz-box-shadow: 1px 2px 30px rgba(0, 0, 0, 0.85);
-    box-shadow: 1px 2px 30px rgba(0, 0, 0, 0.85); }
-  #hero .hero-image a img {
-    border: 6px solid white; }
-  #hero .hero-image a:hover img {
-    border: 6px solid #c9662b; }
+#hero { font-family: "Montserrat", Arial, sans-serif; }
+#hero .hero-meta { width: 560px; position: relative; }
+#hero .hero-image { margin-top: 10px; width: 360px; }
+#hero .show-title, #hero .show-name, #hero .archive-title { font-size: 32px; margin-bottom: 3px; line-height: 34px; letter-spacing: 1px; text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); }
+#hero .show-title a, #hero .show-name a, #hero .archive-title a { color: #000; text-decoration: none; }
+#hero .show-title a:hover, #hero .show-name a:hover, #hero .archive-title a:hover { color: #222; text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4); }
+#hero .show-title + .show-name { font-size: 16px; line-height: 16px; margin-bottom: 5px; text-transform: uppercase; font-size: 16px; color: #333; }
+#hero .show-title + .show-name a { color: inherit; text-decoration: none; }
+#hero .show-title + .show-name a:hover { color: #444; text-decoration: none; }
+#hero .show-date { margin: 0; font-size: 14px; color: #444; text-shadow: 1px 2px 2px white; }
+#hero .show-date a { color: inherit; text-decoration: none; }
+#hero .show-date a:hover { color: #666; text-decoration: none; }
+#hero .episode-description { line-height: 22px; font-size: 15px; color: #000; text-shadow: 1px 2px 2px white; }
+#hero .show-description, #hero .archive-description { margin-top: 20px; font-size: 18px; line-height: 30px; color: #333; text-shadow: 0 1px 1px white; }
+#hero .hero-image { text-align: center; }
+#hero .hero-image img { display: block; margin: auto; -webkit-box-shadow: 1px 2px 30px rgba(0, 0, 0, 0.85); -moz-box-shadow: 1px 2px 30px rgba(0, 0, 0, 0.85); box-shadow: 1px 2px 30px rgba(0, 0, 0, 0.85); }
+#hero .hero-image a img { border: 6px solid white; }
+#hero .hero-image a:hover img { border: 6px solid #c9662b; }
 
-#villain {
-  box-shadow: 0px 10px 20px rgba(50, 50, 50, 0.75);
-  overflow: hidden;
-  z-index: 100;
-  background: #000; }
-  #villain .feature {
-    width: 33.3%;
-    margin-left: 0px;
-    margin-right: 0px;
-    float: left;
-    position: relative;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -ms-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 300px;
-    overflow: hidden; }
-  #villain .feature:nth-child(2) {
-    width: 33.4%; }
-  #villain .feature a.cover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.1) 0, rgba(0, 0, 0, 0.35) 100%); }
-  #villain .feature a.cover:hover {
-    background-image: none; }
-  #villain .feature a.cover .mask {
-    position: absolute;
-    z-index: 1;
-    bottom: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.35);
-    padding: 10px 25px 25px; }
-  #villain .feature a.cover:hover .mask {
-    background-color: rgba(0, 0, 0, 0.65); }
-  #villain .mask {
-    height: 81px;
-    color: #fff; }
-  #villain .show-title {
-    font-size: 28px;
-    word-wrap: break-word; }
-  #villain .long-title {
-    font-size: 26px; }
-  #villain .epic-title {
-    font-size: 24px; }
-  #villain .show-name {
-    text-transform: uppercase;
-    font-size: 16px; }
-  #villain .show-date {
-    font-size: 14px; }
-  #villain h2, #villain h3, #villain h4, #villain h5 {
-    text-shadow: 1px 1px 15px black; }
+#villain { box-shadow: 0px 10px 20px rgba(50, 50, 50, 0.75); overflow: hidden; z-index: 100; background: #000; }
+#villain .feature { width: 33.3%; margin-left: 0px; margin-right: 0px; float: left; position: relative; -webkit-background-size: cover; -moz-background-size: cover; -ms-background-size: cover; -o-background-size: cover; background-size: cover; background-position: center; background-repeat: no-repeat; height: 300px; overflow: hidden; }
+#villain .feature:nth-child(2) { width: 33.4%; }
+#villain .feature a.cover { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.1) 0, rgba(0, 0, 0, 0.35) 100%); }
+#villain .feature a.cover:hover { background-image: none; }
+#villain .feature a.cover .mask { position: absolute; z-index: 1; bottom: 0; width: 100%; background-color: rgba(0, 0, 0, 0.35); padding: 10px 25px 25px; }
+#villain .feature a.cover:hover .mask { background-color: rgba(0, 0, 0, 0.65); }
+#villain .mask { height: 81px; color: #fff; }
+#villain .show-title { font-size: 28px; word-wrap: break-word; }
+#villain .long-title { font-size: 26px; }
+#villain .epic-title { font-size: 24px; }
+#villain .show-name { text-transform: uppercase; font-size: 16px; }
+#villain .show-date { font-size: 14px; }
+#villain h2, #villain h3, #villain h4, #villain h5 { text-shadow: 1px 1px 15px black; }
 
-span.new {
-  text-transform: uppercase;
-  color: #f00;
-  text-align: right; }
+span.new { text-transform: uppercase; color: #f00; text-align: right; }
 
 /* put some media query magic here, for #villian, eventually */
 /* birtday styles */
-#birthday-shelf {
-  width: 720px;
-  background-color: #fff;
-  padding: 15px 20px;
-  box-shadow: 0 3px 12px #999999;
-  overflow: hidden;
-  margin: auto;
-  margin-top: 15px;
-  margin-bottom: 25px;
-  color: #222; }
-  #birthday-shelf a:link {
-    text-decoration: underline; }
-  #birthday-shelf span[title] {
-    border-bottom: 1px dotted #cccccc; }
-  #birthday-shelf .intro {
-    margin-top: 10px;
-    font-size: 24px;
-    font-weight: bold;
-    font-family: Georgia, serif;
-    text-align: center;
-    display: block;
-    line-height: 34px !important;
-    /* this sucks, we need new css */ }
-  #birthday-shelf .intro::after {
-    content: ' ';
-    border-bottom: 1px solid #999999;
-    width: 70%;
-    text-align: center;
-    padding: 20px; }
-  #birthday-shelf p {
-    font-size: 16px;
-    line-height: 24px; }
-  #birthday-shelf .signoff {
-    text-align: right;
-    margin: 0;
-    padding: 0 15px; }
-  #birthday-shelf .signed {
-    float: right;
-    display: block;
-    margin: 0;
-    padding: 10px; }
+#birthday-shelf { width: 720px; background-color: #fff; padding: 15px 20px; box-shadow: 0 3px 12px #999999; overflow: hidden; margin: auto; margin-top: 15px; margin-bottom: 25px; color: #222; }
+#birthday-shelf a:link { text-decoration: underline; }
+#birthday-shelf span[title] { border-bottom: 1px dotted #cccccc; }
+#birthday-shelf .intro { margin-top: 10px; font-size: 24px; font-weight: bold; font-family: Georgia, serif; text-align: center; display: block; line-height: 34px !important; /* this sucks, we need new css */ }
+#birthday-shelf .intro::after { content: ' '; border-bottom: 1px solid #999999; width: 70%; text-align: center; padding: 20px; }
+#birthday-shelf p { font-size: 16px; line-height: 24px; }
+#birthday-shelf .signoff { text-align: right; margin: 0; padding: 0 15px; }
+#birthday-shelf .signed { float: right; display: block; margin: 0; padding: 10px; }
 
 /* === Home Template === */
-.episode-block {
-  width: 300px;
-  height: 215px;
-  margin-top: 10px;
-  padding-bottom: 20px; }
-  .episode-block img {
-    border: 6px solid white;
-    display: block;
-    margin-bottom: 5px;
-    box-shadow: 0 3px 5px #999999;
-    -moz-box-shadow: 0 3px 5px #999999;
-    -webkit-box-shadow: 0 3px 5px #999999; }
-  .episode-block a:hover img {
-    box-shadow: 0 3px 5px #666666;
-    -moz-box-shadow: 0 3px 5px #666666;
-    -webkit-box-shadow: 0 3px 5px #666666; }
-  .episode-block .show-title {
-    font-size: 16px; }
-  .episode-block .show-name {
-    font-size: 14px;
-    color: #444;
-    text-transform: uppercase; }
-  .episode-block .show-date {
-    font-size: 14px;
-    color: #666;
-    font-weight: normal; }
-  .episode-block .show-title, .episode-block .show-name, .episode-block .show-date {
-    text-decoration: none;
-    margin: 0; }
-    .episode-block .show-title a, .episode-block .show-name a, .episode-block .show-date a {
-      text-decoration: none;
-      color: inherit; }
+.episode-block { width: 300px; height: 215px; margin-top: 10px; padding-bottom: 20px; }
+.episode-block img { border: 6px solid white; display: block; margin-bottom: 5px; box-shadow: 0 3px 5px #999999; -moz-box-shadow: 0 3px 5px #999999; -webkit-box-shadow: 0 3px 5px #999999; }
+.episode-block a:hover img { box-shadow: 0 3px 5px #666666; -moz-box-shadow: 0 3px 5px #666666; -webkit-box-shadow: 0 3px 5px #666666; }
+.episode-block .show-title { font-size: 16px; }
+.episode-block .show-name { font-size: 14px; color: #444; text-transform: uppercase; }
+.episode-block .show-date { font-size: 14px; color: #666; font-weight: normal; }
+.episode-block .show-title, .episode-block .show-name, .episode-block .show-date { text-decoration: none; margin: 0; }
+.episode-block .show-title a, .episode-block .show-name a, .episode-block .show-date a { text-decoration: none; color: inherit; }
 
-#bottom-shelf {
-  clear: both;
-  border-top: 1px solid #cccccc;
-  padding-top: 15px; }
-  #bottom-shelf .overflow {
-    padding-top: 48px;
-    padding-left: 20px;
-    font-size: 24px;
-    width: 150px; }
-  #bottom-shelf .end-cap {
-    padding-top: 25px;
-    width: 480px;
-    font-size: 18px;
-    float: left; }
-    #bottom-shelf .end-cap.all-shows {
-      text-align: left; }
-    #bottom-shelf .end-cap.more-episodes {
-      text-align: right; }
+#bottom-shelf { clear: both; border-top: 1px solid #cccccc; padding-top: 15px; }
+#bottom-shelf .overflow { padding-top: 48px; padding-left: 20px; font-size: 24px; width: 150px; }
+#bottom-shelf .end-cap { padding-top: 25px; width: 480px; font-size: 18px; float: left; }
+#bottom-shelf .end-cap.all-shows { text-align: left; }
+#bottom-shelf .end-cap.more-episodes { text-align: right; }
 
 /* Shows template (page) */
-#content.shows {
-  overflow: hidden;
-  padding: 10px 0px; }
-  #content.shows .episode-block .meta {
-    text-align: center; }
+#content.shows { overflow: hidden; padding: 10px 0px; }
+#content.shows .episode-block .meta { text-align: center; }
 
 /* === singular view === */
-#content-container {
-  font-size: 14px; }
-  #content-container .show-title,
-  #content-container .entry-title,
-  #content-container h1,
-  #content-container h2,
-  #content-container h3 {
-    text-decoration: none;
-    color: #000;
-    margin: 0;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4); }
-    #content-container .show-title a,
-    #content-container .entry-title a,
-    #content-container h1 a,
-    #content-container h2 a,
-    #content-container h3 a {
-      text-decoration: none;
-      color: #000; }
-  #content-container .show-episode {
-    font-size: 15px; }
-  #content-container .show-date, #content-container .show-episode {
-    text-shadow: 1px 2px 2px white; }
-  #content-container a {
-    color: #222;
-    text-decoration: none; }
-  #content-container a:visited {
-    color: #111; }
-  #content-container a:hover {
-    color: #333;
-    text-decoration: underline; }
-  #content-container span.new {
-    font-weight: bold; }
+#content-container { font-size: 14px; }
+#content-container .show-title, #content-container .entry-title, #content-container h1, #content-container h2, #content-container h3 { text-decoration: none; color: #000; margin: 0; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4); }
+#content-container .show-title a, #content-container .entry-title a, #content-container h1 a, #content-container h2 a, #content-container h3 a { text-decoration: none; color: #000; }
+#content-container .show-episode { font-size: 15px; }
+#content-container .show-date, #content-container .show-episode { text-shadow: 1px 2px 2px white; }
+#content-container a { color: #222; text-decoration: none; }
+#content-container a:visited { color: #111; }
+#content-container a:hover { color: #333; text-decoration: underline; }
+#content-container span.new { font-weight: bold; }
 
 /* === singular layout === */
-#content.episode {
-  width: 540px; }
+#content.episode { width: 540px; }
 
-#content-sidebar {
-  font-size: 14px;
-  width: 380px; }
+#content-sidebar { font-size: 14px; width: 380px; }
 
-.content {
-  font-size: 14px;
-  color: #333; }
-  .content p {
-    line-height: 20px;
-    margin-bottom: 14px; }
-  .content ul {
-    list-style-type: square;
-    padding-left: 20px;
-    line-height: 18px; }
-  .content hr {
-    height: 1px;
-    border-top: 1px solid #cccccc;
-    width: 98%;
-    margin: auto; }
-  .content blockquote {
-    border-left: 1px dotted #999999;
-    padding-left: 10px;
-    margin-left: 15px; }
-  .content .entry-meta {
-    margin-top: 10px;
-    margin-bottom: 20px;
-    background-color: #ededed;
-    padding: 10px;
-    line-height: 22px;
-    color: #000;
-    border-top: 1px solid #999999;
-    border-left: 1px solid #999999;
-    border-right: 1px solid white;
-    border-bottom: 1px solid #cccccc; }
-  .content .notice {
-    padding: 10px;
-    background-color: #ddd;
-    border: 1px solid #cccccc; }
+.content { font-size: 14px; color: #333; }
+.content p { line-height: 20px; margin-bottom: 14px; }
+.content ul { list-style-type: square; padding-left: 20px; line-height: 18px; }
+.content hr { height: 1px; border-top: 1px solid #cccccc; width: 98%; margin: auto; }
+.content blockquote { border-left: 1px dotted #999999; padding-left: 10px; margin-left: 15px; }
+.content .entry-meta { margin-top: 10px; margin-bottom: 20px; background-color: #ededed; padding: 10px; line-height: 22px; color: #000; border-top: 1px solid #999999; border-left: 1px solid #999999; border-right: 1px solid white; border-bottom: 1px solid #cccccc; }
+.content .notice { padding: 10px; background-color: #ddd; border: 1px solid #cccccc; }
 
-#content-sidebar {
-  font-size: 14px; }
-  #content-sidebar .files,
-  #content-sidebar .subscribe,
-  #content-sidebar .share {
-    padding-top: 5px;
-    margin-bottom: 10px; }
+#content-sidebar { font-size: 14px; }
+#content-sidebar .files, #content-sidebar .subscribe, #content-sidebar .share { padding-top: 5px; margin-bottom: 10px; }
 
-.episode-nsfw {
-  font-style: italic;
-  padding: 10px;
-  background-color: #ddd;
-  border: 1px solid #cccccc;
-  margin-bottom: 21px; }
-  .episode-nsfw .nsfw {
-    font-weight: bold;
-    color: #f00;
-    text-shadow: 1px 1px 20px #999999; }
+.episode-nsfw { font-style: italic; padding: 10px; background-color: #ddd; border: 1px solid #cccccc; margin-bottom: 21px; }
+.episode-nsfw .nsfw { font-weight: bold; color: #f00; text-shadow: 1px 1px 20px #999999; }
 
-.files {
-  font-size: 13px; }
-  .files a:visited {
-    color: #333; }
-  .files a:hover {
-    color: #000;
-    text-decoration: underline; }
+.files { font-size: 13px; }
+.files a:visited { color: #333; }
+.files a:hover { color: #000; text-decoration: underline; }
 
-.powerpress_player embed {
-  width: 100%; }
+.powerpress_player embed { width: 100%; }
 
-.powerpress_links, .files .download-meta {
-  text-align: center; }
+.powerpress_links, .files .download-meta { text-align: center; }
 
-.powerpress_links {
-  margin-top: 5px;
-  margin-bottom: 0px; }
+.powerpress_links { margin-top: 5px; margin-bottom: 0px; }
 
-.files .download-meta {
-  font-size: 11px;
-  margin-bottom: 10px; }
+.files .download-meta { font-size: 11px; margin-bottom: 10px; }
 
-.subscribe-feed {
-  margin-top: 10px;
-  font-size: 13px;
-  clear: both; }
-  .subscribe-feed a.feed-link {
-    display: inline-block;
-    padding-left: 36px;
-    line-height: 28px;
-    background: transparent url("resources/icons/feed.png") center left no-repeat;
-    color: #444;
-    text-decoration: none; }
-  .subscribe-feed a.feed-link:hover {
-    color: #333;
-    text-decoration: underline; }
+.subscribe-feed { margin-top: 10px; font-size: 13px; clear: both; }
+.subscribe-feed a.feed-link { display: inline-block; padding-left: 36px; line-height: 28px; background: transparent url("resources/icons/feed.png") center left no-repeat; color: #444; text-decoration: none; }
+.subscribe-feed a.feed-link:hover { color: #333; text-decoration: underline; }
 
-.edit a {
-  display: block;
-  padding: 10px;
-  margin: 10px;
-  background-color: #ccc;
-  border: 1px solid #999999; }
+.edit a { display: block; padding: 10px; margin: 10px; background-color: #ccc; border: 1px solid #999999; }
 
 /* === people === */
 /* new */
-.singular-person #content-wrapper {
-  width: 720px; }
+.singular-person #content-wrapper { width: 720px; }
 
-.avatar img {
-  border: 5px solid white;
-  box-shadow: 1px 1px 5px #666666; }
+.avatar img { border: 5px solid white; box-shadow: 1px 1px 5px #666666; }
 
-.person-aside {
-  float: left;
-  padding: 0 15px 15px 5px; }
-  .person-aside .meta li {
-    margin: 0;
-    padding: 0;
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: bold; }
+.person-aside { float: left; padding: 0 15px 15px 5px; }
+.person-aside .meta li { margin: 0; padding: 0; text-transform: uppercase; font-size: 12px; font-weight: bold; }
 
-#content .meta {
-  list-style: none;
-  padding-left: 0px; }
+#content .meta { list-style: none; padding-left: 0px; }
 
-#content .meta li {
-  padding-left: 0px; }
+#content .meta li { padding-left: 0px; }
 
-.person .edit {
-  clear: both; }
+.person .edit { clear: both; }
 
-#content-sidebar .people {
-  overflow: hidden; }
+#content-sidebar .people { overflow: hidden; }
 
-.person.promo {
-  float: left;
-  padding: 10px; }
-  .person.promo .name {
-    font-size: 13px;
-    text-align: center; }
-  .person.promo .avatar img {
-    border: 5px solid white;
-    box-shadow: 1px 1px 5px #666666; }
+.person.promo { float: left; padding: 10px; }
+.person.promo .name { font-size: 13px; text-align: center; }
+.person.promo .avatar img { border: 5px solid white; box-shadow: 1px 1px 5px #666666; }
 
-.person.promo + .pagination {
-  clear: both; }
+.person.promo + .pagination { clear: both; }
 
-.auxillary-people {
-  font-size: 12px; }
+.auxillary-people { font-size: 12px; }
 
 /* new above, below deprecated */
 /* === archives === */
-#content.archive div.post, #content.archive div.episode,
-#content.latest div.post,
-#content.latest div.episode {
-  font-size: 14px;
-  margin-bottom: 25px;
-  clear: both; }
-#content.archive img,
-#content.latest img {
-  float: left;
-  margin: 0 10px 10px 10px;
-  border: 6px solid white;
-  box-shadow: 0 3px 5px #999999;
-  -moz-box-shadow: 0 3px 5px #999999;
-  -webkit-box-shadow: 0 3px 5px #999999; }
+#content.archive div.post, #content.archive div.episode, #content.latest div.post, #content.latest div.episode { font-size: 14px; margin-bottom: 25px; clear: both; }
+#content.archive img, #content.latest img { float: left; margin: 0 10px 10px 10px; border: 6px solid white; box-shadow: 0 3px 5px #999999; -moz-box-shadow: 0 3px 5px #999999; -webkit-box-shadow: 0 3px 5px #999999; }
 
 /* === pages === */
-.page-template-default #container,
-.error-404 #container,
-.search #container {
-  padding-bottom: 0px; }
-.page-template-default #content-container,
-.error-404 #content-container,
-.search #content-container {
-  padding-top: 0px; }
-.page-template-default #content,
-.error-404 #content,
-.search #content {
-  padding: 10px 60px;
-  background: #fff; }
+.page-template-default #container, .error-404 #container, .search #container { padding-bottom: 0px; }
+.page-template-default #content-container, .error-404 #content-container, .search #content-container { padding-top: 0px; }
+.page-template-default #content, .error-404 #content, .search #content { padding: 10px 60px; background: #fff; }
 
-#kawaii-error {
-  text-align: center;
-  margin: 20px 0 20px 0; }
-  #kawaii-error img {
-    border: 6px solid #cccccc; }
+#kawaii-error { text-align: center; margin: 20px 0 20px 0; }
+#kawaii-error img { border: 6px solid #cccccc; }
 
 /* === navigation links === */
-.navigation-links {
-  margin-bottom: 21px;
-  font-style: normal; }
-  .navigation-links .previous {
-    float: left;
-    max-width: 50%; }
-  .navigation-links .next {
-    float: right;
-    max-width: 50%;
-    text-align: right; }
+.navigation-links { margin-bottom: 21px; font-style: normal; }
+.navigation-links .previous { float: left; max-width: 50%; }
+.navigation-links .next { float: right; max-width: 50%; text-align: right; }
 
-.pagination {
-  border-top: 1px solid #dddddd;
-  padding-top: 5px;
-  font-size: 14px;
-  text-align: center;
-  text-shadow: 1px 1px white;
-  color: #333; }
+.pagination { border-top: 1px solid #dddddd; padding-top: 5px; font-size: 14px; text-align: center; text-shadow: 1px 1px white; color: #333; }
 
 /* === global form === */
-.text-input {
-  display: block;
-  padding: 3px 6px;
-  width: 97%; }
+.text-input { display: block; padding: 3px 6px; width: 97%; }
 
-#comments-template label {
-  font-size: .9em; }
+#comments-template label { font-size: .9em; }
 
 /* Respond textarea */
-textarea {
-  width: 98%; }
+textarea { width: 98%; }
 
 /* Submit and rest buttons */
-#submit {
-  display: inline-block;
-  margin-right: 15px;
-  padding: 7px 15px 8px 15px;
-  background: #fff;
-  border: 1px solid #cccccc; }
+#submit { display: inline-block; margin-right: 15px; padding: 7px 15px 8px 15px; background: #fff; border: 1px solid #cccccc; }
 
-#submit:hover {
-  cursor: pointer;
-  background: #f9f9f9; }
+#submit:hover { cursor: pointer; background: #f9f9f9; }
 
 /* === footer === */
-#footer-container {
-  padding: 10px 0 20px 0;
-  border-top: 20px solid rgba(0, 0, 0, 0.1);
-  color: #ccc;
-  font-size: 14px; }
-  #footer-container a {
-    color: #ccc;
-    text-decoration: none; }
-  #footer-container a:hover {
-    color: #fff;
-    text-decoration: underline; }
-  #footer-container h1, #footer-container h2, #footer-container h3, #footer-container h4, #footer-container h5, #footer-container h6 {
-    text-shadow: 1px 2px 2px #333333; }
+#footer-container { padding: 10px 0 20px 0; border-top: 20px solid rgba(0, 0, 0, 0.1); color: #ccc; font-size: 14px; }
+#footer-container a { color: #ccc; text-decoration: none; }
+#footer-container a:hover { color: #fff; text-decoration: underline; }
+#footer-container h1, #footer-container h2, #footer-container h3, #footer-container h4, #footer-container h5, #footer-container h6 { text-shadow: 1px 2px 2px #333333; }
 
-#footer {
-  padding-top: 20px;
-  font-size: 12px;
-  clear: both; }
-  #footer .copyright {
-    margin: 0;
-    font-size: 11px;
-    color: #888;
-    text-align: center; }
-    #footer .copyright a {
-      color: #888;
-      text-decoration: underline; }
+#footer { padding-top: 20px; font-size: 12px; clear: both; }
+#footer .copyright { margin: 0; font-size: 11px; color: #888; text-align: center; }
+#footer .copyright a { color: #888; text-decoration: underline; }
 
 /* === subsidiary widgets === */
-#subsidiary {
-  font-size: 14px; }
-  #subsidiary .widget {
-    float: left;
-    width: 300px;
-    overflow: hidden;
-    margin-left: 30px; }
-  #subsidiary .widget-latest-episode {
-    width: 240px; }
-  #subsidiary .nav-menu {
-    width: 175px; }
-  #subsidiary .widget:first-child {
-    margin-left: 0px; }
-  #subsidiary .widget_text {
-    width: 475px;
-    line-height: 22px; }
+#subsidiary { font-size: 14px; }
+#subsidiary .widget { float: left; width: 300px; overflow: hidden; margin-left: 30px; }
+#subsidiary .widget-latest-episode { width: 240px; }
+#subsidiary .nav-menu { width: 175px; }
+#subsidiary .widget:first-child { margin-left: 0px; }
+#subsidiary .widget_text { width: 475px; line-height: 22px; }
 
-.widget .episode-block {
-  float: none;
-  width: auto;
-  margin-top: 5px; }
+.widget .episode-block { float: none; width: auto; margin-top: 5px; }
 
-.widget .episode-block img {
-  border: 3px solid #6d6d6d;
-  box-shadow: none;
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
-  width: 210px;
-  height: auto; }
+.widget .episode-block img { border: 3px solid #6d6d6d; box-shadow: none; -moz-box-shadow: none; -webkit-box-shadow: none; width: 210px; height: auto; }
 
-.widget .episode-block a:hover img {
-  border: 3px solid #828282;
-  box-shadow: 0 3px 5px #222222;
-  -moz-box-shadow: 0 3px 5px #222222;
-  -webkit-box-shadow: 0 3px 5px #222222; }
+.widget .episode-block a:hover img { border: 3px solid #828282; box-shadow: 0 3px 5px #222222; -moz-box-shadow: 0 3px 5px #222222; -webkit-box-shadow: 0 3px 5px #222222; }
 
-.footer-nav ul {
-  column-count: 2;
-  column-gap: 5px;
-  -moz-column-count: 2;
-  -moz-column-gap: 5px;
-  -webkit-column-count: 2;
-  -webkit-column-gap: 5px;
-  list-style: none;
-  margin: 0px;
-  padding: 0px;
-  width: 170px; }
-  .footer-nav ul li {
-    line-height: 22px;
-    margin: 0;
-    padding: 0;
-    width: 100px; }
+.footer-nav ul { column-count: 2; column-gap: 5px; -moz-column-count: 2; -moz-column-gap: 5px; -webkit-column-count: 2; -webkit-column-gap: 5px; list-style: none; margin: 0px; padding: 0px; width: 170px; }
+.footer-nav ul li { line-height: 22px; margin: 0; padding: 0; width: 100px; }
